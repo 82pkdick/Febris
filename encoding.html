@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>複数のファイルの文字コードを一括変換</title>
+  <title>
+    
+      複数のファイルの文字コードを一括変換 | Febris
+    
+  </title>
+
+  <!-- Normalize.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+  <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+  <link rel="canonical" href="http://localhost:4000/encoding">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Febris" />
+</head>
+<body>
+
+  <!-- Page Header -->
+  <header class="header">
+    <div class="container">
+      <div class="site-title"><a href="/">Febris</a></div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/">Home</a></li>
+          <li class="nav__item"><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header><!-- page header end -->
+
+  <!-- Post -->
+<article class="contents page">
+  <div class="container">
+
+    <div class="page__header">
+      <h1 class="page__title">複数のファイルの文字コードを一括変換</h1>
+      <p class="page__date">September 08, 2018</p>
+    </div>
+
+    <div class="page__body">
+
+      <h2 id="複数のファイルの文字コードを一括変換する">複数のファイルの文字コードを一括変換する</h2>
+
+<p>Linuxマシンをアップグレードしたときや、古いWindowsから持ってきたファイルなど、こうした古いドキュメントの文字コードがEUCやSJISで、日本語が文字化けして読めないなんてことがよくある。</p>
+
+<p>今時はWindowsでもMacでも、またUbuntuなどのLinux系でも、文字コードはUTF-8が標準になってきている。また最近ずっと使っているAtomエディターなど、最近のはUTF-８のデータでないと読めない。</p>
+
+<p>しかし1個や2個のテキストファイルならGeditなどの、文字コード変換して保存できる素なエディターで上書き保存すればいいが、ファイル数がいっぱいだと気が滅入る。</p>
+
+<p>そこでコマンドラインで文字コード一括変換。</p>
+
+<h3 id="nkf-のインストール">nkf のインストール</h3>
+
+<p>nkf は文字コード変換コマンド。まずこれがインストールされてなかったら入れておく。</p>
+
+<p>Ubuntuの場合、<code class="highlighter-rouge">sudo apt install nkf</code> でもOKのはずだが、ググるとどうも make しなきゃいけないような話が多くて面倒。<br />
+Synapticパッケージマネージャーで nkf と検索しインストールできるので、この方法がおすすめ。</p>
+
+<h4 id="基本的な使い方">基本的な使い方</h4>
+
+<p><code class="highlighter-rouge">nkf オプション ファイル [&gt; 出力ファイル]</code></p>
+
+<h4 id="主なオプション">主なオプション</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">--overwrite</code>  : 文字コードを変換し元のファイルに上書き保存</li>
+  <li><code class="highlighter-rouge">--version</code> : バージョン情報</li>
+  <li><code class="highlighter-rouge">-w</code> : 文字コードをUTF8に指定</li>
+  <li><code class="highlighter-rouge">-e</code> : EUCに変換</li>
+  <li><code class="highlighter-rouge">-s</code> : Windowsで使われているSJISに変換</li>
+  <li><code class="highlighter-rouge">-j</code> : JISコード(ISO-2022-JP)に変換</li>
+  <li><code class="highlighter-rouge">-g</code> : 自動判別の結果を表示</li>
+</ul>
+
+<h4 id="少し詳しい使い方">少し詳しい使い方</h4>
+
+<p>文字コードをチェックするだけなら<code class="highlighter-rouge">-g</code>オプションでOK</p>
+
+<p>$ nkf -g old.txt</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>EUC-JP
+</code></pre></div></div>
+
+<p>nkf は文字コードを指定して読み込むだけなら、標準出力に表示するだけでファイルを書き出すわけではない。書き出す場合は新しいファイル名を明示してリダイレクトする。</p>
+
+<p>書き出すファイル名を指定してEUCをUTF-8に変換</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nkf <span class="nt">-w</span> old.txt <span class="o">&gt;</span> new.txt
+<span class="nv">$ </span>nkf <span class="nt">-g</span> new.txt
+UTF-8
+</code></pre></div></div>
+
+<p>ただしこの方法で同じファイルに上書き保存はできない（下記のように<code class="highlighter-rouge">--overwrite</code>オプションが必要）。</p>
+
+<p>UTF-8 に文字コード変換して上書き</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nkf <span class="nt">-w</span> <span class="nt">--overwrite</span> some.txt
+</code></pre></div></div>
+
+<p>次のようなやり方はバツ。上書きするときは<code class="highlighter-rouge">--overwrite</code>が必須。シェルのリダイレクトでは空のファイルになってしまうので注意。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nkf <span class="nt">-w</span> some.txt <span class="o">&gt;</span> some.txt
+</code></pre></div></div>
+
+<p>実際は nkf コマンドに何もオプションを付けずにファイルを読み込ませても、文字コードを自動判別し標準出力に書き出す。</p>
+
+<p>ただ文字コードの自動判別がうまくいかない時がある。これはエディターとかでもたまにある。変な文字が入っていたりとかで。
+そういう場合に文字コードを大文字オプションで強制指定して読み込ませる方法もある。</p>
+
+<p>大文字入力指定のオプション</p>
+
+<ul>
+  <li>-E           : EUCコードを入力</li>
+  <li>-S           : Shift-JISコードを入力</li>
+  <li>-W           : UTF-8コードを入力</li>
+</ul>
+
+<p>例： EUC で読み込んで UTF-8 で表示</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nkf -E -w --overwrite some.txt
+</code></pre></div></div>
+
+<h4 id="改行コードの変換オプションもある">改行コードの変換オプションもある</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">-Lu</code> : UNIX形式(LF)に変換</li>
+  <li><code class="highlighter-rouge">-Lw</code> : Windows形式(CRLF)に変換</li>
+  <li><code class="highlighter-rouge">-Lm</code> : MAC形式(CR)に変換</li>
+</ul>
+
+<h3 id="find-でファイル名リストアップパイプで-nkf-へ渡す">find でファイル名リストアップ、パイプで nkf へ渡す</h3>
+
+<p>ディレクトリ直下にたくさんのファイルがあるとして、それらの文字コードを一括変換したい。find で変換したいファイルをリストアップし、パイプで nkf に渡せばよさそうだが、これでは何も起きない。リストアップされたファイル名の一つ一つを引数にして nkf を実行してくれる仕組みが必要だ。</p>
+
+<p>そこで xargs コマンドを使う。</p>
+
+<p>xargs についてはこちらが詳しい。
+<a href="http://www.atmarkit.co.jp/ait/articles/1801/19/news014.html">【 xargs 】コマンド――コマンドラインを作成して実行する</a></p>
+
+<p>結果次のようなコマンドラインでファイルの文字コード一括変換ができる。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> nkf <span class="nt">--overwrite</span> <span class="nt">-w</span> <span class="nt">-Lu</span>
+</code></pre></div></div>
+
+<p>findコマンドで、カレントディレクトリ「.」から通常ファイル<code class="highlighter-rouge">-type f</code>を探索し出力。<code class="highlighter-rouge">-print0</code>オプションを使う。</p>
+
+<p>xargs の<code class="highlighter-rouge">-0</code>オプションは、長いオプション表記だと<code class="highlighter-rouge">--null</code>、入力を空白や改行ではなくNULL文字で区切るもの。</p>
+
+<p>これでカレントディレクトリ下の通常ファイルが、UTF-8、UNIX改行形式に変換されて上書き保存される。</p>
+
+<p>ファイル数が200や300でも一瞬で終わる。</p>
+
+<h3 id="find-の-print0と-xargs-の-0オプションはセットで使う">find の<code class="highlighter-rouge">-print0</code>と xargs の<code class="highlighter-rouge">-0</code>オプションはセットで使う</h3>
+
+<p>コマンドラインの勉強ついでにNULL文字区切りオプションの件。</p>
+
+<p>find コマンドの<code class="highlighter-rouge">-print0</code>オプションは、見つけたファイルのフルパスをNULL区切りで出力するもの。また xargs の<code class="highlighter-rouge">-0</code>オプションは、入力を空白や改行ではなくNULL文字で区切って引数のコマンドに渡すもの。</p>
+
+<p>これらのオプションが必要な理由は次の例で分かる。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>Hello_World.txt Hello<span class="se">\ </span>World.txt
+<span class="nv">$ </span><span class="nb">ls
+</span>Hello World.txt  Hello_World.txt
+</code></pre></div></div>
+
+<p>“Hello_World.txt” というアンダーバーで単語を区切ったテキストファイルと、”Hello World.txt”というスペースで単語を区切ったテキストファイルの２つがある。</p>
+
+<p>区切り文字を考慮しないで find と xargs を連携させると、</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f | xargs <span class="nb">ls</span> <span class="nt">-l</span>
+<span class="nb">ls</span>: <span class="s1">'./Hello'</span> にアクセスできません: そのようなファイルやディレクトリはありません
+<span class="nb">ls</span>: <span class="s1">'World.txt'</span> にアクセスできません: そのようなファイルやディレクトリはありません
+<span class="nt">-rw-rw-r--</span> 1 jgb jgb 0  9月  8 20:31 ./Hello_World.txt
+</code></pre></div></div>
+
+<p>ファイル名に空白文字があるほうは、”Hello” と “World.txt” の2つに分割されて ls に渡されるのでエラーになっている。</p>
+
+<p>また find の <code class="highlighter-rouge">-print0</code>オプションだけだと、find はNULL文字区切りでファイル名の列を渡すが、xargs はそれをファイル名区切りと認識しないので次のような別の形のエラーになる。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nb">ls</span> <span class="nt">-l</span>
+xargs: 警告: NUL 文字が入力にあります。これは引数のリストとして渡すことができません。 <span class="nt">--null</span> オプションを使おうとしているのですか?
+<span class="nb">ls</span>: <span class="s1">'World.txt'</span> にアクセスできません: そのようなファイルやディレクトリはありません
+<span class="nt">-rw-rw-r--</span> 1 jgb jgb 0  9月  8 20:31 ./Hello_World.txt
+</code></pre></div></div>
+
+<p>逆に xargs の <code class="highlighter-rouge">-0</code>オプションだけだと、find の出力にNULL文字が無いので1行続きの <code class="highlighter-rouge">'./Hello_World.txt'$'\n''./Hello World.txt'$'\n'</code> という出力が ls に渡されたエラーになる。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f | xargs <span class="nt">-0</span> <span class="nb">ls</span> <span class="nt">-l</span>
+<span class="nb">ls</span>: <span class="s1">'./Hello_World.txt'$'</span><span class="se">\n</span><span class="s1">''./Hello World.txt'$'</span><span class="se">\n</span><span class="s1">'</span> にアクセスできません: そのようなファイルやディレクトリはありません
+</code></pre></div></div>
+
+<p>ファイル名にスペースや改行などの空白文字が使われている場合、xargs はそれらを区切りとした別々のファイルとして認識してしまうので、find が読みだしたファイル名の出力をNULL文字で区切り、それをxargs にそのNULL文字区切りがファイル名の区切りであると認識させて渡す必要がある。</p>
+
+<p>両方のNULL文字オプションを揃えて使うと上手く行く。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">ls</span> <span class="nt">-l</span>
+<span class="nt">-rw-rw-r--</span> 1 jgb jgb 0  9月  8 20:29 ./Hello World.txt
+<span class="nt">-rw-rw-r--</span> 1 jgb jgb 0  9月  8 20:31 ./Hello_World.txt
+</code></pre></div></div>
+
+<p>だから find の<code class="highlighter-rouge">-print0</code>と xargs の<code class="highlighter-rouge">-0</code>はセットで必要だ。</p>
+
+<hr />
+<p><strong>【参考URL】</strong></p>
+
+<ul>
+  <li>findとxargsコマンドで-print0オプションを使う理由（改） [https://qiita.com/maskedw/items/2dfdf6fa7eee991ddc45]</li>
+  <li>print0 コマンド
+[https://qiita.com/tbrook/items/ce1bfd03a25f6d5080b5]</li>
+  <li>findコマンド（応用編その2）――検索したファイルを指定したフォーマットで表示する
+[http://www.atmarkit.co.jp/ait/articles/1607/20/news024.html]
+—</li>
+</ul>
+
+
+    </div><!-- post body -->
+
+    <!-- Pagination -->
+    <div class="pager">
+      
+        <p class="pager__item--next">
+          <a href="/nodejs">&lt; Node.js のインストールとバージョン管理</a>
+        </p>
+      
+
+      
+        <p class="pager__item--prev">
+          <a href="/atom-lineout">Atomの自動折り返しの設定 &gt;</a>
+        </p>
+      
+    </div><!-- pagination -->
+    
+  </div><!-- container -->
+</article><!-- post -->
+
+  
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+        <div class="footer__container">
+          <p class="copyright"><small>&copy; 2017 82pkdick</small></p>
+  
+          <div class="social-link">
+            
+              <p class="social-link__item">
+                <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+              </p>
+            
+            
+              <p class="social-link__item">
+                <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+              </p>
+            
+          </div>
+        </div><!--footer__container-->
+      </div><!-- container -->
+  </footer><!-- footer end -->
+
+</body>
+</html>
