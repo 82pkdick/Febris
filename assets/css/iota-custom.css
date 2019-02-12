@@ -1,0 +1,79 @@
+/* 
+iota breakpoint
+xs: 0;
+sm: 640px;
+md: 860px;
+lg: 1080px;
+xl: 1300px;
+ */
+
+#main-container {
+  grid-gap: 0;
+  --template-cols-xs: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
+  --template-rows-xs: 3.5rem 1fr;
+  --template-cols-sm: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
+  --template-rows-sm: 3.5rem 1fr;
+  --template-cols-md: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
+  --template-rows-md: 3.5rem 1fr;
+  --template-cols-lg: repeat(3, 5%) repeat(6, 1fr) repeat(3, 5%);
+  --template-rows-lg: 3.5rem 1fr;
+  --template-cols-xl: repeat(3, 8%) repeat(6, 1fr) repeat(3, 8%);
+  --template-rows-xl: 3.5rem 1fr;
+}
+
+#header {
+  --col-xs: span 12; --row-xs: 1;
+  --col-sm: span 12; --row-sm: 1;
+  --col-md: span 12; --row-md: 1;
+  --col-lg: span 12; --row-lg: 1;
+  --col-xl: span 12; --row-xl: 1;
+}
+
+#main-contents {
+  --col-xs: 4 / span 6;  --row-xs: 2;
+  --col-sm: 4 / span 6;  --row-sm: 2;
+  --col-md: 4 / span 6;  --row-md: 2;
+  --col-lg: 4 / span 6;  --row-lg: 2;
+  --col-xl: 4 / span 6;  --row-xl: 2;
+}
+
+#header-nav {
+  grid-gap: 0;
+  --template-cols-xs: 16% 10% 1fr 12%;
+  --template-rows-xs: 1fr;
+  --template-cols-sm: 16% 10% 1fr 12%;
+  --template-rows-sm: 1fr;
+  --template-cols-md: 17% 10% 1fr 13%;
+  --template-rows-md: 1fr;
+  --template-cols-lg: 18% 10% 1fr 14%;
+  --template-rows-lg: 1fr;
+  --template-cols-xl: 20% 10% 1fr 14%;
+  --template-rows-xl: 1fr;
+}
+
+#site-title {
+  --col-xs: 1;
+  --col-sm: 1;
+  --col-md: 1;
+  --col-lg: 2;
+  --col-xl: 2;
+}
+
+#nav-list {
+  --col-xs: 1 / span 4;
+  --col-sm: 1 / span 4;
+  --col-md: 1 / span 4;
+  --col-lg: 3;
+  --col-xl: 3;
+}
+
+#drawer {
+  --col-xs: 4;
+  --col-sm: 4;
+  --col-md: 4;
+  --col-lg: 4;
+  --col-xl: 4;
+}
+
+
+
