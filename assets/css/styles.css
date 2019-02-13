@@ -491,7 +491,7 @@ figure.highlight {
   #main-contents {
     left: 0;
     padding: 0;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
   }
 
@@ -539,8 +539,9 @@ figure.highlight {
     padding: 0;
     line-height: 1;
     list-style: none;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     background-color: #e8e8e8;
     box-sizing: border-box;
     animation: show 0.4s linear 0s;
@@ -551,7 +552,6 @@ figure.highlight {
     width: 100%;
     margin: 0;
     line-height: 2.5rem;
-    ;
     border: 1px solid #ddd;
   }
 
