@@ -491,7 +491,8 @@ figure.highlight {
   #main-contents {
     left: 0;
     padding: 0;
-
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   #main-contents > .container {
@@ -538,7 +539,8 @@ figure.highlight {
     padding: 0;
     line-height: 1;
     list-style: none;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: #e8e8e8;
     box-sizing: border-box;
     animation: show 0.4s linear 0s;
