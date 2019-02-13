@@ -461,6 +461,29 @@ figure.highlight {
     }
   }
 
+  ul#nav-list li.nav-item ul.sub-menu li.nav-item span.sm-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+  }
+
+  ul#nav-list li.nav-item ul.sub-menu li.nav-item span.sm-arrow:before {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    margin-right: 15px;
+    font-size: 20px;
+    font-family: FontAwesome;
+    height: auto;
+    content: "\f107";
+    font-weight: 300;
+    color: #999;
+    text-shadow: none;
+    width: 12px;
+    display: inline-block;
+  }
+
   #wrapper {
     padding-bottom: 4.0rem;
   }
@@ -506,7 +529,6 @@ figure.highlight {
   #header > nav#header-nav > ul#nav-list.open {
     position: absolute;
     top: 3.5rem;
-    /* left: -4px; */
     left: 0;
     display: block;
     opacity: 1;
@@ -566,6 +588,7 @@ figure.highlight {
   }
 
   #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item a {
+    width: 100%;
     padding: 0.8em 0;
     text-align: center;
   }
