@@ -556,7 +556,7 @@ figure.highlight {
     padding: 0;
     font-size: 0.9rem;
     background-color: #dfdfdf;
-    animation: show 1.0s linear 0s;
+    animation: show 0.2s linear 0s;
   }
 
   #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item {
