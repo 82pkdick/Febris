@@ -596,9 +596,8 @@ figure.highlight {
   }
 
   /* when inner sub menu open */
-  /* #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item:hover ul.inner-sub-menu { */
-  #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item:active ul.inner-sub-menu {
-      position: relative;
+  #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item:hover ul.inner-sub-menu {
+    position: relative;
     top: 0;
     left: 0;
     display: block;
