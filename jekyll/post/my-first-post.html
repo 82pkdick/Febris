@@ -30,16 +30,21 @@
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
 <body>
-  <div id="main-container" class="grid">
+  <div id="wrapper">
+    <div id="main-container" class="grid">
 
-    <article id="main-contents">
-      <!-- Post -->
+      <article id="main-contents">
+        <!-- Post -->
 <div class="container">
 
   <!-- Post Header -->
-  <div class="post__header">
-  <h1 class="post__title">My First Blog Post</h1>
-  <p class="post__date">July 02, 2016</p>
+  <div class="post_header">
+  <h1 class="post_title">
+    <span class="title-lmark">【</span>
+    My First Blog Post
+    <span class="title-rmark">】</span>
+  </h1>
+  <p class="post_date">July 02, 2016</p>
 </div><!-- post header end -->
 
   Plugin Test-2: <p><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build
@@ -50,7 +55,7 @@ auto-regenerates your site when a file is updated.</p>
 </p>
 
   <!-- Post Body -->
-  <div class="page__body">
+  <div class="page_body">
     <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build
 the site to see your changes. You can rebuild the site in many different ways, but
 the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and
@@ -67,7 +72,7 @@ Take a look at the source for this post to get an idea about how it works.</p>
   <!-- Post Pagination -->
   <div class="pager">
   
-    <p class="pager__item--next">
+    <p class="pager_item--next">
       <a href="/Febris/jekyll/post/second-blog-post">&lt; Second Blog Post</a>
     </p>
   
@@ -78,11 +83,11 @@ Take a look at the source for this post to get an idea about how it works.</p>
 </div><!-- post container end -->
 <!-- post end -->
 
-    </article>
-    
-    <!-- Common Site Navigation Header -->
-    <header id="header">
-      <nav id="header-nav" class="nav grid">
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
 
@@ -247,37 +252,37 @@ Take a look at the source for this post to get an idea about how it works.</p>
 
 </nav><!-- nav end-->
 
-    </header><!-- site navigation end -->
+      </header><!-- site navigation end -->
 
-  </div><!-- main-container end -->
+    </div><!-- main-container end -->
 
-  <!-- Common Footer -->
-  <footer id="footer">
-    <div class="container">
-  <div class="footer__container">
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer_container">
     <p class="copyright"><small>&copy; 2017 82pkdick</small></p>
 
     <div class="social-link">
       
-        <p class="social-link__item">
+        <p class="social-link_item">
           <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
         </p>
       
       
-        <p class="social-link__item">
+        <p class="social-link_item">
           <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
         </p>
       
     </div>
-  </div><!--footer__container-->
+  </div><!--footer_container-->
 </div><!-- container -->
 
 
-  </footer><!-- footer end -->
-  
-  <!-- Load Script -->
-  <div id="footer-script">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
   $("#drawer > .navbar_toggle").on("click", function() {
@@ -293,7 +298,7 @@ $(function() {
   });
 });
 </script>
-  </div><!-- footer-script end -->
-  
+    </div><!-- footer-script end -->
+  </div>
 </body>
 </html>

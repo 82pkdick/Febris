@@ -9,9 +9,9 @@ xl: 1300px;
 
 #main-container {
   grid-gap: 0;
-  --template-cols-xs: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
+  --template-cols-xs: repeat(3, 2%) repeat(6, 1fr) repeat(3, 2%);
   --template-rows-xs: 3.5rem 1fr;
-  --template-cols-sm: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
+  --template-cols-sm: repeat(3, 2%) repeat(6, 1fr) repeat(3, 2%);
   --template-rows-sm: 3.5rem 1fr;
   --template-cols-md: repeat(3, 3%) repeat(6, 1fr) repeat(3, 3%);
   --template-rows-md: 3.5rem 1fr;
