@@ -622,7 +622,7 @@ figure.highlight {
   }
 
   /* when inner sub menu open */
-  #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item:hover ul.inner-sub-menu {
+  #header > nav#header-nav > ul#nav-list li.nav-item ul.sub-menu li.nav-item.open ul.inner-sub-menu {
     position: relative;
     top: 0;
     left: 0;
@@ -632,7 +632,7 @@ figure.highlight {
     width: 100%;
     padding: 0;
     background-color: #d1d1d1;
-    animation: show 0.2s linear 0s;
+    animation: show 0.5s linear 0s;
   }
 
   #header #header-nav ul#nav-list > li.nav-fill {

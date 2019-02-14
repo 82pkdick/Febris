@@ -260,15 +260,36 @@
 <script type="text/javascript">
 $(function() {
   $("#drawer > .navbar_toggle").on("click", function() {
-      $(this).toggleClass("open");
-      $("ul#nav-list").find('li').removeClass("open");
-      $("ul#nav-list").toggleClass("open");
+    $(this).toggleClass("open");
+    $("ul#nav-list").find('li').removeClass("open");
+    $("ul#nav-list").toggleClass("open");
   });
+
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
   $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
-      // event.preventDefault();
-      $(this).parent('li').find('li').removeClass("open");
-      $(this).parent('li').toggleClass("open");
-      $(this).parent('li').siblings('li').removeClass("open");
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    if (result) {
+      add_open(litag)
+      return true;
+    } else {
+      add_open(litag)
+      event.preventDefault();
+    }
   });
 });
 </script>
