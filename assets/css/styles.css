@@ -409,6 +409,7 @@ h2 {
   padding: 0.5% 0;
   display: flex;
   flex-wrap: wrap;
+  font-size: 0.95em;
 }
 .pager_item a, .pager_item--prev a, .pager_item--next a {
   text-decoration: none;
@@ -692,8 +693,19 @@ figure.highlight {
     transform: rotate(-45deg);
   }
 
+  .page_title, .post_title {
+    font-size: 1.2rem;;
+  }
+
   .MJXc-display {
     overflow-x: auto;
+  }
+
+  .pager {
+    padding: 0.5% 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9em;
   }
 }
 
