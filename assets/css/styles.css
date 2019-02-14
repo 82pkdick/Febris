@@ -692,5 +692,8 @@ figure.highlight {
     transform: rotate(-45deg);
   }
 
+  .MJXc-display {
+    overflow-x: auto;
+  }
 }
 
