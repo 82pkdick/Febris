@@ -285,9 +285,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
-  // for FOUC(Flash of Unstyled Content)
-  $("#header-nav > ul.is-loading").removeClass("is-loading");
-
   // for dropdown menu
   $("#drawer > .navbar_toggle").on("click", function() {
     $(this).toggleClass("open");
@@ -322,6 +319,9 @@ $(function() {
       event.preventDefault();
     }
   });
+
+  // for FOUC(Flash of Unstyled Content)
+  $("#header-nav > ul.is-loading").removeClass("is-loading");
 });
 </script>
     </div><!-- footer-script end -->
