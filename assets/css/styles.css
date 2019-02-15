@@ -56,6 +56,10 @@ html, body {
 }
 
 /* Site Navigation  */
+#header-nav > ul.is-loading {
+  display: none;   /* for FOUC(Flash of Unstyled Content) */
+}
+
 #header #header-nav ul#nav-list {
   position: absolute;
   width: 100%;

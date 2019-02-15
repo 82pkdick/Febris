@@ -92,7 +92,7 @@ Take a look at the source for this post to get an idea about how it works.</p>
   <div id="site-title"><a href="/Febris/">Febris</a></div>
 
   <!-- Navigation Left Side -->
-  <ul id="nav-list" class="nav-list">
+  <ul id="nav-list" class="nav-list is-loading">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/">Home</a></li>
@@ -287,6 +287,10 @@ Take a look at the source for this post to get an idea about how it works.</p>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
+  // for FOUC(Flash of Unstyled Content)
+  $("#header-nav > ul.is-loading").removeClass("is-loading");
+
+  // for dropdown menu
   $("#drawer > .navbar_toggle").on("click", function() {
     $(this).toggleClass("open");
     $("ul#nav-list").find('li').removeClass("open");
@@ -299,6 +303,7 @@ $(function() {
     tag.siblings('li').removeClass("open");
   }
 
+  // pointer-events auto when double-click
   $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
     let litag = $(this).parent('li');
 
@@ -311,11 +316,11 @@ $(function() {
       }
     }
 
+    add_open(litag);
+
     if (result) {
-      add_open(litag)
       return true;
     } else {
-      add_open(litag)
       event.preventDefault();
     }
   });
