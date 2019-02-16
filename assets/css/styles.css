@@ -336,6 +336,7 @@ li.tags a.down-arrow:after {
   margin: 0;
 }
 .archive_title a {
+  padding: 1.0rem 0.5rem 1.0rem 0.2rem;
   color: #333;
   text-decoration: none;
 }
