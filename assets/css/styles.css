@@ -409,6 +409,7 @@ ul.posts {
 
 a {
   color: #2f87a7;
+  text-decoration: none;
 }
 a:hover {
   color: #54aecf;
