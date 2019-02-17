@@ -467,7 +467,7 @@ h2 {
 
 .page_body .front-page .container .frontpage-widget {
   position: relative;
-  padding: 15px;
+  padding: 10px;
   margin: 0;
   text-align: left;
   justify-content: center;
@@ -483,23 +483,15 @@ h2 {
 
 .page_body .front-page .container .frontpage-widget.gridrow-1 {
   grid-row: span 1;
-  min-height: 100px;
-  max-height: 250px;
 }
 .page_body .front-page .container .frontpage-widget.gridrow-2 {
   grid-row: span 2;
-  /* min-height: 200px; */
-  /* max-height: 350px; */
 }
 .page_body .front-page .container .frontpage-widget.gridrow-3 {
   grid-row: span 3;
-  /* min-height: 300px; */
-  /* max-height: 450px; */
 }
 .page_body .front-page .container .frontpage-widget.gridrow-4 {
   grid-row: span 4;
-  /* min-height: 400px; */
-  /* max-height: 550px; */
 }
 
 .button-more {
@@ -510,14 +502,14 @@ h2 {
 }
 
 /* medium-sized screens */
-@media only screen and (max-width: 900px) and (min-width: 600px) {
+@media only screen and (max-width: 1080px) and (min-width: 600px) {
   .page_body .front-page .container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* smartphone screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   .page_body .front-page .container {
     grid-template-columns: repeat(1, 1fr);
   }
