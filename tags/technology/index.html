@@ -25,9 +25,9 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
-<link rel="canonical" href="https://82pkdick.github.io/Febris/tags/technology/">
+<link rel="canonical" href="http://localhost:4000/Febris/tags/technology/">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Febris/feed.xml" title="Febris" />
 </head>
 <body>
   <div id="wrapper">
@@ -41,7 +41,7 @@
   
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-<a href="https://82pkdick.github.io/Febris">Start</a>
+<a href="http://localhost:4000/Febris">Start</a>
 
 
 
@@ -49,7 +49,7 @@
 
 
 
-<span class="nav-sep"> > &nbsp;</span><a href="https://82pkdick.github.io/Febris/tags/">tags</a>
+<span class="nav-sep"> > &nbsp;</span><a href="http://localhost:4000/Febris/tags/">tags</a>
 
 
 
@@ -65,8 +65,10 @@
   <div class="page_header ">
   <h1 class="page_title">
     <span class="title-lmark">【</span>
+    
     <span class="title-prefix">Tag: </span>
-    <span class="page-title-main">technology</span>
+    
+    <a href="/tags/technology/"><span class="page-title-main">technology</span></a>
     <span class="title-rmark">】</span></h1>
   <p class="page_description"></p>
 </div><!-- page header end -->
@@ -94,10 +96,13 @@
       <!-- Common Site Navigation Header -->
       <header id="header">
         <nav id="header-nav" class="nav grid">
-  <!-- Site Title -->
-  <div id="site-title"><a href="/Febris/">Febris</a></div>
+  <!-- Slide Menu -->
+  <div id="slide-menu"><input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label>
+<nav class="menu">
 
-  <!-- Navigation Left Side -->
+  <!-- Navigation -->
   <ul id="nav-list" class="nav-list is-loading">
 
     <!-- Home -->
@@ -111,6 +116,30 @@
   <a href="#" class="down-arrow sub-menu-trigger">Archives</a>
 <ul class="sub-menu">
   <li class="nav-item archives"><a href="/Febris/archives" class="menulink-all">[ All ]</a></li>
+
+
+
+<li class="nav-item 2011/10"><a href="/Febris/archives/2011/10">2011/10</a></li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a href="/Febris/archives/2011/11">2011/11</a></li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a href="/Febris/archives/2011/12">2011/12</a></li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a href="/Febris/archives/2012/08">2012/08</a></li>
+
+
 
 
 
@@ -153,6 +182,23 @@
   <a href="#" class="down-arrow sub-menu-trigger">Categories</a>
 <ul class="sub-menu">
   <li class="nav-item categories"><a href="/Febris/categories" class="menulink-all">[ All ]</a></li>
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="right-arrow sub-menu-trigger">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
 
 
 
@@ -206,6 +252,24 @@
 
 
 
+<li class="nav-item programming_language"><a href="/Febris/tags/programming_language">programming_language</a></li>
+
+
+
+
+
+<li class="nav-item ll"><a href="/Febris/tags/LL">LL</a></li>
+
+
+
+
+
+<li class="nav-item closure"><a href="/Febris/tags/Closure">Closure</a></li>
+
+
+
+
+
 <li class="nav-item blog"><a href="/Febris/tags/blog">blog</a></li>
 
 
@@ -237,9 +301,7 @@
 </ul>
 </li>
 
-    <li class="nav-item nav-fill"><a href="#">&nbsp;</a></li>
-
-    <!-- Navigation Right Side -->
+    <!-- Search and About -->
     
     <li class="nav-item search"><a href="/Febris/search.html">Search</a></li>
     
@@ -247,18 +309,11 @@
     
 
   </ul>
-
-  <!-- Drawer -->
-  <div id="drawer">
-  <a href="#" class="navbar_brand"></a>
-  <div class="navbar_toggle">
-    <span class="navbar_toggle_icon"></span>
-    <span class="navbar_toggle_icon"></span>
-    <span class="navbar_toggle_icon"></span>
-  </div>
-</div><!-- drawer end -->
-
-</nav><!-- nav end-->
+</nav></div>
+  <!-- Site Title -->
+  <div id="site-title"><a href="/Febris/">Febris</a></div>
+  <div id="site-desc">since 2019</div>
+</nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
 
@@ -337,7 +392,9 @@ $(function() {
       $("#header-nav > ul.is-loading").removeClass("is-loading");
     });
 });
+
 </script>
+<script src="/assets/js/test.js"></script>
     </div><!-- footer-script end -->
 
   </div>
