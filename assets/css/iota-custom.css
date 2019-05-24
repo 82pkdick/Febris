@@ -67,13 +67,41 @@ xl: 1300px;
   --col-xl: 6 / span 2;
 }
 
-#site-desc {
-  --col-xs: 8 / span 3;
-  --col-sm: 9 / span 3;
-  --col-md: 9 / span 3;
-  --col-lg: 9 / span 3;
-  --col-xl: 9 / span 3;
+#site-desc-summary {
+  --col-xs: 8 / span 5;
+  --col-sm: 9 / span 4;
+  --col-md: 9 / span 4;
+  --col-lg: 10 / span 3;
+  --col-xl: 10 / span 3;
 }
 
+#main-contents .container .page_body {
+  grid-gap: 0;
+  --template-cols-xs: repeat(6, 1fr);
+  --template-rows-xs: 1fr;
+  --template-cols-sm: repeat(6, 1fr);
+  --template-rows-sm: 1fr;
+  --template-cols-md: repeat(6, 1fr);
+  --template-rows-md: 1fr;
+  --template-cols-lg: repeat(6, 1fr);
+  --template-rows-lg: 1fr;
+  --template-cols-xl: repeat(6, 1fr);
+  --template-rows-xl: 1fr;
+}
+
+#main-contents .container .page_body .post-content {
+  --col-xs: 1 / span 6;
+  --col-sm: 1 / span 4;
+  --col-md: 1 / span 4;
+  --col-lg: 1 / span 4;
+  --col-xl: 1 / span 4;
+}
+#main-contents .container .page_body .post-info {
+  --col-xs: 6 / span 0;
+  --col-sm: 5 / span 2;
+  --col-md: 5 / span 2;
+  --col-lg: 5 / span 2;
+  --col-xl: 5 / span 2;
+}
 
 

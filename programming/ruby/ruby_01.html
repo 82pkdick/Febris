@@ -18,6 +18,8 @@
 <!-- Font Awesome -->
 <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap" rel="stylesheet">
 <!-- Some CSS Library -->
 
 <!-- Custom CSS -->
@@ -25,9 +27,9 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
-<link rel="canonical" href="http://localhost:4000/Febris/programming/ruby/ruby_01">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/programming/ruby/ruby_01">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Febris/feed.xml" title="Febris" />
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
 <body>
   <div id="wrapper">
@@ -48,8 +50,9 @@
 </div><!-- post header end -->
 
   <!-- Post Body -->
-  <div class="page_body">
-    <p>h2. Rubyとは？</p>
+  <div class="page_body grid">
+    <div class="post-content">
+      <h2 id="rubyとは">Rubyとは？</h2>
 
 <p>Ruby（ルビー）は、まつもとゆきひろ（通称Matz）により開発されたオブジェクト指向スクリプト言語であり、
 従来Perlなどのスクリプト言語が用いられてきた領域でのオブジェクト指向プログラミングを実現する。Rubyは
@@ -74,7 +77,7 @@ Artisticに似た独自ライセンスを選択するデュアルライセンス
 
 <hr />
 
-<p>h3. Ruby哲学</p>
+<h3 id="ruby哲学">Ruby哲学</h3>
 
 <p>開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミン
 グを楽しむことである (Enjoy programming)」と述べている。(ただし、明文化された公式な言語仕様は2008年5
@@ -86,9 +89,9 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <hr />
 
-<p>h2. 実装</p>
+<h2 id="実装">実装</h2>
 
-<p>h3. 公式な実装</p>
+<h3 id="公式な実装">公式な実装</h3>
 
 <p>Rubyの公式な実装には、以下の二種類が存在する。</p>
 
@@ -105,7 +108,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   </tbody>
 </table>
 
-<p>h3. その他の実装</p>
+<h3 id="その他の実装">その他の実装</h3>
 
 <p>:JRuby:Javaベースの実装。純粋なJavaで行われているため、プラットフォーム非依存の利用が可能。ほとんどのRubyク
 ラスが組み込みで提供されている。JIT方式に加え、AOT方式のJavaバイトコードへのコンパイラも用意されてい
@@ -119,7 +122,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <p>その他  Parrot上でRubyを動作させるための実装なども開発されている。</p>
 
-<p>h2. 競合言語としてのPython</p>
+<h2 id="競合言語としてのpython">競合言語としてのPython</h2>
 
 <p>プログラミング言語としてのRubyは大雑把に言うと「Perlのオブジェクト指向版」、つまりインタプリタで実行する高機能なスクリプト言語でありオブジェクト指向機能を持つもの、と位置づけることができるが、この位置付けはスクリプト言語Pythonと同じである。このことがそれぞれの言語のユーザ同士の間で「どちらの言語が優れているか」といった論争を生んできた。しかしその論争は技術的な細部にとらわれた不毛な議論になることも多かった。</p>
 
@@ -127,9 +130,9 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <hr />
 
-<p>h2. 例</p>
+<h2 id="例">例</h2>
 
-<p>h3. 基本的なコード</p>
+<h3 id="基本的なコード">基本的なコード</h3>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># 文字リテラルを含め全てがオブジェクトである</span>
 <span class="o">-</span><span class="mi">199</span><span class="p">.</span><span class="nf">abs</span>                                       <span class="c1"># 199</span>
@@ -137,9 +140,9 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 <span class="s2">"Rick"</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="s2">"c"</span><span class="p">)</span>                              <span class="c1"># 2</span>
 <span class="s2">"Nice Day Isn't It?"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">//</span><span class="p">).</span><span class="nf">uniq</span><span class="p">.</span><span class="nf">sort</span><span class="p">.</span><span class="nf">join</span>  <span class="c1"># " '?DINaceinsty"</span></code></pre></figure>
 
-<p>h3. コレクション</p>
+<h3 id="コレクション">コレクション</h3>
 
-<p>h4. 配列の作成と使用法</p>
+<h4 id="配列の作成と使用法">配列の作成と使用法</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
  
@@ -161,7 +164,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
  
 <span class="nb">hash</span><span class="p">.</span><span class="nf">delete_if</span> <span class="p">{</span><span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">'water'</span><span class="p">}</span>   <span class="c1"># Deletes 'water' =&gt; 'wet'</span></code></pre></figure>
 
-<p>h3. 制御構造</p>
+<h3 id="制御構造">制御構造</h3>
 
 <p>ほかの言語でもよくみられるような制御構造を用いることができる</p>
 
@@ -183,7 +186,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <p>一部の制御構造は後述するイテレータで代替することができる。</p>
 
-<p>h4. ブロックとイテレータ</p>
+<h4 id="ブロックとイテレータ">ブロックとイテレータ</h4>
 
 <p>rubyではブロック付きメソッド呼び出し（イテレータとも呼ばれる）を 用いるコードが好まれることが多い。これを用いると、ユーザー定義の制御構造やコールバック など様々な処理を簡潔に記述できる利点があるからである。</p>
 
@@ -195,9 +198,9 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <p>ブロック付きメソッド呼び出しが繰り返し処理を主な役割としていたことから、イテレータと呼ばれていた時期がある。しかし、実際には繰り返し処理にとどまらず、様々な使われ方をしているので、最近はブロック付きメソッド呼び出し全体の総称としてイテレータという名称を用いるのは適切でないと考えられている。[1]</p>
 
-<p>h4. 繰り返し処理</p>
+<h4 id="繰り返し処理">繰り返し処理</h4>
 
-<p>h5. 配列の各要素への繰り返し処理</p>
+<h5 id="配列の各要素への繰り返し処理">配列の各要素への繰り返し処理</h5>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
 <span class="n">list</span><span class="p">.</span><span class="nf">collect!</span><span class="p">{</span><span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>          <span class="c1"># listの各要素を２倍する</span></code></pre></figure>
@@ -211,11 +214,11 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">end</span></code></pre></figure>
 
-<p>h5. 指定した回数の繰り返し処理</p>
+<h5 id="指定した回数の繰り返し処理">指定した回数の繰り返し処理</h5>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">3</span><span class="p">.</span><span class="nf">times</span><span class="p">{</span> <span class="nb">puts</span> <span class="s1">'foobar'</span> <span class="p">}</span>       <span class="c1">#制御構造の項のwhileの例と同じ</span></code></pre></figure>
 
-<p>h4. 後処理の省力化</p>
+<h4 id="後処理の省力化">後処理の省力化</h4>
 
 <p>ブロックの内容を実行してから、決められた後処理を行うメソッドもある</p>
 
@@ -232,7 +235,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   <span class="n">file</span><span class="p">.</span><span class="nf">close</span>
 <span class="k">end</span></code></pre></figure>
 
-<p>h5. 本処理を後から指定</p>
+<h5 id="本処理を後から指定">本処理を後から指定</h5>
 
 <p>実際に行いたい処理をブロックで記述する。 前項の後処理の省力化もこれの一例といえる。</p>
 
@@ -249,9 +252,9 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 る。メソッドの利用者は、”なんらかの処理”のみを記述すればよく、取り出しのアルゴリズムなど、本質的でな
 い内容に意識を向ける必要がなくなる。</p>
 
-<p>h3. クロージャ</p>
+<h3 id="クロージャ">クロージャ</h3>
 
-<p>h4. クロージャとなるようなブロックの引数渡し</p>
+<h4 id="クロージャとなるようなブロックの引数渡し">クロージャとなるようなブロックの引数渡し</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># オブジェクトのインスタンス変数（変数名の頭に@が付く）でブロックを記憶。</span>
 <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">p</span><span class="p">)</span>
@@ -265,7 +268,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 <span class="vi">@block</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"John"</span><span class="p">)</span>
 <span class="c1"># 表示:"Hello, John!"</span></code></pre></figure>
 
-<p>h4. メソッドからクロージャを返す例</p>
+<h4 id="メソッドからクロージャを返す例">メソッドからクロージャを返す例</h4>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">create_set_and_get</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
   <span class="k">return</span> <span class="nb">proc</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">},</span> <span class="nb">proc</span> <span class="p">{</span> <span class="n">value</span> <span class="p">}</span>
@@ -277,7 +280,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <p>“クロージャ”:ruby_01_memo-1.html</p>
 
-<p>h3. クラス</p>
+<h3 id="クラス">クラス</h3>
 
 <p>次のコードはPersonという名前のクラスである。その中、まずinitializeはオブジェクトを初期化するコンストラクタである。ほかに2つのメソッドがあり、1つは比較演算子である&lt;=&gt;をオーバーライドしておりArray#sortによりプロパティageでソートすることができる。もう1つのオーバーライド箇所のto_sメソッドは Kernel#puts での表示の形式を整える。attr_readerはRubyにおけるメタプログラミングの例であり、attr はインスタンス変数の入出力を司るgetterやsetterメソッド（アクセサ）を定義する。attr_readerはgetterメソッドのみの定義である。なおメソッド中では最後に評価された式が返り値となり、明示的なreturnは省略できる。</p>
 
@@ -310,7 +313,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 <span class="no">John</span> <span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="no">Ash</span> <span class="p">(</span><span class="mi">16</span><span class="p">)</span></code></pre></figure>
 
-<p>h3. 例外処理</p>
+<h3 id="例外処理">例外処理</h3>
 
 <p>例外はなにか不具合が起こったときraiseの呼び出しで発生させることができる。 Rubyでの例外はExceptionクラスか、そのサブクラスのインスタンスである。</p>
 
@@ -334,7 +337,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 <hr />
 
-<p>h2. Rubyの周辺技術</p>
+<h2 id="rubyの周辺技術">Rubyの周辺技術</h2>
 
 <ul>
   <li>分散オブジェクトを実現するdRuby</li>
@@ -356,7 +359,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   <li>Rubyで書かれたビルドツール Rake</li>
 </ul>
 
-<p>h2. Rubyで開発されたアプリケーション</p>
+<h2 id="rubyで開発されたアプリケーション">Rubyで開発されたアプリケーション</h2>
 
 <ul>
   <li>tDiary</li>
@@ -368,13 +371,13 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   <li>WEBrick</li>
 </ul>
 
-<p>h3. Rubyを組み込んだアプリケーション</p>
+<h3 id="rubyを組み込んだアプリケーション">Rubyを組み込んだアプリケーション</h3>
 
 <ul>
   <li>RPGツクールXP・RPGツクールVX := 株式会社エンターブレインから発売されているRPG制作ソフトシリーズのうち、RPGツクールXPとRPGツクールVXでは、Rubyをツクール専用にカスタマイズした Ruby Game Scripting System (RGSS)を搭載している。同シリーズの従来ソフトではあらかじめ用意された機能しか使えなかったが、これにより戦闘などのシステムを一から構築する事が出来るようになった。</li>
 </ul>
 
-<p>h3. エピソード</p>
+<h3 id="エピソード">エピソード</h3>
 
 <p>Rubyではブロック構造をendで終える構文が採用されているが、開発者のまつもとゆきひろは他の構文が採用さ
 れる可能性があったことを述べている。当時、Emacs上でendで終える構文をオートインデントさせた例はあまり
@@ -382,6 +385,96 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 。実際には数日の試行でオートインデント可能であることがわかり、現在の構文になった。C言語のような{}
 を使った構文を採用することも検討されていたが、結局これは採用されなかった。</p>
 
+    </div>
+    <div class="post-info">
+      <div class="post-attr">
+  <h4>Article Attributes</h4>
+  
+  
+  
+  
+  
+  <dl>
+    <dt>post date: </dt>
+    <dd><a href="/Febris/archives/2012/08">4th August 2012</a></dd>
+  
+    
+    <dt>categories: </dt>
+    <dd class="main-ctg">
+      <a href="/Febris/categories/programming" class="post-link">programming</a>
+    </dd>
+    
+    
+    <dd class="sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/ruby" class="post-link">ruby</a>
+      </span>
+    </dd>
+    
+  
+    <dt>tags: </dt>
+    
+    
+    <dd><a href="/Febris/tags/programming_language">programming_language</a></dd>
+    
+    
+    <dd><a href="/Febris/tags/LL">LL</a></dd>
+    
+  </dl>
+</div>
+
+<div class="post-toc sticky">
+  <h4>Table of contents</h4>
+  <ul>
+  <li class="anchor"><a href="#rubyとは">Rubyとは？</a>
+    <ul>
+      <li class="anchor"><a href="#ruby哲学">Ruby哲学</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#実装">実装</a>
+    <ul>
+      <li class="anchor"><a href="#公式な実装">公式な実装</a></li>
+      <li class="anchor"><a href="#その他の実装">その他の実装</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#競合言語としてのpython">競合言語としてのPython</a></li>
+  <li class="anchor"><a href="#例">例</a>
+    <ul>
+      <li class="anchor"><a href="#基本的なコード">基本的なコード</a></li>
+      <li class="anchor"><a href="#コレクション">コレクション</a>
+        <ul>
+          <li class="anchor"><a href="#配列の作成と使用法">配列の作成と使用法</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#制御構造">制御構造</a>
+        <ul>
+          <li class="anchor"><a href="#ブロックとイテレータ">ブロックとイテレータ</a></li>
+          <li class="anchor"><a href="#繰り返し処理">繰り返し処理</a></li>
+          <li class="anchor"><a href="#後処理の省力化">後処理の省力化</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#クロージャ">クロージャ</a>
+        <ul>
+          <li class="anchor"><a href="#クロージャとなるようなブロックの引数渡し">クロージャとなるようなブロックの引数渡し</a></li>
+          <li class="anchor"><a href="#メソッドからクロージャを返す例">メソッドからクロージャを返す例</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#クラス">クラス</a></li>
+      <li class="anchor"><a href="#例外処理">例外処理</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#rubyの周辺技術">Rubyの周辺技術</a></li>
+  <li class="anchor"><a href="#rubyで開発されたアプリケーション">Rubyで開発されたアプリケーション</a>
+    <ul>
+      <li class="anchor"><a href="#rubyを組み込んだアプリケーション">Rubyを組み込んだアプリケーション</a></li>
+      <li class="anchor"><a href="#エピソード">エピソード</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+    </div>
   </div><!-- post body end -->
 
   <!-- Post Pagination -->
@@ -413,72 +506,90 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 <label for="navTgl" class="close"></label>
 <nav class="menu">
 
+  <div id="self-introduction">
+    <img src= "/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
   <!-- Navigation -->
   <ul id="nav-list" class="nav-list is-loading">
 
     <!-- Home -->
-    <li class="nav-item home"><a href="/Febris/">Home</a></li>
+    <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
 
     <!-- Archives -->
     
     
     
+    
     <li class="nav-item archives">
-  <a href="#" class="down-arrow sub-menu-trigger">Archives</a>
+  <a href="#" class="down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
 <ul class="sub-menu">
-  <li class="nav-item archives"><a href="/Febris/archives" class="menulink-all">[ All ]</a></li>
+  <li class="nav-item archives">
+    <a href="/Febris/archives" class="menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
 
 
 
-<li class="nav-item 2011/10"><a href="/Febris/archives/2011/10">2011/10</a></li>
-
-
-
-
-
-<li class="nav-item 2011/11"><a href="/Febris/archives/2011/11">2011/11</a></li>
-
-
-
-
-
-<li class="nav-item 2011/12"><a href="/Febris/archives/2011/12">2011/12</a></li>
+<li class="nav-item 2011/10"><a href="/Febris/archives/2011/10">2011/10</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a href="/Febris/archives/2012/08">2012/08</a></li>
+<li class="nav-item 2011/11"><a href="/Febris/archives/2011/11">2011/11</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a href="/Febris/archives/2016/07">2016/07</a></li>
+<li class="nav-item 2011/12"><a href="/Febris/archives/2011/12">2011/12</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a href="/Febris/archives/2016/09">2016/09</a></li>
+<li class="nav-item 2012/08"><a href="/Febris/archives/2012/08">2012/08</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a href="/Febris/archives/2018/11">2018/11</a></li>
+<li class="nav-item 2016/07"><a href="/Febris/archives/2016/07">2016/07</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a href="/Febris/archives/2019/01">2019/01</a></li>
+<li class="nav-item 2016/09"><a href="/Febris/archives/2016/09">2016/09</a>
+</li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a href="/Febris/archives/2019/02">2019/02</a></li>
+<li class="nav-item 2018/11"><a href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a href="/Febris/archives/2019/02">2019/02</a>
+</li>
 
 
 
@@ -489,10 +600,15 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
     
     
     
+    
     <li class="nav-item categories">
-  <a href="#" class="down-arrow sub-menu-trigger">Categories</a>
+  <a href="#" class="down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
 <ul class="sub-menu">
-  <li class="nav-item categories"><a href="/Febris/categories" class="menulink-all">[ All ]</a></li>
+  <li class="nav-item categories">
+    <a href="/Febris/categories" class="menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
 
 
 
@@ -530,7 +646,8 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
 
 
-<li class="nav-item test"><a href="/Febris/categories/test">test</a></li>
+<li class="nav-item test"><a href="/Febris/categories/test">test</a>
+</li>
 
 
 
@@ -556,56 +673,69 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
     
     
     
+    
     <li class="nav-item tags">
-  <a href="#" class="down-arrow sub-menu-trigger">Tags</a>
+  <a href="#" class="down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
 <ul class="sub-menu">
-  <li class="nav-item tags"><a href="/Febris/tags" class="menulink-all">[ All ]</a></li>
+  <li class="nav-item tags">
+    <a href="/Febris/tags" class="menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
 
 
 
-<li class="nav-item programming_language"><a href="/Febris/tags/programming_language">programming_language</a></li>
-
-
-
-
-
-<li class="nav-item ll"><a href="/Febris/tags/LL">LL</a></li>
-
-
-
-
-
-<li class="nav-item closure"><a href="/Febris/tags/Closure">Closure</a></li>
+<li class="nav-item programming_language"><a href="/Febris/tags/programming_language">programming_language</a>
+</li>
 
 
 
 
 
-<li class="nav-item blog"><a href="/Febris/tags/blog">blog</a></li>
+<li class="nav-item ll"><a href="/Febris/tags/LL">LL</a>
+</li>
 
 
 
 
 
-<li class="nav-item testpost"><a href="/Febris/tags/testpost">testpost</a></li>
+<li class="nav-item closure"><a href="/Febris/tags/Closure">Closure</a>
+</li>
 
 
 
 
 
-<li class="nav-item technology"><a href="/Febris/tags/technology">technology</a></li>
+<li class="nav-item blog"><a href="/Febris/tags/blog">blog</a>
+</li>
 
 
 
 
 
-<li class="nav-item ruby"><a href="/Febris/tags/ruby">ruby</a></li>
+<li class="nav-item testpost"><a href="/Febris/tags/testpost">testpost</a>
+</li>
 
 
 
 
 
-<li class="nav-item programing"><a href="/Febris/tags/programing">programing</a></li>
+<li class="nav-item technology"><a href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a href="/Febris/tags/programing">programing</a>
+</li>
 
 
 
@@ -614,16 +744,38 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 
     <!-- Search and About -->
     
-    <li class="nav-item search"><a href="/Febris/search.html">Search</a></li>
+    <li class="nav-item search">
+      <a href="/Febris/search.html">
+      <i class="fas fa-search fas-icon"></i>
+      Search
+      </a></li>
     
-    <li class="nav-item about"><a href="/Febris/about">About</a></li>
+    <li class="nav-item about">
+      <a href="/Febris/about">
+      <i class="far fa-address-card fas-icon"></i>
+      About
+      </a></li>
     
 
   </ul>
-</nav></div>
+
+  <div class="social-link">
+    
+      <p class="social-link_item">
+        <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+      </p>
+    
+    
+      <p class="social-link_item">
+        <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+      </p>
+    
+  </div>
+</nav>
+</div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc">since 2019</div>
+  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -635,20 +787,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
     <footer id="footer">
       <div class="container">
   <div class="footer_container">
-    <p class="copyright"><small>&copy; 2017 82pkdick</small></p>
-
-    <div class="social-link">
-      
-        <p class="social-link_item">
-          <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
-        </p>
-      
-      
-        <p class="social-link_item">
-          <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
-        </p>
-      
-    </div>
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
   </div><!--footer_container-->
 </div><!-- container -->
 
