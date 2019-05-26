@@ -38,7 +38,7 @@
       <article id="main-contents">
         <!-- Post -->
 <div class="container">
-
+<span id="page-top"></span>
   <!-- Post Header -->
   <div class="post_header">
   <h1 class="post_title">
@@ -51,6 +51,9 @@
 
   <!-- Post Body -->
   <div class="page_body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open"><span></span></label>
+    <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
       <h2 id="jekyllのチュートリアル">Jekyllのチュートリアル</h2>
 
@@ -73,14 +76,18 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 
     </div>
     <div class="post-info">
-      <div class="post-attr">
+    
+<div class="post-attr">
   <h4>Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
   
   
   
   
   
-  <dl>
+  <dl class="post-attr-list">
     <dt>post date: </dt>
     <dd><a href="/Febris/archives/2019/01">28th January 2019</a></dd>
   
@@ -104,6 +111,9 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 
 <div class="post-toc sticky">
   <h4>Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top"><i class="far fa-arrow-alt-circle-up">Top</i></a>
+  </div>
   <ul>
   <li class="anchor"><a href="#jekyllのチュートリアル">Jekyllのチュートリアル</a></li>
 </ul>
@@ -476,6 +486,43 @@ $(function() {
       // $('#header-nav > ul.is-loading').fadeIn(50);
       $("#header-nav > ul.is-loading").removeClass("is-loading");
     });
+});
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page_body .post-info a");
+  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+
+  function response() {
+    if ($(window).width() < 860) {
+      let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
 });
 
 </script>

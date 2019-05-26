@@ -179,15 +179,6 @@ body {
   list-style: none;
 }
 
-/* @keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
-
 /* when sub-menu or inner-sub-menu close */
 #header #header-nav ul#nav-list li.nav-item ul.sub-menu,
 #header #header-nav ul#nav-list li.nav-item ul.sub-menu li.nav-item ul.inner-sub-menu {
@@ -455,15 +446,59 @@ ul.posts {
   padding-left: 1.5rem;
   padding-right: 1.8rem;
   box-sizing: border-box;
+  grid-column: 1 / 5;
 }
+
+/* Toggle button for post info */
+#main-contents .container .page_body > #pinfoTgl {
+  position: absolute;
+  top: 105px;
+  right: 50px;
+  z-index: 1000;
+  display: none;
+} 
+#main-contents .container .page_body > label.open {
+  position: fixed;
+  top: 130px;
+  right: 68px;
+  z-index: 1000;
+  width: 25px;
+  height: 25px;
+  background: none;
+}
+#main-contents .container .page_body > label.open > span::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f35a";
+  margin-left: 0.6em;
+  color: #bb8e4afb;
+}
+
+#main-contents .container .page_body > #pinfoTgl:checked + label.open span::before {
+  content: "\f359";
+}
+#main-contents .container .page_body > #pinfoTgl:checked ~ .post-content {
+  grid-column: 1 / 7;
+}
+#main-contents .container .page_body > #pinfoTgl:checked ~ .post-info {
+  transform: translateX(100%);
+  transition: all .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* Post Information */
 #main-contents .container .page_body .post-info {
-  padding: 2.0rem 0.3rem 2.5rem 1.6rem;
+  padding: 2.0rem 0.8rem 2.5rem 1.6rem;
   box-sizing: border-box;
   font-size: 90%;
   line-height: 1.5em;
   color: #666;
+  background: #fff;
   border-left: 1px solid #efefef;
+  opacity: 1;
+  transform: none;
+  transition: all .3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 #main-contents .container .page_body .post-info  h4 {
   font-weight: bold;
@@ -503,6 +538,8 @@ ul.posts {
   line-height: 1.2rem;
   border: 1px solid #efefef;
   box-sizing: border-box;
+  height: 30rem;
+  overflow-y: auto;
 }
 #main-contents .container .page_body .post-info .post-toc > ul > li {
   margin-left: 3px;
@@ -527,17 +564,89 @@ ul.posts {
   color: #bfbfbf;
 }
 
+/* Toggle button for post attributes area */
+@keyframes fade {
+  0% {
+      opacity:0;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+  }
+  100% {
+      opacity:1;
+      visibility: visible;
+      width: 25px;
+      height: 25px;
+  }
+}
+
+#main-contents .container .page_body .post-info #pattrTgl {
+  position: relative;
+  float: right;
+  right: 0.5em;
+  z-index: 1000;
+  display: none;
+}
+#main-contents .container .page_body .post-info #tgl-pattr {
+  position: relative;
+  float: right;
+  top: -5px;
+  right: 0;
+  z-index: 1000;
+  width: 25px;
+  height: 25px;
+}
+#main-contents .container .page_body .post-info #tgl-pattr > span::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f102";
+  margin-left: 0.5em;
+  color: #54a6c4;
+}
+#main-contents .container .page_body .post-info #pattrTgl:checked + #tgl-pattr > span::before {
+  content: "\f103";
+}
+#main-contents .container .page_body .post-info #pattrTgl ~ .post-attr-list  {
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.2s linear;
+}
+#main-contents .container .page_body .post-info #pattrTgl:checked ~ .post-attr-list  {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Post Attributes */
+#main-contents .container .page_body .post-info .post-attr {
+  padding: 0 0.5rem;
+}
 
 /* Post Toc */
-#main-contents .container .page_body .post-content > .post-toc {
-  padding: 10px;
+#main-contents .container .page_body .post-info > .post-toc > .up-to-top {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+#main-contents .container .page_body .post-info .post-toc ul {
+  list-style: none;
+}
+
+#main-contents .container .page_body .post-info > .post-toc {
+  position: sticky;
+  top: 80px;
+  margin-bottom: 30px;
+  padding: 1.0rem 0.5rem;
+  /* padding-right: 1.5rem; */
   list-style: none;
   box-sizing: border-box;
 }
-.sticky {
-  position: sticky;
-  top: 63px;
-}
+
 #main-contents .container .page_body .post-content > h1, 
 #main-contents .container .page_body .post-content > h2, 
 #main-contents .container .page_body .post-content > h3, 
@@ -612,7 +721,13 @@ ul.posts {
   margin-top: -1.0rem;
   padding: 0 10px 5px;
   padding-bottom: 5px;
-  text-align: right;
+  text-align: right;#main-contents .container .page_body .post-info #pattrTgl {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    z-index: 1000;
+    /* display: none; */
+}
   border-bottom: 1px solid #dfdfdf;
 }
 
@@ -702,6 +817,9 @@ h2 {
   font-size: 28px;
   font-weight: bold;
   box-sizing: border-box;
+  display: block;
+  padding-top: 70px;
+  margin-top: -70px;
 }
 .post_title > a {
   color: #8a1c1c;;
@@ -877,14 +995,63 @@ pre {
     font-size: 0.4rem;
     padding: 0 0.5rem 0.4rem 0;
   }
+  #main-contents .container .page_body .post-content {
+    grid-column: 1 / 7;
+  }
+  #main-contents .container .page_body .post-info {
+    position: fixed;
+    left: 0.3rem;
+    top: 4.0rem;
+    z-index: 100;
+    border: 1px solid #aaa;
+    width: 80%;
+    /* height: 30rem; */
+    padding: 1.2rem 0.5rem 1.2rem 0.8rem;
+    background: aliceblue;
+  }
+  #main-contents .container .page_body .post-info .post-attr {
+    padding: 0 0.5rem;
+    padding-right: 0.4rem;
+  }
+  #main-contents .container .page_body .post-info #pattrTgl {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+  }
+  #main-contents .container .page_body > #pinfoTgl ~ label.close {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    pointer-events: auto;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    transition: background-color .6s;
+  }
+  #main-contents .container .page_body > #pinfoTgl:checked ~ label.close {
+    pointer-events: none;
+    background: none;
+  }
+  
+  #main-contents .container .page_body > label.open {
+    right: 45px;
+  }
+  #main-contents .container .page_body .post-info > .post-toc {
+    padding: 1.0rem 0.5rem;
+    padding-right: 0.4rem;
+  }
+  #main-contents .container .page_body .post-info .post-toc > ul {
+    height: 20rem;;
+  }
 }
 
 /* smartphone screens */
 @media only screen and (max-width: 640px) {
-  #main-contents .container .page_body .post-info {
-    display: none;
-  }
   .post_header .post-date {
-    margin-top: 1.0rem;
+    margin-top: 0;
+  }
+  #main-contents .container .page_body > label.open {
+    right: 35px;
   }
 }
