@@ -10,6 +10,7 @@
     Rubyのクロージャ | Febris
   
 </title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
@@ -24,9 +25,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
-<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
-<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="canonical" href="https://82pkdick.github.io/Febris/programming/ruby/ruby_01_memo-1">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
@@ -34,23 +34,22 @@
 <body>
   <div id="wrapper">
     <div id="main-container" class="grid">
-
+      <span id="page-top"></span>
       <article id="main-contents">
         <!-- Post -->
 <div class="container">
-<span id="page-top"></span>
   <!-- Post Header -->
-  <div class="post_header">
-  <h1 class="post_title">
+  <div class="header post-header">
+  <h1 class="header-title post-title">
     <span class="title-lmark">【</span>
     <a href="/programming/ruby/ruby_01_memo-1">Rubyのクロージャ</a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="post-date">August 05, 2012</p>
+  <p class="date post-date">August 05, 2012</p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
-  <div class="page_body grid">
+  <div class="page-body grid">
     <input type="checkbox" id="pinfoTgl">
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
@@ -62,10 +61,10 @@
 のペアであるともいえる。</p>
 
     </div>
-    <div class="post-info">
+    <div class="post-info is-loading">
     
 <div class="post-attr">
-  <h4>Article Attributes</h4>
+  <h4 class="title">Article Attributes</h4>
   <input type="checkbox" id="pattrTgl">
   <label for="pattrTgl" id="tgl-pattr"><span></span></label>
 
@@ -75,17 +74,17 @@
   
   
   <dl class="post-attr-list">
-    <dt>post date: </dt>
-    <dd><a href="/Febris/archives/2012/08">5th August 2012</a></dd>
+    <dt class="entry">post date: </dt>
+    <dd class="item date"><a href="/Febris/archives/2012/08">5th August 2012</a></dd>
   
     
-    <dt>categories: </dt>
-    <dd class="main-ctg">
+    <dt class="entry">categories: </dt>
+    <dd class="item main-ctg">
       <a href="/Febris/categories/programming" class="post-link">programming</a>
     </dd>
     
     
-    <dd class="sub-ctg">
+    <dd class="item sub-ctg">
       <span class="ruled-line">&#9492;</span>
       <span class="sub-ctg-name">
         <a href="/Febris/categories/ruby" class="post-link">ruby</a>
@@ -93,22 +92,22 @@
     </dd>
     
   
-    <dt>tags: </dt>
+    <dt class="entry">tags: </dt>
     
     
-    <dd><a href="/Febris/tags/programming_language">programming_language</a></dd>
+    <dd class="item tgs-info"><a href="/Febris/tags/programming_language">programming_language</a></dd>
     
     
-    <dd><a href="/Febris/tags/LL">LL</a></dd>
+    <dd class="item tgs-info"><a href="/Febris/tags/LL">LL</a></dd>
     
     
-    <dd><a href="/Febris/tags/Closure">Closure</a></dd>
+    <dd class="item tgs-info"><a href="/Febris/tags/Closure">Closure</a></dd>
     
   </dl>
 </div>
 
 <div class="post-toc sticky">
-  <h4>Table of contents</h4>
+  <h4 class="title">Table of contents</h4>
   <div class="up-to-top">
     <a href="#page-top"><i class="far fa-arrow-alt-circle-up">Top</i></a>
   </div>
@@ -154,7 +153,7 @@
     <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
   </div>
   <!-- Navigation -->
-  <ul id="nav-list" class="nav-list is-loading">
+  <ul id="nav-list" class="nav-list">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
@@ -418,7 +417,7 @@
 </div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -429,9 +428,9 @@
     <!-- Common Footer -->
     <footer id="footer">
       <div class="container">
-  <div class="footer_container">
+  <div class="footer-container">
     <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
-  </div><!--footer_container-->
+  </div><!--footer-container-->
 </div><!-- container -->
 
 
@@ -479,10 +478,12 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
+// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      // $('#header-nav > ul.is-loading').fadeIn(50);
-      $("#header-nav > ul.is-loading").removeClass("is-loading");
+      $(this).delay(500).queue(function(){
+        $(".is-loading").removeClass("is-loading");
+      })
     });
 });
 
@@ -491,9 +492,9 @@ for post info side panel.
 case small-sized screens default.
 */
 $(function() {
-  let anch = $("#main-contents .container .page_body .post-info a");
-  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
-  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
 
   function response() {
     if ($(window).width() < 860) {

@@ -10,6 +10,7 @@
     January 2019 | Febris
   
 </title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
@@ -24,9 +25,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
-<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
-<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="canonical" href="https://82pkdick.github.io/Febris/archives/2019/01/">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
@@ -34,7 +34,7 @@
 <body>
   <div id="wrapper">
     <div id="main-container" class="grid">
-
+      <span id="page-top"></span>
       <article id="main-contents">
         <!-- Page -->
 <div class="container">
@@ -59,7 +59,7 @@
 
 
 
-<span class="nav-sep"> > &nbsp;</span><!-- <a class="current"> -->01<!-- </a> -->
+<span class="nav-sep"> > &nbsp;</span><!-- <a class="current"> --><span class="current">01</span><!-- </a> -->
 
 
 </nav>
@@ -68,8 +68,8 @@
   
 
   <!-- Page Header -->
-  <div class="page_header monthly_archives">
-  <h1 class="page_title">
+  <div class="header page-header monthly_archives">
+  <h1 class="header-title page-title">
     <span class="title-lmark">【</span>
     
     <span class="title-prefix">Articles of: </span>
@@ -77,22 +77,23 @@
     <a href="/archives/2019/01/"><span class="page-title-main">January 2019</span></a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page_description">2019年01月の記事</p>
+  <p class="page-desc">2019年01月の記事</p>
 </div><!-- page header end -->
 
   <!-- Page Body -->
-  <div class="page_body">
+  <div class="page-body">
     <div class="panel-body">
+  <h2>2019年&nbsp;01月の記事<span class="post-size">(2)</span></h2>
   <ul class="posts">
   
     <li>
       <a class="post-link" href="/Febris/jekyll/jekyll-Tutorial">Jekyllのチュートリアル</a>
-      <span class="post-date">28 Jan 2019</span>
+      <span class="date post-date">28 Jan 2019</span>
     </li>
   
     <li>
       <a class="post-link" href="/Febris/jekyll/update/welcome-to-jekyll">Welcome to Jekyll!</a>
-      <span class="post-date">28 Jan 2019</span>
+      <span class="date post-date">28 Jan 2019</span>
     </li>
   
   </ul>
@@ -118,7 +119,7 @@
     <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
   </div>
   <!-- Navigation -->
-  <ul id="nav-list" class="nav-list is-loading">
+  <ul id="nav-list" class="nav-list">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
@@ -382,7 +383,7 @@
 </div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -393,9 +394,9 @@
     <!-- Common Footer -->
     <footer id="footer">
       <div class="container">
-  <div class="footer_container">
+  <div class="footer-container">
     <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
-  </div><!--footer_container-->
+  </div><!--footer-container-->
 </div><!-- container -->
 
 
@@ -443,10 +444,12 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
+// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      // $('#header-nav > ul.is-loading').fadeIn(50);
-      $("#header-nav > ul.is-loading").removeClass("is-loading");
+      $(this).delay(500).queue(function(){
+        $(".is-loading").removeClass("is-loading");
+      })
     });
 });
 
@@ -455,9 +458,9 @@ for post info side panel.
 case small-sized screens default.
 */
 $(function() {
-  let anch = $("#main-contents .container .page_body .post-info a");
-  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
-  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
 
   function response() {
     if ($(window).width() < 860) {

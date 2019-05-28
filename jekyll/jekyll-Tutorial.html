@@ -10,6 +10,7 @@
     Jekyllのチュートリアル | Febris
   
 </title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
@@ -24,9 +25,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
-<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
-<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="canonical" href="https://82pkdick.github.io/Febris/jekyll/jekyll-Tutorial">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
@@ -34,23 +34,22 @@
 <body>
   <div id="wrapper">
     <div id="main-container" class="grid">
-
+      <span id="page-top"></span>
       <article id="main-contents">
         <!-- Post -->
 <div class="container">
-<span id="page-top"></span>
   <!-- Post Header -->
-  <div class="post_header">
-  <h1 class="post_title">
+  <div class="header post-header">
+  <h1 class="header-title post-title">
     <span class="title-lmark">【</span>
     <a href="/jekyll/jekyll-Tutorial">Jekyllのチュートリアル</a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="post-date">January 28, 2019</p>
+  <p class="date post-date">January 28, 2019</p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
-  <div class="page_body grid">
+  <div class="page-body grid">
     <input type="checkbox" id="pinfoTgl">
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
@@ -63,6 +62,7 @@
 
 <!-- more -->
 
+<div class="is-loading">
 <script type="math/tex; mode=display">
 Formular\ from Wikipedia\\
  
@@ -72,13 +72,13 @@ e^{x+iy} = e^x(\cos y + i\sin y)\\
 
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 </script>
-
+</div>
 
     </div>
-    <div class="post-info">
+    <div class="post-info is-loading">
     
 <div class="post-attr">
-  <h4>Article Attributes</h4>
+  <h4 class="title">Article Attributes</h4>
   <input type="checkbox" id="pattrTgl">
   <label for="pattrTgl" id="tgl-pattr"><span></span></label>
 
@@ -88,29 +88,29 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
   
   
   <dl class="post-attr-list">
-    <dt>post date: </dt>
-    <dd><a href="/Febris/archives/2019/01">28th January 2019</a></dd>
+    <dt class="entry">post date: </dt>
+    <dd class="item date"><a href="/Febris/archives/2019/01">28th January 2019</a></dd>
   
     
-    <dt>categories: </dt>
-    <dd class="main-ctg">
+    <dt class="entry">categories: </dt>
+    <dd class="item main-ctg">
       <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
     </dd>
     
   
-    <dt>tags: </dt>
+    <dt class="entry">tags: </dt>
     
     
-    <dd><a href="/Febris/tags/technology">technology</a></dd>
+    <dd class="item tgs-info"><a href="/Febris/tags/technology">technology</a></dd>
     
     
-    <dd><a href="/Febris/tags/blog">blog</a></dd>
+    <dd class="item tgs-info"><a href="/Febris/tags/blog">blog</a></dd>
     
   </dl>
 </div>
 
 <div class="post-toc sticky">
-  <h4>Table of contents</h4>
+  <h4 class="title">Table of contents</h4>
   <div class="up-to-top">
     <a href="#page-top"><i class="far fa-arrow-alt-circle-up">Top</i></a>
   </div>
@@ -156,7 +156,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
     <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
   </div>
   <!-- Navigation -->
-  <ul id="nav-list" class="nav-list is-loading">
+  <ul id="nav-list" class="nav-list">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
@@ -420,7 +420,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 </div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -431,9 +431,9 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
     <!-- Common Footer -->
     <footer id="footer">
       <div class="container">
-  <div class="footer_container">
+  <div class="footer-container">
     <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
-  </div><!--footer_container-->
+  </div><!--footer-container-->
 </div><!-- container -->
 
 
@@ -481,10 +481,12 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
+// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      // $('#header-nav > ul.is-loading').fadeIn(50);
-      $("#header-nav > ul.is-loading").removeClass("is-loading");
+      $(this).delay(500).queue(function(){
+        $(".is-loading").removeClass("is-loading");
+      })
     });
 });
 
@@ -493,9 +495,9 @@ for post info side panel.
 case small-sized screens default.
 */
 $(function() {
-  let anch = $("#main-contents .container .page_body .post-info a");
-  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
-  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
 
   function response() {
     if ($(window).width() < 860) {

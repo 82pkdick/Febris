@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-05-26T23:59:31+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Ruby great!</title><link href="https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great" rel="alternate" type="text/html" title="Ruby great!" /><published>2019-02-14T00:00:00+09:00</published><updated>2019-02-14T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great</id><content type="html" xml:base="https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great">&lt;h2 id=&quot;rubyとは&quot;&gt;Rubyとは&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-05-28T23:54:03+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Ruby great!</title><link href="https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great" rel="alternate" type="text/html" title="Ruby great!" /><published>2019-02-14T00:00:00+09:00</published><updated>2019-02-14T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great</id><content type="html" xml:base="https://82pkdick.github.io/Febris/language/ruby/Ruby-very-great">&lt;h2 id=&quot;rubyとは&quot;&gt;Rubyとは&lt;/h2&gt;
 
 &lt;p&gt;Rubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。&lt;/p&gt;
 
@@ -72,6 +72,7 @@
 
 &lt;!-- more --&gt;
 
+&lt;div class=&quot;is-loading&quot;&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 Formular\ from Wikipedia\\
  
@@ -80,7 +81,8 @@ Formular\ from Wikipedia\\
 e^{x+iy} = e^x(\cos y + i\sin y)\\
 
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-&lt;/script&gt;</content><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><category term="technology" /><category term="blog" /><summary type="html">Jekyllのチュートリアル grid-row: Jekyll is a simple, blog aware, static site generator.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://82pkdick.github.io/Febris/002.jpg" /></entry><entry><title type="html">Hello World!</title><link href="https://82pkdick.github.io/Febris/test/hello-world" rel="alternate" type="text/html" title="Hello World!" /><published>2018-11-21T00:00:00+09:00</published><updated>2018-11-21T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/test/hello-world</id><content type="html" xml:base="https://82pkdick.github.io/Febris/test/hello-world">&lt;h2 id=&quot;first-post&quot;&gt;First post.&lt;/h2&gt;
+&lt;/script&gt;
+&lt;/div&gt;</content><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><category term="technology" /><category term="blog" /><summary type="html">Jekyllのチュートリアル grid-row: Jekyll is a simple, blog aware, static site generator.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://82pkdick.github.io/Febris/002.jpg" /></entry><entry><title type="html">Hello World!</title><link href="https://82pkdick.github.io/Febris/test/hello-world" rel="alternate" type="text/html" title="Hello World!" /><published>2018-11-21T00:00:00+09:00</published><updated>2018-11-21T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/test/hello-world</id><content type="html" xml:base="https://82pkdick.github.io/Febris/test/hello-world">&lt;h2 id=&quot;first-post&quot;&gt;First post.&lt;/h2&gt;
 
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 

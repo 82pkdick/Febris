@@ -10,6 +10,7 @@
     Tags top | Febris
   
 </title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
@@ -24,9 +25,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
-<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
-<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="canonical" href="https://82pkdick.github.io/Febris/tags/">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
@@ -34,7 +34,7 @@
 <body>
   <div id="wrapper">
     <div id="main-container" class="grid">
-
+      <span id="page-top"></span>
       <article id="main-contents">
         <!-- Page -->
 <div class="container">
@@ -55,7 +55,7 @@
 
 
 
-<span class="nav-sep"> > &nbsp;</span><!-- <a class="current"> -->All<!-- </a> -->
+<span class="nav-sep"> > &nbsp;</span><!-- <a class="current"> --><span class="current">All</span><!-- </a> -->
 
 
 </nav>
@@ -64,61 +64,69 @@
   
 
   <!-- Page Header -->
-  <div class="page_header genre_top">
-  <h1 class="page_title">
+  <div class="header page-header genre_top">
+  <h1 class="header-title page-title">
     <span class="title-lmark">【</span>
     
     <a href="/tags/index.html"><span class="page-title-main">Tags top</span></a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page_description">タグ別の記事一覧</p>
+  <p class="page-desc">タグ別の記事一覧</p>
 </div><!-- page header end -->
 
   <!-- Page Body -->
-  <div class="page_body">
+  <div class="page-body">
     <!-- Archive Index Toppage -->
 <div class="panel-body">
   
   <ul class="posts">
     
     <li>
-      <a class="post-link" href="/Febris/tags/programming_language">programming_language</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/programming_language">
+        programming_language<span class="post-size">(6)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/LL">LL</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/LL">
+        LL<span class="post-size">(3)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/Closure">Closure</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/Closure">
+        Closure<span class="post-size">(1)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/blog">blog</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/blog">
+        blog<span class="post-size">(4)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/testpost">testpost</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/testpost">
+        testpost<span class="post-size">(1)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/technology">technology</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/technology">
+        technology<span class="post-size">(1)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/ruby">ruby</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/ruby">
+        ruby<span class="post-size">(1)</span>
+      </a>
     </li>
     
     <li>
-      <a class="post-link" href="/Febris/tags/programing">programing</a>
-      <span class="post-date"></span>
+      <a class="post-link" href="/Febris/tags/programing">
+        programing<span class="post-size">(1)</span>
+      </a>
     </li>
     
   </ul>
@@ -146,7 +154,7 @@
     <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
   </div>
   <!-- Navigation -->
-  <ul id="nav-list" class="nav-list is-loading">
+  <ul id="nav-list" class="nav-list">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
@@ -410,7 +418,7 @@
 </div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -421,9 +429,9 @@
     <!-- Common Footer -->
     <footer id="footer">
       <div class="container">
-  <div class="footer_container">
+  <div class="footer-container">
     <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
-  </div><!--footer_container-->
+  </div><!--footer-container-->
 </div><!-- container -->
 
 
@@ -471,10 +479,12 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
+// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      // $('#header-nav > ul.is-loading').fadeIn(50);
-      $("#header-nav > ul.is-loading").removeClass("is-loading");
+      $(this).delay(500).queue(function(){
+        $(".is-loading").removeClass("is-loading");
+      })
     });
 });
 
@@ -483,9 +493,9 @@ for post info side panel.
 case small-sized screens default.
 */
 $(function() {
-  let anch = $("#main-contents .container .page_body .post-info a");
-  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
-  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
 
   function response() {
     if ($(window).width() < 860) {

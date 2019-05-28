@@ -10,6 +10,7 @@
     Latest article list | Febris
   
 </title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
@@ -24,9 +25,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
-<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
-<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="canonical" href="https://82pkdick.github.io/Febris/pagination/page2/">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
@@ -34,7 +34,7 @@
 <body>
   <div id="wrapper">
     <div id="main-container" class="grid">
-
+      <span id="page-top"></span>
       <article id="main-contents">
         <!-- Page -->
 <div class="container">
@@ -42,18 +42,18 @@
   
 
   <!-- Page Header -->
-  <div class="page_header frontpage">
-  <h1 class="page_title">
+  <div class="header page-header frontpage">
+  <h1 class="header-title page-title">
     <span class="title-lmark">【</span>
     
     <a href="/pagination/page2/"><span class="page-title-main">Latest article list</span></a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page_description"></p>
+  <p class="page-desc"></p>
 </div><!-- page header end -->
 
   <!-- Page Body -->
-  <div class="page_body">
+  <div class="page-body">
     <div class="contents front-page">
   <div class="container">
     
@@ -79,7 +79,7 @@ the most common way is to run <code class="highlighter-rouge">jekyll serve</code
 auto-regenerates your site when a file is updated.</p>
 
 </div>
-  <p class="archive_date"><time>July 02, 2016</time></p>
+  <p class="date archive_date"><time>July 02, 2016</time></p>
   <p  class="button-more"><a href="/Febris/jekyll/post/my-first-post">More ›</a></p>
 </div>
 
@@ -96,7 +96,7 @@ auto-regenerates your site when a file is updated.</p>
   </a>
   <h2 class="archive_title"><a href="/Febris/programming/ruby/ruby_02">Rubyの哲学</a></h2>
   <div class="archive_excerpt">開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミングを楽しむこと (Enjoy programming) である」と述べている(ただし...</div>
-  <p class="archive_date"><time>August 06, 2012</time></p>
+  <p class="date archive_date"><time>August 06, 2012</time></p>
   <p  class="button-more"><a href="/Febris/programming/ruby/ruby_02">More ›</a></p>
 </div>
 
@@ -118,7 +118,7 @@ auto-regenerates your site when a file is updated.</p>
 実行時の環境ではなく、自身が定義された環境（静的スコープ）において解決する。関数とそれを評価する環境
 のペアであるともいえる。</p>
 </div>
-  <p class="archive_date"><time>August 05, 2012</time></p>
+  <p class="date archive_date"><time>August 05, 2012</time></p>
   <p  class="button-more"><a href="/Febris/programming/ruby/ruby_01_memo-1">More ›</a></p>
 </div>
 
@@ -153,7 +153,7 @@ auto-regenerates your site when a file is updated.</p>
 すべてがオブジェクトであり、純粋なオブジェクト指向言語といえる。</p>
 
 </div>
-  <p class="archive_date"><time>August 04, 2012</time></p>
+  <p class="date archive_date"><time>August 04, 2012</time></p>
   <p  class="button-more"><a href="/Febris/programming/ruby/ruby_01">More ›</a></p>
 </div>
 
@@ -173,7 +173,7 @@ auto-regenerates your site when a file is updated.</p>
   </a>
   <h2 class="archive_title"><a href="/Febris/programming/c/cpp/cpp_03">入力ストリーム</a></h2>
   <div class="archive_excerpt">今度は入力ストリームを見ていきます。これは標準入力 （通常はキーボード）からの入力を受け取ります。具体的には......</div>
-  <p class="archive_date"><time>December 31, 2011</time></p>
+  <p class="date archive_date"><time>December 31, 2011</time></p>
   <p  class="button-more"><a href="/Febris/programming/c/cpp/cpp_03">More ›</a></p>
 </div>
 
@@ -236,7 +236,7 @@ auto-regenerates your site when a file is updated.</p>
     <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
   </div>
   <!-- Navigation -->
-  <ul id="nav-list" class="nav-list is-loading">
+  <ul id="nav-list" class="nav-list">
 
     <!-- Home -->
     <li class="nav-item home"><a href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
@@ -500,7 +500,7 @@ auto-regenerates your site when a file is updated.</p>
 </div>
   <!-- Site Title -->
   <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div id="site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
@@ -511,9 +511,9 @@ auto-regenerates your site when a file is updated.</p>
     <!-- Common Footer -->
     <footer id="footer">
       <div class="container">
-  <div class="footer_container">
+  <div class="footer-container">
     <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
-  </div><!--footer_container-->
+  </div><!--footer-container-->
 </div><!-- container -->
 
 
@@ -561,10 +561,12 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
+// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      // $('#header-nav > ul.is-loading').fadeIn(50);
-      $("#header-nav > ul.is-loading").removeClass("is-loading");
+      $(this).delay(500).queue(function(){
+        $(".is-loading").removeClass("is-loading");
+      })
     });
 });
 
@@ -573,9 +575,9 @@ for post info side panel.
 case small-sized screens default.
 */
 $(function() {
-  let anch = $("#main-contents .container .page_body .post-info a");
-  let tgl = $("#main-contents .container .page_body > #pinfoTgl");
-  let tgl_pattr = $("#main-contents .container .page_body .post-info #pattrTgl");
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
 
   function response() {
     if ($(window).width() < 860) {
