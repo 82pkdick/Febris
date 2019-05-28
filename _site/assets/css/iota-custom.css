@@ -1,0 +1,107 @@
+/* 
+iota breakpoint
+xs: 0;
+sm: 640px;
+md: 860px;
+lg: 1080px;
+xl: 1300px;
+ */
+
+#main-container {
+  grid-gap: 0;
+  --template-cols-xs: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-xs: 3.5rem 1fr;
+  --template-cols-sm: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-sm: 3.5rem 1fr;
+  --template-cols-md: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-md: 3.5rem 1fr;
+  --template-cols-lg: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-lg: 3.5rem 1fr;
+  --template-cols-xl: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-xl: 3.5rem 1fr;
+}
+
+#header {
+  --col-xs: span 12; --row-xs: 1;
+  --col-sm: span 12; --row-sm: 1;
+  --col-md: span 12; --row-md: 1;
+  --col-lg: span 12; --row-lg: 1;
+  --col-xl: span 12; --row-xl: 1;
+}
+
+#main-contents {
+  --col-xs: 4 / span 6;  --row-xs: 2;
+  --col-sm: 4 / span 6;  --row-sm: 2;
+  --col-md: 4 / span 6;  --row-md: 2;
+  --col-lg: 4 / span 6;  --row-lg: 2;
+  --col-xl: 4 / span 6;  --row-xl: 2;
+}
+
+#header-nav {
+  grid-gap: 0;
+  --template-cols-xs: repeat(3, 1%) repeat(6, 1fr) repeat(3, 1%);
+  --template-rows-xs: 1fr;
+  --template-cols-sm: repeat(3, 2%) repeat(6, 1fr) repeat(3, 2%);
+  --template-rows-sm: 1fr;
+  --template-cols-md: repeat(3, 2%) repeat(6, 1fr) repeat(3, 2%);
+  --template-rows-md: 1fr;
+  --template-cols-lg: repeat(3, 4%) repeat(6, 1fr) repeat(3, 4%);
+  --template-rows-lg: 1fr;
+  --template-cols-xl: repeat(3, 4%) repeat(6, 1fr) repeat(3, 4%);
+  --template-rows-xl: 1fr;
+}
+
+#slide-menu {
+  --col-xs: 1;
+  --col-sm: 1;
+  --col-md: 1;
+  --col-lg: 1;
+  --col-xl: 1;
+}
+
+#site-title {
+  --col-xs: 6 / span 2;
+  --col-sm: 6 / span 2;
+  --col-md: 6 / span 2;
+  --col-lg: 6 / span 2;
+  --col-xl: 6 / span 2;
+}
+
+.site-desc.site-desc-summary {
+  --col-xs: 8 / span 5;
+  --col-sm: 9 / span 4;
+  --col-md: 9 / span 4;
+  --col-lg: 10 / span 3;
+  --col-xl: 10 / span 3;
+}
+
+#main-contents .container .page-body {
+  grid-gap: 0;
+  --template-cols-xs: repeat(6, 1fr);
+  --template-rows-xs: 1fr;
+  --template-cols-sm: repeat(6, 1fr);
+  --template-rows-sm: 1fr;
+  --template-cols-md: repeat(6, 1fr);
+  --template-rows-md: 1fr;
+  --template-cols-lg: repeat(6, 1fr);
+  --template-rows-lg: 1fr;
+  --template-cols-xl: repeat(6, 1fr);
+  --template-rows-xl: 1fr;
+}
+
+#main-contents .container .page-body .post-content {
+  --col-xs: 1 / span 6;
+  --col-sm: 1 / span 4;
+  --col-md: 1 / span 4;
+  --col-lg: 1 / span 4;
+  --col-xl: 1 / span 4;
+}
+#main-contents .container .page-body .post-info {
+  --col-xs: 6 / span 0;
+  --col-sm: 5 / span 2;
+  --col-md: 5 / span 2;
+  --col-lg: 5 / span 2;
+  --col-xl: 5 / span 2;
+}
+
+
