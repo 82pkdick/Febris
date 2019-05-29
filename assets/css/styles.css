@@ -583,6 +583,7 @@ body {
 }
 #main-contents .container .page-body .post-info .post-toc {
   position: sticky;
+  position: -webkit-sticky;
   top: 80px;
   margin-bottom: 30px;
   padding: 1.0rem 0.5rem;
@@ -713,6 +714,7 @@ body {
 }
 #main-contents .container .page-body > label.open {
   position: sticky;
+  position: -webkit-sticky;
   top: 2.8rem;
   z-index: 1000;
   width: 100%;
