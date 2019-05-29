@@ -1061,5 +1061,4 @@ pre {
 
 .is-loading {
   /* for FOUC(Flash of Unstyled Content) */
-  display: none;
 }
