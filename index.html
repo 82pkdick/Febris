@@ -607,12 +607,13 @@ $(function() {
 });
 
 // for FOUC(Flash of Unstyled Content)
-// 遅延表示させる. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
 $(function() {
     $(window).on('load', function() {
-      $(this).delay(500).queue(function(){
-        $(".is-loading").removeClass("is-loading");
-      })
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      $(".is-loading").removeClass("is-loading");
     });
 });
 
