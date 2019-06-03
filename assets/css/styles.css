@@ -927,9 +927,10 @@ body {
   }
   #main-contents .container .page-body #site_search .ctr-btn {
     margin: 0 4px;
+    font-size: 0.9em;
   }
   #main-contents .container .page-body #site_search .ctr-btn.submit-btn {
-    margin-left: 30%;
+    margin-left: 20%;
   }
   #main-contents .container .page-body #search-results {
     margin: 0 0 30px;
