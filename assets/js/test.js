@@ -23,4 +23,4 @@ global.$site.config = {
 
 })(window);
 
-console.dir(window.$site.config);
+// console.dir(window.$site.config);
