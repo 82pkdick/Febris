@@ -912,14 +912,17 @@ body {
     margin-bottom: 0.8em;
     padding-left: 0;
   }
-  #main-contents .container .page-body .panel-body {
-    padding: 1.0rem 0.8rem;
-  }
   #main-contents .container h1, #main-contents .container h2, #main-contents .container h3, #main-contents .container h4 {
     font-size: 0.9em;
   }
+  #main-contents .container .page-body .panel-body {
+    padding: 1.0rem 0.8rem;
+  }
+  #main-contents .container .page-body .post-content {
+    padding: 1.5rem 1.2rem 2.5rem 1.5rem;
+  }
   #main-contents .container .page-body #site_search {
-    margin: 1.0rem 1.2rem;
+    margin: 1.0rem 0;
     padding: 1.5rem;
   }
   #main-contents .container .page-body #site_search #search-query {
@@ -934,7 +937,7 @@ body {
   }
   #main-contents .container .page-body #search-results {
     margin: 0 0 30px;
-    padding: 0 1.6rem 0 2.2em;
+    padding: 0 0.4rem 0 1.2em;
   }
   #main-contents .container .page-body #search-results .no-match {
     margin: auto;
