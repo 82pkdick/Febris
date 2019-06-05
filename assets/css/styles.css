@@ -21,7 +21,7 @@ h5, h6 {
 }
 
 h2 {
-  margin: 2em 0 1.5em 0;
+  margin: 1.2em 0 1.5em 0;
   font-size: 1.4em;
 }
 
@@ -456,15 +456,21 @@ body {
 }
 
 .header-title {
-  box-sizing: border-box;
   padding-top: 0.6rem;
   padding-left: 2.5rem;
+  font-size: 28px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.page-appendix {
+  position: relative;
+  font-size: 0.8em;
+  text-align: right;
 }
 
 .date {
-  position: relative;
   color: #228B22;
-  font-size: 0.8em;
 }
 
 /* Post */
@@ -473,11 +479,6 @@ body {
   margin-top: -1.0rem;
   padding: 0 10px 5px;
   padding-bottom: 5px;
-  text-align: right;
-}
-#main-contents .container .header.post-header .post-title {
-  font-size: 28px;
-  font-weight: bold;
 }
 #main-contents .container .header.post-header .post-title a {
   color: #8B0000;
@@ -489,14 +490,11 @@ body {
 }
 
 /* Page */
-#main-contents .container .page-header .page-title {
-  font-size: 24px;
-  font-weight: bold;
-}
-#main-contents .container .page-header .page-desc {
+#main-contents .container .header.page-header .page-desc {
   font-size: 0.7em;
   color: #696969;
-  margin: 1.8em 0 0.4em 1.5em;
+  margin: 0.2em 1.0em;
+  padding-bottom: 5px;
 }
 #main-contents .container .page-body {
   padding: 0 0 1.5%;
@@ -781,12 +779,8 @@ body {
     box-sizing: border-box;
   }
 
-  #main-contents .container .header.post-header .post-title {
-    font-size: 1.3rem;
-    text-align: center;
-    padding-left: 0;
-  }
-  #main-contents .container .header.page-header .page-title {
+  #main-contents .container .header .header-title.post-title,
+  #main-contents .container .header .header-title.page-title {
     font-size: 1.3rem;
     text-align: center;
     padding-left: 0;
@@ -892,25 +886,16 @@ body {
 }
 /* smartphone screens */
 @media only screen and (max-width: 640px) {
-  #main-contents .container .header.post-header {
-    margin-top: -10px;
-    padding: 0;
-  }
-  #main-contents .container .header.post-header .post-title {
+  #main-contents .container .header.post-header .header-title.post-title, #main-contents .container .header.post-header .header-title.page-title, #main-contents .container .header.page-header .header-title.post-title, #main-contents .container .header.page-header .header-title.page-title {
     font-size: 1.3rem;
     margin-bottom: 0.8em;
     padding-left: 0;
   }
-  #main-contents .container .header.post-header .post-date {
+  #main-contents .container .header.post-header .page-appendix, #main-contents .container .header.page-header .page-appendix {
     margin-top: 0;
     margin-right: 0;
     padding-right: 0;
     font-size: 0.7em;
-  }
-  #main-contents .container .header.page-header .page-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.8em;
-    padding-left: 0;
   }
   #main-contents .container .page-body .panel-body {
     padding: 1.0rem 0.8rem;
@@ -918,18 +903,18 @@ body {
   #main-contents .container .page-body .post-content {
     padding: 1.5rem 1.2rem 2.5rem 1.5rem;
   }
-  #main-contents .container .page-body #site_search {
+  #main-contents .container .page-body #site-search {
     margin: 1.0rem 0;
     padding: 1.5rem;
   }
-  #main-contents .container .page-body #site_search #search-query {
+  #main-contents .container .page-body #site-search #search-query {
     margin-bottom: 1.0rem;
   }
-  #main-contents .container .page-body #site_search .ctr-btn {
+  #main-contents .container .page-body #site-search .ctr-btn {
     margin: 0 4px;
     font-size: 0.9em;
   }
-  #main-contents .container .page-body #site_search .ctr-btn.submit-btn {
+  #main-contents .container .page-body #site-search .ctr-btn.submit-btn {
     margin-left: 20%;
   }
   #main-contents .container .page-body #search-results {
@@ -1104,7 +1089,7 @@ pre {
 /**
  Search page SCSS
  */
-#site_search {
+#site-search {
   margin: 1.0rem 2.0rem;
   padding: 1.0rem 2.0rem;
   background: #f0f8ff;
