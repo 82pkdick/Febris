@@ -651,6 +651,7 @@ body {
 #main-contents .container .page-body .post-date {
   right: 0;
   margin-left: 1.5em;
+  font-size: 0.7em;
 }
 #main-contents .container .page-body ul.posts {
   line-height: 2.0em;
@@ -1112,6 +1113,13 @@ body {
     padding: 0 0.3rem;
     line-height: 1.3em;
     font-size: 0.9em;
+  }
+  #main-contents .container .page-body.tags .panel-body ul.posts li {
+    display: block;
+    margin: 12px 5px;
+  }
+  #main-contents .container .page-body.tags .panel-body ul.posts li a.post-link {
+    padding: 10px 20px;
   }
 }
 /**
