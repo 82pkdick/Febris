@@ -17,8 +17,8 @@ global.$site.config = {
   description: "My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   author_name: "82pkdick",
   author_email: "82pkdick@gmail.com",
-  author_twitter: "82pkdick",
-  author_github: "82pkdick",
+  author_twitter: "",
+  author_github: "",
 };
 
 })(window);

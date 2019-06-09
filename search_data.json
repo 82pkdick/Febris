@@ -2,7 +2,7 @@
   
     {
       "title": "Ruby great!",
-      "url": "/Febris/language/ruby/Ruby-very-great",
+      "url": "/Febris/posts/language/ruby/Ruby-very-great",
       "author": "82pkdick",
       "categories": ["language","ruby"],
       "tags": ["ruby","programing"],
@@ -11,7 +11,7 @@
   
     {
       "title": "Welcome to Jekyll!",
-      "url": "/Febris/jekyll/update/welcome-to-jekyll",
+      "url": "/Febris/posts/jekyll/update/welcome-to-jekyll",
       "author": "82pkdick",
       "categories": ["Jekyll","update"],
       "tags": ["blog"],
@@ -20,7 +20,7 @@
   
     {
       "title": "Jekyllのチュートリアル",
-      "url": "/Febris/jekyll/jekyll-Tutorial",
+      "url": "/Febris/posts/jekyll/jekyll-Tutorial",
       "author": "82pkdick",
       "categories": ["Jekyll"],
       "tags": ["technology","blog"],
@@ -29,7 +29,7 @@
   
     {
       "title": "Hello World!",
-      "url": "/Febris/test/hello-world",
+      "url": "/Febris/posts/test/hello-world",
       "author": "82pkdick",
       "categories": ["test"],
       "tags": ["testpost"],
@@ -38,7 +38,7 @@
   
     {
       "title": "Second Blog Post",
-      "url": "/Febris/jekyll/post/second-blog-post",
+      "url": "/Febris/posts/jekyll/post/second-blog-post",
       "author": "82pkdick",
       "categories": ["Jekyll","post"],
       "tags": ["blog"],
@@ -47,7 +47,7 @@
   
     {
       "title": "My First Blog Post",
-      "url": "/Febris/jekyll/post/my-first-post",
+      "url": "/Febris/posts/jekyll/post/my-first-post",
       "author": "82pkdick",
       "categories": ["Jekyll","post"],
       "tags": ["blog"],
@@ -56,7 +56,7 @@
   
     {
       "title": "Rubyの哲学",
-      "url": "/Febris/programming/ruby/ruby_02",
+      "url": "/Febris/posts/programming/ruby/ruby_02",
       "author": "82pkdick",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL"],
@@ -65,7 +65,7 @@
   
     {
       "title": "Rubyのクロージャ",
-      "url": "/Febris/programming/ruby/ruby_01_memo-1",
+      "url": "/Febris/posts/programming/ruby/ruby_01_memo-1",
       "author": "82pkdick",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL","Closure"],
@@ -74,7 +74,7 @@
   
     {
       "title": "Rubyとは",
-      "url": "/Febris/programming/ruby/ruby_01",
+      "url": "/Febris/posts/programming/ruby/ruby_01",
       "author": "82pkdick",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL"],
@@ -83,7 +83,7 @@
   
     {
       "title": "入力ストリーム",
-      "url": "/Febris/programming/c/cpp/cpp_03",
+      "url": "/Febris/posts/programming/c/cpp/cpp_03",
       "author": "82pkdick",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
@@ -92,7 +92,7 @@
   
     {
       "title": "出力ストリーム",
-      "url": "/Febris/programming/c/cpp/cpp_02",
+      "url": "/Febris/posts/programming/c/cpp/cpp_02",
       "author": "82pkdick",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
@@ -101,7 +101,7 @@
   
     {
       "title": "最小のC++プログラム",
-      "url": "/Febris/programming/c/cpp/cpp_01",
+      "url": "/Febris/posts/programming/c/cpp/cpp_01",
       "author": "82pkdick",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
