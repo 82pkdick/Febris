@@ -4,6 +4,8 @@
       "title": "Ruby great!",
       "url": "/Febris/posts/language/ruby/Ruby-very-great",
       "author": "82pkdick",
+      "date1": "2019/02",
+      "date2": "2019.02.14",
       "categories": ["language","ruby"],
       "tags": ["ruby","programing"],
       "contents": "RubyとはRubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。400: Invalid requestTry Ruby123456789101112131415class person  def initialize(name)    @name = name  end  def hello    &quot;Hello, friend!\\nMy name is #{@name}!&quot;  endendcharlie = Person.new(&quot;Charlie&quot;)puts charlie.hello#=&amp;gt; Hello, friend!#=&amp;gt; My name is Charlie!"  
@@ -13,6 +15,8 @@
       "title": "Welcome to Jekyll!",
       "url": "/Febris/posts/jekyll/update/welcome-to-jekyll",
       "author": "82pkdick",
+      "date1": "2019/01",
+      "date2": "2019.01.28",
       "categories": ["Jekyll","update"],
       "tags": ["blog"],
       "contents": "Welcome to Jekyll!You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.ext and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.Jekyll also offers powerful support for code snippets:def print_hi(name)  puts &quot;Hi, #{name}&quot;endprint_hi(&#39;Tom&#39;)#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo. If you have questions, you can ask them on Jekyll Talk."  
@@ -22,6 +26,8 @@
       "title": "Jekyllのチュートリアル",
       "url": "/Febris/posts/jekyll/jekyll-Tutorial",
       "author": "82pkdick",
+      "date1": "2019/01",
+      "date2": "2019.01.28",
       "categories": ["Jekyll"],
       "tags": ["technology","blog"],
       "contents": "Jekyllのチュートリアルgrid-row:Jekyll is a simple, blog aware, static site generator."  
@@ -31,6 +37,8 @@
       "title": "Hello World!",
       "url": "/Febris/posts/test/hello-world",
       "author": "82pkdick",
+      "date1": "2018/11",
+      "date2": "2018.11.21",
       "categories": ["test"],
       "tags": ["testpost"],
       "contents": "First post.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."  
@@ -40,6 +48,8 @@
       "title": "Second Blog Post",
       "url": "/Febris/posts/jekyll/post/second-blog-post",
       "author": "82pkdick",
+      "date1": "2016/09",
+      "date2": "2016.09.04",
       "categories": ["Jekyll","post"],
       "tags": ["blog"],
       "contents": "This is the second blog post on my website!"  
@@ -49,6 +59,8 @@
       "title": "My First Blog Post",
       "url": "/Febris/posts/jekyll/post/my-first-post",
       "author": "82pkdick",
+      "date1": "2016/07",
+      "date2": "2016.07.02",
       "categories": ["Jekyll","post"],
       "tags": ["blog"],
       "contents": "You’ll find this post in your _posts directory. Go ahead and edit it and re-buildthe site to see your changes. You can rebuild the site in many different ways, butthe most common way is to run jekyll serve, which launches a web server andauto-regenerates your site when a file is updated.To add new posts, simply add a file in the _posts directory that follows theconvention YYYY-MM-DD-name-of-post.ext and includes the necessary front matter.Take a look at the source for this post to get an idea about how it works."  
@@ -58,6 +70,8 @@
       "title": "Rubyの哲学",
       "url": "/Febris/posts/programming/ruby/ruby_02",
       "author": "82pkdick",
+      "date1": "2012/08",
+      "date2": "2012.08.06",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL"],
       "contents": "Rubyの哲学開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミングを楽しむこと (Enjoy programming) である」と述べている(ただし、明文化された公式な言語仕様は2008年5月現在存在しない)。Perlのモットー「やり方はいろいろある (TMTOWTDI; There’s More Than One Way To DoIt)」は「多様性は善(Diversity is Good)」というスローガンでRubyに引き継がれてはいるものの、最重要なものではないとも述べており、非推奨な手法も可能とすると同時に、そのような手法を言語仕様的に使いにくくする事によって、自粛を促しているため洗脳言語(Babel-17)という側面がある。"  
@@ -67,6 +81,8 @@
       "title": "Rubyのクロージャ",
       "url": "/Febris/posts/programming/ruby/ruby_01_memo-1",
       "author": "82pkdick",
+      "date1": "2012/08",
+      "date2": "2012.08.05",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL","Closure"],
       "contents": "クロージャー(Closure) とは？プログラミング言語において、クロージャ (クロージャー、Closure) は関数の一種である。引数以外の変数を実行時の環境ではなく、自身が定義された環境（静的スコープ）において解決する。関数とそれを評価する環境のペアであるともいえる。"  
@@ -76,6 +92,8 @@
       "title": "Rubyとは",
       "url": "/Febris/posts/programming/ruby/ruby_01",
       "author": "82pkdick",
+      "date1": "2012/08",
+      "date2": "2012.08.04",
       "categories": ["programming","ruby"],
       "tags": ["programming_language","LL"],
       "contents": "Rubyとは？Ruby（ルビー）は、まつもとゆきひろ（通称Matz）により開発されたオブジェクト指向スクリプト言語であり、従来Perlなどのスクリプト言語が用いられてきた領域でのオブジェクト指向プログラミングを実現する。Rubyは当初1993年2月24日に生まれ、1995年12月にfj上で発表された。名称のRubyは、プログラミング言語Perlが6月の誕生石であるPearl（真珠）とほぼ同じ発音をすることから、まつもとの同僚の誕生石（7月）のルビーを取って名付けられた。機能として、クラス定義、ガベージコレクション、強力な正規表現処理、マルチスレッド、例外処理、イテレータ・クロージャ、Mixin、演算子オーバーロードなどがある。Perlの代替となることができることが初期の段階から重視されている。Perlと同様にグルー言語としての使い方が可能で、Cプログラムやライブラリを呼び出す拡張モジュールを組み込むことができる。Ruby処理系は、主にインタプリタとして実装されている（詳しくは[[実装]]を参照）。構文は、ALGOL系を継承しながら、可読性を重視している。Rubyにおいては整数や文字列なども含めデータ型はすべてがオブジェクトであり、純粋なオブジェクト指向言語といえる。フリーソフトウェアとしてruby ライセンス（Ruby License や Ruby’s と表記されることもある。GPLかArtisticに似た独自ライセンスを選択するデュアルライセンス）で配布されている。Ruby哲学開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミングを楽しむことである (Enjoy programming)」と述べている。(ただし、明文化された公式な言語仕様は2008年5月現在存在しない。)Perlのモットー「やり方はいろいろある (TMTOWTDI; There’s More Than One Way To DoIt)」は「多様性は善(Diversity is Good)」というスローガンでRubyに引き継がれてはいるものの最重要なものではないとも述べており、非推奨な手法も可能にするとともに、そのような手法を言語仕様により使いにくくすることによって自粛を促している。これは言語仕様が「望ましい」習慣の押し付けを行うということであり、洗脳言語(Babel-17)と言われる一面でもある。実装公式な実装Rubyの公式な実装には、以下の二種類が存在する。            MRI（Matz’ Ruby Implementation)      1.8.x以前の公式実装。まつもとゆきひろによって開発されはじめたC言語による実装であり、最も広く使われている。JRubyに対してCRubyと呼ばれることもある。              YARV      1.9.0で採用された、MRIを拡張した公式な処理系。これはソースコードをJIT方式でバイトコードへコンパイルした後、バイトコードを仮想機械上で実行するインタプリタである。      その他の実装:JRuby:Javaベースの実装。純粋なJavaで行われているため、プラットフォーム非依存の利用が可能。ほとんどのRubyクラスが組み込みで提供されている。JIT方式に加え、AOT方式のJavaバイトコードへのコンパイラも用意されている（AOT方式でコンパイルしたJavaバイトコードはJRubyが無くても他のJavaプラットフォーム上で動作させることが可能となる）。  IronRuby := .NET Framework上でRubyを動作させる実装であり、.NET Frameworkのライブラリと連携させることができる。JIT方式のバイトコードインタプリタ。共通言語基盤に準拠した実装（Monoなど）で動作するため、プラットフォーム非依存の利用も可能（ただし、ソースコードが.NET Frameworkのライブラリに依存している場合はMonoでの動作は不可能）。  RubyCocoa、MacRuby := いずれもMac OS X上で動作するRuby実装。Cocoaを含む様々なフレームワークとの連携が可能。RubyCocoaはMac OS X Leopard以降に標準でインストールされており、MacRubyはRubyCocoaの問題点を解決するために開発されている。  Rubinius := 仮想機械上でRubyを実行するJIT方式のバイトコードインタプリタ。大部分がRubyで実装されている。その他  Parrot上でRubyを動作させるための実装なども開発されている。競合言語としてのPythonプログラミング言語としてのRubyは大雑把に言うと「Perlのオブジェクト指向版」、つまりインタプリタで実行する高機能なスクリプト言語でありオブジェクト指向機能を持つもの、と位置づけることができるが、この位置付けはスクリプト言語Pythonと同じである。このことがそれぞれの言語のユーザ同士の間で「どちらの言語が優れているか」といった論争を生んできた。しかしその論争は技術的な細部にとらわれた不毛な議論になることも多かった。ここであえて両者の細部を比較はしないが、ユーザ数や書かれたシステムの数量・質などを現時点で比べると世界的にはPythonの方が人気が高い。一方、日本では開発者が日本人であることもあり、Rubyの人気は高く書籍も多く出版されている。とはいえ2004年前後まで圧倒的なキラーアプリがなく、tDiaryやバグトラッキングシステム「影舞」程度しか知られていなかったため、大きな普及には至らなかった。ところが2004年末に発表され2005年に大ブレイクしたRuby on Railsにより一気に注目を集めている。例基本的なコード# 文字リテラルを含め全てがオブジェクトである-199.abs                                       # 199&quot;ruby is cool&quot;.length                          # 12&quot;Rick&quot;.index(&quot;c&quot;)                              # 2&quot;Nice Day Isn&#39;t It?&quot;.split(//).uniq.sort.join  # &quot; &#39;?DINaceinsty&quot;コレクション配列の作成と使用法a = [1, &#39;hi&#39;, 3.14, 1, 2, [4, 5]] a[2]                      # 3.14a.reverse                 # [[4, 5], 2, 1, 3.14, &#39;hi&#39;, 1]a.flatten.uniq            # [1, &#39;hi&#39;, 3.14, 2, 4, 5]h4. ハッシュの作成と使用法hash = {&#39;water&#39; =&amp;gt; &#39;wet&#39;, &#39;fire&#39; =&amp;gt; &#39;hot&#39;}puts hash[&#39;fire&#39;]       # 表示:  hot hash.each_pair do |key, value|  puts &quot;#{key} is #{value}&quot;end # 表示:               water is wet#                     fire is hot hash.delete_if {|key, value| key == &#39;water&#39;}   # Deletes &#39;water&#39; =&amp;gt; &#39;wet&#39;制御構造ほかの言語でもよくみられるような制御構造を用いることができるif &quot;fablic&quot;.length &amp;gt; 3  puts &#39;ya&#39;else  puts &#39;nop&#39;end# 表示:         ya n = 0while n &amp;lt; 3  puts &#39;foobar&#39;  n += 1end# 表示:         foobar#               foobar#               foobar一部の制御構造は後述するイテレータで代替することができる。ブロックとイテレータrubyではブロック付きメソッド呼び出し（イテレータとも呼ばれる）を 用いるコードが好まれることが多い。これを用いると、ユーザー定義の制御構造やコールバック など様々な処理を簡潔に記述できる利点があるからである。ブロックの表記方法には二つの方法がある。メソッドの末尾に記述することで機能する{ puts &quot;Hello, World!&quot; }do puts &quot;Hello, World!&quot; endブロック付きメソッド呼び出しが繰り返し処理を主な役割としていたことから、イテレータと呼ばれていた時期がある。しかし、実際には繰り返し処理にとどまらず、様々な使われ方をしているので、最近はブロック付きメソッド呼び出し全体の総称としてイテレータという名称を用いるのは適切でないと考えられている。[1]繰り返し処理配列の各要素への繰り返し処理list = [1, 2, 5, 13, 21]list.collect!{|item| item * 2}          # listの各要素を２倍する以下はブロックを使わずに同じことを行う場合list = [1, 2, 5, 13, 21]n = 0while n &amp;lt; list.length  list[n] *= 2  n += 1end指定した回数の繰り返し処理3.times{ puts &#39;foobar&#39; }       #制御構造の項のwhileの例と同じ後処理の省力化ブロックの内容を実行してから、決められた後処理を行うメソッドもあるFile.open(&#39;file.txt&#39;, &#39;w+b&#39;) do |file|  file.puts &#39;Wrote some text.&#39;end                             # Fileはここで自動的にcloseされるこれは次の例と同様の処理を行う（ensureについては例外処理の項を参照）begin  file = File.open(&#39;file.txt&#39;, &#39;w+b&#39;)  file.puts &#39;Wrote some text.&#39;ensure  file.closeend本処理を後から指定実際に行いたい処理をブロックで記述する。 前項の後処理の省力化もこれの一例といえる。def bfs(list)       #配列をツリーに見立てた処理  while not list.empty?    unit = list.shift    yield unit      #ブロックの内容を実行    unit.each{|v| list.push v} if defined? unit.push  endendbfs([0,1,[2,3],4,[5,[6,7,8]],9]) {|v| p v}この例は”ツリーから要素と分枝をつぎつぎと取り出し”て”取り出したものになんらかの処理を行う” ものである。メソッドの利用者は、”なんらかの処理”のみを記述すればよく、取り出しのアルゴリズムなど、本質的でない内容に意識を向ける必要がなくなる。クロージャクロージャとなるようなブロックの引数渡し# オブジェクトのインスタンス変数（変数名の頭に@が付く）でブロックを記憶。def remember(&amp;amp;p)  @block = pend# nameを受け取るブロックを引数に、上記のメソッドを呼び出す。remember {|name| puts &quot;Hello, &quot; + name + &quot;!&quot;}# 後に必要になった時点でクロージャを呼び出す。@block.call(&quot;John&quot;)# 表示:&quot;Hello, John!&quot;メソッドからクロージャを返す例def create_set_and_get(value = 0)  return proc {|x| value = x}, proc { value }end setter, getter = create_set_and_getsetter.call(21)getter.call # =&amp;gt; 21“クロージャ”:ruby_01_memo-1.htmlクラス次のコードはPersonという名前のクラスである。その中、まずinitializeはオブジェクトを初期化するコンストラクタである。ほかに2つのメソッドがあり、1つは比較演算子である&amp;lt;=&amp;gt;をオーバーライドしておりArray#sortによりプロパティageでソートすることができる。もう1つのオーバーライド箇所のto_sメソッドは Kernel#puts での表示の形式を整える。attr_readerはRubyにおけるメタプログラミングの例であり、attr はインスタンス変数の入出力を司るgetterやsetterメソッド（アクセサ）を定義する。attr_readerはgetterメソッドのみの定義である。なおメソッド中では最後に評価された式が返り値となり、明示的なreturnは省略できる。class Person  def initialize(name, age)    @name, @age = name, age  end   def &amp;lt;=&amp;gt;(person)    @age &amp;lt;=&amp;gt; person.age  end   def to_s    &quot;#{@name} (#{@age})&quot;  end   attr_reader :name, :ageend group = [ Person.new(&quot;John&quot;, 20),          Person.new(&quot;Markus&quot;, 63),          Person.new(&quot;Ash&quot;, 16)        ] puts group.sort.reverse結果は3つの名前が年の大きい順に表示されるMarkus (63)John (20)Ash (16)例外処理例外はなにか不具合が起こったときraiseの呼び出しで発生させることができる。 Rubyでの例外はExceptionクラスか、そのサブクラスのインスタンスである。例外にはメッセージを追加することもできるraise &quot;This is a message&quot;さらに例外のタイプも指定できるraise ArgumentError, &quot;Illegal arguments!&quot;例外はrescue節で処理することができ、次のようにコードにrescueを付加するだけであるbegin  # 通常処理rescue  # 例外処理ensure  # 例外の発生に関わらず必ず実行される処理endRubyの周辺技術  分散オブジェクトを実現するdRuby  Apache HTTP Serverに組み込むためのmod ruby  サーバサイドでHTMLへの埋め込みRuby文を実現するeRuby  Rubyスクリプトに埋め込むことができる文書形式RD  RubyによるRDを採用したWikiクローン、RWiki  RubyからSDLライブラリを扱えるようにするRuby/SDL  RubyからDelphiを扱えるようにするApollo  RubyによるWebアプリケーションフレームワークRuby on Rails  Rubyの別の処理系であるYARV（Yet another RubyVM）  Rubyの統合開発環境RDE（Ruby Development Environment）  RubyのコードをWindowsの実行形式ファイルに変換するExerb  Ruby用のライブラリ管理システムであるRubyGems  Microsoft WindowsのActiveX環境でrubyインタープリターを呼び出すActiveScriptRuby (Internet Explorer限定だがHTMLに埋めこんでクライアント上で動かすスクリプト言語としてRubyを指定できるようになる - サーバ上で動作する eRubyとは区別すること)  RubyからWin32APIやCOMコンポーネントを呼び出すためのライブラリー WIN32OLE  JavaScriptやFlash上で動くRubyの処理系HotRuby  Rubyによるビヘイビア駆動開発のためのフレームワークRSpec  Rubyで書かれたビルドツール RakeRubyで開発されたアプリケーション  tDiary  影舞  Hiki  Ruby on Rails  Redmine  qwikWeb  WEBrickRubyを組み込んだアプリケーション  RPGツクールXP・RPGツクールVX := 株式会社エンターブレインから発売されているRPG制作ソフトシリーズのうち、RPGツクールXPとRPGツクールVXでは、Rubyをツクール専用にカスタマイズした Ruby Game Scripting System (RGSS)を搭載している。同シリーズの従来ソフトではあらかじめ用意された機能しか使えなかったが、これにより戦闘などのシステムを一から構築する事が出来るようになった。エピソードRubyではブロック構造をendで終える構文が採用されているが、開発者のまつもとゆきひろは他の構文が採用される可能性があったことを述べている。当時、Emacs上でendで終える構文をオートインデントさせた例はあまりなく、Ruby言語用の編集モードにオートインデント機能を持たせられるかどうかが問題になっていたためである。実際には数日の試行でオートインデント可能であることがわかり、現在の構文になった。C言語のような{}を使った構文を採用することも検討されていたが、結局これは採用されなかった。"  
@@ -85,6 +103,8 @@
       "title": "入力ストリーム",
       "url": "/Febris/posts/programming/c/cpp/cpp_03",
       "author": "82pkdick",
+      "date1": "2011/12",
+      "date2": "2011.12.31",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
       "contents": "今度は入力ストリームを見ていきます。これは標準入力 （通常はキーボード）からの入力を受け取ります。具体的には次のように記述します。#include &amp;lt;iostream&amp;gt;int main(){\tint num;\t\tstd::cin &amp;gt;&amp;gt; num;\tstd::cout &amp;lt;&amp;lt; num;\treturn 0; }このプログラムは、キーボードから入力された数値を、そのまま出力します。入力には std::cinを使います。シフト演算子（実際にシフト演算をしている訳ではない）の向きが、std::coutとは逆向きになっていることに気を付けて下さい。これは、つまり入出力の方向を表している訳です。つまり、入力時は変数numに向かってデータが流れていく、出力時は変数numからデータが流れていくということです。&amp;lt;/p&amp;gt;当然ですが、入力ストリームの場合、入力先は変数です。ここに定数を置くことはできません。std::coutと同じく、std::cinもデータの型を問いませんし、入力先を連結できます。次のコードは全て有効です。"  
@@ -94,6 +114,8 @@
       "title": "出力ストリーム",
       "url": "/Febris/posts/programming/c/cpp/cpp_02",
       "author": "82pkdick",
+      "date1": "2011/11",
+      "date2": "2011.11.30",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
       "contents": "C++では、cout を使って出力処理を行えます。例えば、次のようにコードを書けば、画面に”Test”と出力されます。std::cout &amp;lt;&amp;lt; &quot;Test&quot;;これは、Ｃ言語で次のように書くのと同じことです。fprintf( stdout, &quot;Test&quot; );つまり、標準出力（通常は画面）に対して出力を行うということです。"  
@@ -103,6 +125,8 @@
       "title": "最小のC++プログラム",
       "url": "/Febris/posts/programming/c/cpp/cpp_01",
       "author": "82pkdick",
+      "date1": "2011/10",
+      "date2": "2011.10.29",
       "categories": ["programming","c","cpp"],
       "tags": ["programming_language"],
       "contents": "まずは、一番小さいC++プログラムを見てみます。int main(){\treturn 0;}"  

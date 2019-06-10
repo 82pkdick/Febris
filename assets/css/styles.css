@@ -487,7 +487,7 @@ body {
   font-size: 0.8em;
   color: #696969;
   padding: 0.5em 0;
-  padding-left: 1.1em;
+  padding-left: 3.5em;
 }
 
 /**
@@ -970,6 +970,30 @@ body {
     margin: 1.0em 0 0.3em;
   }
 
+  h1 {
+    font-size: 123%;
+  }
+
+  h2 {
+    font-size: 120%;
+  }
+
+  h3 {
+    font-size: 115%;
+  }
+
+  h4 {
+    font-size: 110%;
+  }
+
+  h5 {
+    font-size: 105%;
+  }
+
+  h6 {
+    font-size: 100%;
+  }
+
   .MJXc-display {
     overflow-x: auto;
   }
@@ -1062,8 +1086,11 @@ body {
 }
 /* smartphone screens */
 @media only screen and (max-width: 640px) {
+  #main-contents .container nav.breadcrumbs {
+    font-size: 90%;
+  }
   #main-contents .container .header.post-header .header-title.post-title, #main-contents .container .header.post-header .header-title.page-title, #main-contents .container .header.page-header .header-title.post-title, #main-contents .container .header.page-header .header-title.page-title {
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     margin-bottom: 0.8em;
     padding-left: 0;
   }
@@ -1071,13 +1098,40 @@ body {
     margin-top: 0;
     margin-right: 0;
     padding-right: 0;
-    font-size: 0.7em;
+    font-size: 0.6em;
+  }
+  #main-contents .container h1 {
+    font-size: 120%;
+  }
+  #main-contents .container h2 {
+    font-size: 115%;
+  }
+  #main-contents .container h3 {
+    font-size: 110%;
+  }
+  #main-contents .container h4 {
+    font-size: 105%;
+  }
+  #main-contents .container h5 {
+    font-size: 100%;
+  }
+  #main-contents .container h6 {
+    font-size: 95%;
   }
   #main-contents .container .page-body .panel-body {
-    padding: 1.0rem 0.8rem;
+    padding: 0.5rem;
+  }
+  #main-contents .container .page-body .panel-body .plist-block {
+    font-size: 0.85em;
+  }
+  #main-contents .container .page-body .panel-body .plist-block .pinfo {
+    display: none;
+  }
+  #main-contents .container .page-body .panel-body .posts .post-date {
+    display: none;
   }
   #main-contents .container .page-body .post-content {
-    padding: 1.5rem 1.2rem 2.5rem 1.5rem;
+    padding: 1.5rem 1.0rem 2.5rem 1.3rem;
   }
   #main-contents .container .page-body #site-search {
     margin: 1.0rem 0;
@@ -1116,10 +1170,10 @@ body {
   }
   #main-contents .container .page-body.tags .panel-body ul.posts li {
     display: block;
-    margin: 12px 5px;
+    margin: 8px 0;
   }
   #main-contents .container .page-body.tags .panel-body ul.posts li a.post-link {
-    padding: 10px 20px;
+    padding: 9px 10px;
   }
 }
 /**
@@ -1272,6 +1326,43 @@ pre {
 
 .is-loading {
   /* for FOUC(Flash of Unstyled Content) */
+}
+
+/**
+  Post list block in archives page
+*/
+.plist-block {
+  list-style: none;
+  font-size: 0.95em;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin-left: 1.5em;
+  line-height: 1.8em;
+}
+.plist-block .post-link {
+  color: #800000;
+  padding: 0 3px;
+}
+.plist-block .pinfo {
+  vertical-align: 10%;
+}
+.plist-block .pinfo .ctg-link {
+  font-size: 0.75em;
+  vertical-align: baseline;
+  padding: 0 2px;
+}
+.plist-block .pinfo .sep {
+  margin: 0 -1px;
+  font-size: 0.9em;
+  color: #cdcdcd;
+}
+.plist-block .pinfo .sep.small-brackets {
+  margin: 0 -3px;
+  font-size: 1.2em;
+  color: #9acd32;
+  vertical-align: middle;
 }
 
 /**
