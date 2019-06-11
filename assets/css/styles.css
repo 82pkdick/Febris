@@ -1102,6 +1102,10 @@ body {
 }
 /* smartphone screens */
 @media only screen and (max-width: 640px) {
+  #header #header-nav ul#nav-list li.nav-item.tags ul.sub-menu li.nav-item {
+    margin: 3px 0;
+  }
+
   #main-contents .container nav.breadcrumbs {
     font-size: 90%;
   }
