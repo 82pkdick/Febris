@@ -1196,8 +1196,7 @@ body {
     justify-content: space-between;
   }
   #main-contents .container .page-body .panel-body .category-list.top .category-items .category-item-block .category-desc {
-    font-size: 0.6em;
-    margin-left: 0;
+    display: none;
   }
   #main-contents .container .page-body .panel-body .category-list.top .category-items .category-item-block.block-parent {
     width: 290px;
