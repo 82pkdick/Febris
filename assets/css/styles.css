@@ -1192,7 +1192,7 @@ body {
     padding: 9px 10px;
   }
   #main-contents .container .page-body .panel-body ul.category-list.top .category-list.sub {
-    padding-left: 35px;
+    padding-left: 30px;
   }
   #main-contents .container .page-body .panel-body ul.category-list.top .category-items .category-item-block {
     display: inline-flex;
@@ -1206,9 +1206,6 @@ body {
   }
   #main-contents .container .page-body .panel-body ul.category-list.top .category-items .category-item-block.block-sub {
     width: auto;
-  }
-  #main-contents .container .page-body .panel-body ul.category-list.top .category-items.parent .category-list.sub .category-items.child::before {
-    display: none;
   }
 }
 /**
