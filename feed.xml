@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-06-11T12:24:29+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Ruby great!</title><link href="https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great" rel="alternate" type="text/html" title="Ruby great!" /><published>2019-02-14T00:00:00+09:00</published><updated>2019-02-14T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great</id><content type="html" xml:base="https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great">&lt;h2 id=&quot;rubyとは&quot;&gt;Rubyとは&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-06-13T13:21:06+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Ruby great!</title><link href="https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great" rel="alternate" type="text/html" title="Ruby great!" /><published>2019-02-14T00:00:00+09:00</published><updated>2019-02-14T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great</id><content type="html" xml:base="https://82pkdick.github.io/Febris/posts/language/ruby/Ruby-very-great">&lt;h2 id=&quot;rubyとは&quot;&gt;Rubyとは&lt;/h2&gt;
 
 &lt;p&gt;Rubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。&lt;/p&gt;
 
@@ -192,7 +192,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# [[4, 5], 2, 1, 3.14, 'hi', 1]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uniq&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# [1, 'hi', 3.14, 2, 4, 5]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;h4. ハッシュの作成と使用法&lt;/p&gt;
+&lt;h4 id=&quot;ハッシュの作成と使用法&quot;&gt;ハッシュの作成と使用法&lt;/h4&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'water'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'wet'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fire'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'hot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fire'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# 表示:  hot&lt;/span&gt;
@@ -277,7 +277,7 @@ It)」は「多様性は善(Diversity is Good)」というスローガンでRuby
   &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h5 id=&quot;本処理を後から指定&quot;&gt;本処理を後から指定&lt;/h5&gt;
+&lt;h6 id=&quot;本処理を後から指定&quot;&gt;本処理を後から指定&lt;/h6&gt;
 
 &lt;p&gt;実際に行いたい処理をブロックで記述する。 前項の後処理の省力化もこれの一例といえる。&lt;/p&gt;
 

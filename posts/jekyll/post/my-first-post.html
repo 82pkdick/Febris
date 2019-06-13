@@ -37,15 +37,17 @@
       <span id="page-top"></span>
       <article id="main-contents">
         <!-- Post -->
-<div class="container">
+<div class="container post">
   <!-- Post Header -->
-  <div class="header post-header">
-  <h1 class="header-title post-title">
+  <div class="contents-header post-header">
+  <h1 class="title">
     <span class="title-lmark">【</span>
-    <a href="/Febris/posts/jekyll/post/my-first-post">My First Blog Post</a>
+    <a class="title-link" href="/Febris/posts/jekyll/post/my-first-post">
+      <span class="title-text">My First Blog Post</span>
+    </a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="date post-date page-appendix">July 02, 2016</p>
+  <p class="page-appendix"><span class="post-date">July 02, 2016</span></p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
@@ -69,7 +71,7 @@ Take a look at the source for this post to get an idea about how it works.</p>
     <div class="post-info is-loading">
     
 <div class="post-attr">
-  <h4 class="title">Article Attributes</h4>
+  <h4 class="caption">Article Attributes</h4>
   <input type="checkbox" id="pattrTgl">
   <label for="pattrTgl" id="tgl-pattr"><span></span></label>
 
@@ -106,7 +108,7 @@ Take a look at the source for this post to get an idea about how it works.</p>
 </div>
 
 <div class="post-toc sticky">
-  <h4 class="title">Table of contents</h4>
+  <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
     <a href="#page-top"><i class="far fa-arrow-alt-circle-up">Top</i></a>
   </div>
@@ -439,8 +441,11 @@ Take a look at the source for this post to get an idea about how it works.</p>
 </nav>
 </div>
   <!-- Site Title -->
-  <div id="site-title"><a href="/Febris/">Febris</a></div>
-  <div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
 </nav><!-- header-nav end-->
 
       </header><!-- site navigation end -->
