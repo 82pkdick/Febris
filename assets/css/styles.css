@@ -2470,8 +2470,8 @@ body, button, input, select, textarea {
 /**
   Front Page Layout SCSS
 */
-.page-header.frontpage .title {
-  font-size: 16px;
+.contents-header.page-header.frontpage .title {
+  font-size: 22px;
   color: #333;
   font-style: normal;
   font-weight: normal;
@@ -2479,10 +2479,10 @@ body, button, input, select, textarea {
   margin: 6px 28px;
   padding-left: 0.5rem;
 }
-.page-header.frontpage .title .title-text {
+.contents-header.page-header.frontpage .title .title-text {
   color: #808000;
 }
-.page-header.frontpage .page-desc {
+.contents-header.page-header.frontpage .page-desc {
   display: none;
 }
 
