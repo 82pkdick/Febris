@@ -50,15 +50,15 @@
    */
   APP.settings = {
     level: 2, 
-    scroll_offset: 10, // Page scroll adjustment value.
-    detection_offset: 50, // Headline detection range on the page.
+    scroll_offset: 10,             // Page scroll adjustment value.
+    detection_offset: 120,          // Headline detection range on the page.
     hidden_item_detect_offset: 20, // Detect hidden items in TOC box.
-    toc_scroll_offset: 100, // TOC scroll adjustment value
-    target_section: null,
-    toc: null,
-    toc_anchor: '.anchor',
-    mark: 'scrollable',
-    current_color: "#afeeee", // paleturquoise
+    toc_scroll_offset: 100,        // TOC scroll adjustment value
+    target_section: null,          // Wrapper around the page header
+    toc: null,                     // Table of contents location
+    toc_anchor: '.anchor',         // Table of contents list tag class name
+    mark: 'scrollable',            // class name of event added anchor
+    class_current: 'current',      // class name of current anchor
     counter: null
   };
   
@@ -160,17 +160,19 @@
   */
 
   // Color change of back of where you are in the table of contents.
-  let add_toc_style = function(key, anchors, color) {
-    let result = {};
+  let add_toc_style = function(key, anchors) {
+      let result = {};
     let diff = 0;
     let s_offset = self.settings.toc_scroll_offset;
     let d_offset = self.settings.hidden_item_detect_offset;
+    let current_class = settings.class_current; // class name of current anchor
     for (let i=0; i<anchors.length; i++) {
       let link = anchors[i].firstChild;
       let hash = link.getAttribute('href');
       if (key == hash) {
-        init_toc_style(anchors);
-        anchors[i].firstChild.style.backgroundColor = color;
+        init_toc_style(anchors, current_class);
+        // Add a class to the current anchor.
+        anchors[i].classList.add(current_class);
         // Adjust if the anchor in operation is not visible
         result = anchor_visible_or(anchors[i]);
         if (result.bottom_visible < d_offset) {  /* hidden-item-detect-offset */
@@ -186,9 +188,9 @@
   };
 
   // Initialize the color of each line of the table of contents.
-  let init_toc_style = function(anchors) {
+  let init_toc_style = function(anchors, current_class) {
     for (let i=0; i<anchors.length; i++) {
-      anchors[i].firstChild.style.backgroundColor = "transparent";
+      anchors[i].classList.remove(current_class);
     }
   };
 
@@ -217,7 +219,6 @@
   // Get window scroll amount.
   window.onscroll = function() {
     let match_rect = 0;
-    let bgd_color = self.settings.current_color;
     let anchors = app_target.selected_anchors;
     let pos = Math.floor( config.scroll_target.scrollTop );  // Enter the scroll position.
     if (self.settings.counter) {
@@ -226,7 +227,7 @@
     match_rect = pos + self.settings.detection_offset;
     for (let [key, value] of app_target.headings_map) {
       if ((value > pos) && (value < match_rect)) {
-        add_toc_style(key, anchors, bgd_color);
+        add_toc_style(key, anchors);
       }
     }
   };
