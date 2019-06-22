@@ -12,16 +12,23 @@
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 <!-- Iota -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
-<!-- Font Awesome -->
-<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap" rel="stylesheet">
-<!-- Some CSS Library -->
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
@@ -72,90 +79,21 @@
     
 
   
-<div class="frontpage-widget gridrow-4">
+<div class="frontpage-widget gridrow-1">
 	
 	
 	
   
-  <a href="/Febris/posts/language/ruby/Ruby-very-great">
+  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-7">
     
       
-      <img src="/Febris/assets/images/004.jpg" alt="" />
+      <img class="fpw image" src="/Febris/assets/images/010.jpg" alt="" />
     
   </a>
-  <h2 class="archive_title"><a href="/Febris/posts/language/ruby/Ruby-very-great">Ruby great!</a></h2>
-  <div class="archive_excerpt"><h2 id="rubyとは">Rubyとは</h2>
-
-<p>Rubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。</p>
-
-<noscript><pre>400: Invalid request
-</pre></noscript>
-<script src="https://gist.github.com/5598133.js?file=creature.rb"> </script>
-
-<h3 id="try-ruby">Try Ruby</h3>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="k">class</span> <span class="n">person</span>
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">hello</span>
-    <span class="s2">"Hello, friend!</span><span class="se">\n</span><span class="s2">My name is </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">!"</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="n">charlie</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Charlie"</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">charlie</span><span class="p">.</span><span class="nf">hello</span>
-
-<span class="c1">#=&gt; Hello, friend!</span>
-<span class="c1">#=&gt; My name is Charlie!</span></pre></td></tr></tbody></table></code></pre></figure>
-
-</div>
-  <p class="post-date"><time>February 14, 2019</time></p>
-  <p  class="button-more"><a href="/Febris/posts/language/ruby/Ruby-very-great">More ›</a></p>
-</div>
-
-
-
-  
-<div class="frontpage-widget gridrow-2">
-	
-	
-	
-  
-  <a href="/Febris/posts/jekyll/update/welcome-to-jekyll">
-    
-      
-      <img src="/Febris/assets/images/001.jpg" alt="" />
-    
-  </a>
-  <h2 class="archive_title"><a href="/Febris/posts/jekyll/update/welcome-to-jekyll">Welcome to Jekyll!</a></h2>
-  <div class="archive_excerpt"><h2 id="welcome-to-jekyll">Welcome to Jekyll!</h2>
-
-<p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-</div>
-  <p class="post-date"><time>January 28, 2019</time></p>
-  <p  class="button-more"><a href="/Febris/posts/jekyll/update/welcome-to-jekyll">More ›</a></p>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-7">簡易なミニCSSフレームワークを作ってみる（７）</a></h2>
+  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。テーブル。</div>
+  <p class="fpw post-date"><time>June 17, 2019</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-7">More ›</a></p>
 </div>
 
 
@@ -166,22 +104,16 @@
 	
 	
   
-  <a href="/Febris/posts/jekyll/jekyll-Tutorial">
+  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-6">
     
       
-      <img src="/Febris/assets/images/002.jpg" alt="" />
+      <img class="fpw image" src="/Febris/assets/images/011.jpg" alt="" />
     
   </a>
-  <h2 class="archive_title"><a href="/Febris/posts/jekyll/jekyll-Tutorial">Jekyllのチュートリアル</a></h2>
-  <div class="archive_excerpt"><h2 id="jekyllのチュートリアル">Jekyllのチュートリアル</h2>
-
-<p>grid-row:</p>
-
-<p>Jekyll is a simple, blog aware, static site generator.</p>
-
-</div>
-  <p class="post-date"><time>January 28, 2019</time></p>
-  <p  class="button-more"><a href="/Febris/posts/jekyll/jekyll-Tutorial">More ›</a></p>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-6">簡易なミニCSSフレームワークを作ってみる（６）</a></h2>
+  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。カラーパレットを作る。</div>
+  <p class="fpw post-date"><time>June 15, 2019</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-6">More ›</a></p>
 </div>
 
 
@@ -192,17 +124,16 @@
 	
 	
   
-  <a href="/Febris/posts/test/hello-world">
+  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-5">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/012.jpg" alt="" />
     
   </a>
-  <h2 class="archive_title"><a href="/Febris/posts/test/hello-world">Hello World!</a></h2>
-  <div class="archive_excerpt"><h2 id="first-post">First post.</h2>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-</div>
-  <p class="post-date"><time>November 21, 2018</time></p>
-  <p  class="button-more"><a href="/Febris/posts/test/hello-world">More ›</a></p>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-5">簡易なミニCSSフレームワークを作ってみる（５）</a></h2>
+  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。Block要素の配置。</div>
+  <p class="fpw post-date"><time>June 14, 2019</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-5">More ›</a></p>
 </div>
 
 
@@ -213,18 +144,36 @@
 	
 	
   
-  <a href="/Febris/posts/jekyll/post/second-blog-post">
+  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-4">
     
       
-      <img src="/Febris/assets/images/003.jpg" alt="" />
+      <img class="fpw image" src="/Febris/assets/images/013.jpg" alt="" />
     
   </a>
-  <h2 class="archive_title"><a href="/Febris/posts/jekyll/post/second-blog-post">Second Blog Post</a></h2>
-  <div class="archive_excerpt"><p>This is <big>the second</big> <span>blog</span> post<br /> on my website!</p>
-
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-4">簡易なミニCSSフレームワークを作ってみる（４）</a></h2>
+  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。BoxとCardエレメント編。</div>
+  <p class="fpw post-date"><time>June 14, 2019</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-4">More ›</a></p>
 </div>
-  <p class="post-date"><time>September 04, 2016</time></p>
-  <p  class="button-more"><a href="/Febris/posts/jekyll/post/second-blog-post">More ›</a></p>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-3">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/014.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-3">簡易なミニCSSフレームワークを作ってみる（３）</a></h2>
+  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。カラー設定編。</div>
+  <p class="fpw post-date"><time>June 14, 2019</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-3">More ›</a></p>
 </div>
 
 
@@ -250,6 +199,10 @@
   
     
       <a class="pagination_item" href="/Febris/pagination/page3">3</a>
+    
+  
+    
+      <a class="pagination_item" href="/Febris/pagination/page4">4</a>
     
   
 
@@ -370,6 +323,13 @@
 
 
 
+
+
+<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
 </ul>
 </li>
     
@@ -416,6 +376,8 @@
     <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
   
     <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -518,6 +480,20 @@
 
 
 
+
+
+<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+</li>
+
+
+
 </ul>
 </li>
     
@@ -605,15 +581,10 @@
 <script src="/Febris/assets/js/lunr.jp.js"></script>
 <script src="/Febris/assets/js/lunr.multi.js"></script>
 <script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+
 <script type="text/javascript">
 $(function() {
-  // $("#drawer > .navbar_toggle").on("click", function() {
-  // $("#slide-menu > .menu li").on("click", function() {
-  //     $("ul#nav-list").find('li').removeClass("open");
-  //     $(this).toggleClass("open");
-  //     $("ul#nav-list").toggleClass("open");
-  // });
-
   // for dropdown menu ------------------------------------------------
   let add_open = function(tag) {
     tag.find('li').removeClass("open");
@@ -690,6 +661,20 @@ $(function() {
   $(window).resize(function() {
     response();
   });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 75, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "gold",
+  });
+
+  console.log(TocScrollable.settings);
+
 });
 
 </script>

@@ -12,16 +12,23 @@
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
 
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
 <!-- Normalize.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 <!-- Iota -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
-<!-- Font Awesome -->
-<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap" rel="stylesheet">
-<!-- Some CSS Library -->
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
@@ -43,7 +50,7 @@
   
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-<a href="https://82pkdick.github.io/Febris">Start</a>
+<a class="bdcp-link" href="https://82pkdick.github.io/Febris">Start</a>
 
 
 
@@ -52,7 +59,7 @@
 
 
 <span class="nav-sep"> > </span>
-<a href="https://82pkdick.github.io/Febris/categories/">categories</a>
+<a class="bdcp-link" href="https://82pkdick.github.io/Febris/categories/">categories</a>
 
 
 
@@ -98,9 +105,9 @@
     
 
 
-<div class="panel-body">
+<div class="panel-body category-index">
   
-  <h2>update <span class="post-size">(1)</span></h2>
+  <h2 class="title category-name">update <span class="post-size">(1)</span></h2>
   <ul class="posts plist-block corresp-posts-list">
   
     <li>
@@ -231,6 +238,13 @@
 
 
 
+
+
+<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
 </ul>
 </li>
     
@@ -277,6 +291,8 @@
     <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
   
     <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -379,6 +395,20 @@
 
 
 
+
+
+<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+</li>
+
+
+
 </ul>
 </li>
     
@@ -466,15 +496,10 @@
 <script src="/Febris/assets/js/lunr.jp.js"></script>
 <script src="/Febris/assets/js/lunr.multi.js"></script>
 <script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+
 <script type="text/javascript">
 $(function() {
-  // $("#drawer > .navbar_toggle").on("click", function() {
-  // $("#slide-menu > .menu li").on("click", function() {
-  //     $("ul#nav-list").find('li').removeClass("open");
-  //     $(this).toggleClass("open");
-  //     $("ul#nav-list").toggleClass("open");
-  // });
-
   // for dropdown menu ------------------------------------------------
   let add_open = function(tag) {
     tag.find('li').removeClass("open");
@@ -551,6 +576,20 @@ $(function() {
   $(window).resize(function() {
     response();
   });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 75, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "gold",
+  });
+
+  console.log(TocScrollable.settings);
+
 });
 
 </script>
