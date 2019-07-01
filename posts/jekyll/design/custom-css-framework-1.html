@@ -7,7 +7,7 @@
 
 <title>
   
-    簡易なミニCSSフレームワークを作ってみる（１） | Febris
+    Markdown の中で使えるCSS設定 | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -50,11 +50,12 @@
   <h1 class="title">
     <span class="title-lmark">【</span>
     <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-1">
-      <span class="title-text">簡易なミニCSSフレームワークを作ってみる（１）</span>
+      <span class="title-text">Markdown の中で使えるCSS設定</span>
     </a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page-appendix"><span class="post-date">June 13, 2019</span></p>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１）</h4>
+  <p class="page-appendix"><span class="post-date">June 10, 2019</span></p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
@@ -63,42 +64,46 @@
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
-      <h2 id="そもそもやりたかったこと">そもそもやりたかったこと</h2>
+      <h2 class="main-hd" id="簡易フレームワークの自作">簡易フレームワークの自作</h2>
 
-<p>Jekyll でサイトを構築しようとしている。レイアウトをある程度作り込んでから、記事の中で表組みやボタンなどの部品をあらためて定義していくのは面倒だ。ただ既存のCSSフレームワークなどをその段階から導入すると、作ったレイアウトが崩れる。CSSフレームワークって、最初の計画段階で決めておくべきもの。</p>
+<h3 class="sub-hd" id="そもそもやりたかったこと">そもそもやりたかったこと</h3>
 
-<p>レイアウトが崩れるのは計画性のない自分が悪い(笑)。</p>
+<p>Jekyll でサイトを構築している。</p>
 
-<p>ただ試してみると、CSSフレームワークにも元のレイアウトを崩しやすいものと、そうでないものがあるのがよく分かる。次の条件で何かいいものはないか？</p>
+<p>レイアウトをある程度作り込んだ後、記事の中の部品を定義していくのは面倒。ただ既存のCSSフレームワークをその段階から導入すると、作ったレイアウトが(確実に!)崩れる。それって最初の計画段階で決めておくべきもの。計画性のない自分が悪い(笑)で終了。</p>
+
+<p>……なのだが。でも何か方法はないか？</p>
+
+<p>試してみると、CSSフレームワークにも元のレイアウトを崩しやすいものとそうでないものがあるみたい（まあ全て試したわけじゃないけど）。じゃあ次の条件で何かいいものはないかと？</p>
 
 <ol>
   <li>軽量でJavaScriptを使用していない.</li>
   <li>SCSS対応</li>
 </ol>
 
-<p>試してみると比較的 Bulma がレイアウト崩れしにくかった。</p>
+<p>比較的 <a href="https://bulma.io/" title="Bulma">Bulma</a> がレイアウト崩れしにくかった。</p>
 
-<p>ただ Bulma は Flexbox を利用している。すでに Grid Layout で作っているのでそこはパス。おおまかなレイアウトは自分でCSS書いた方が早いし、また、<strong>特定のCSSレイアウトを深く理解して使うという学習コストをかけたくない</strong>。</p>
+<p>ただ Bulma は Flexbox を利用している。すでに Grid Layout で作っているのでそこはパス。おおまかなレイアウトは自分でCSS書いた方が早い。また、<strong>特定のツールを深く理解して使うという学習コストをかけたくない</strong>。</p>
 
 <p>ちなみにこの記事に書かれていることが妙に共感できたので参考まで。</p>
 
-<p><a href="http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116">CSS フレームワークを使いたくない</a><br />
+<p><a href="http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116"><strong>CSS フレームワークを使いたくない</strong></a><br />
 <a href="http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116">http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116</a></p>
 
 <p>なんかわかるわ〜…(^o^)</p>
 
-<p>開発というほどの話ではない。仕組みと規定値を決めてクラスを指定するとデザインが決まるという程度のものでいい。<strong>markdown の中でも使える</strong>簡易なフレームワークっぽい仕組みを作れないか。記事の内部で使うボタンや表などのエレメント、フォントや色の設定を少しだけ変えられるもの。</p>
+<p>開発というほどの話じゃなくて、仕組みと規定値を決めてクラスを指定するとデザインが決まるという程度のものでいい。しかも<strong>markdown の中でも使える</strong>簡易なフレームワークっぽい仕組みって作れないか。記事中の表などのエレメント、フォントや色の設定を少しだけ変えられるもの。そんなことができたら markdown なのに（大嫌いなｗ）リッチテキストエディターなみじゃねーか(喜)。</p>
 
-<p>Bulma を参考にしつつ試してみた。</p>
+<p>というわけで、Bulma を参考にしつつ試してみた。</p>
 
-<hr />
-<h2 id="markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</h2>
+<hr class="sec-br" />
+<h3 class="sub-hd" id="markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</h3>
 
-<p>Bulma などのCSSフレームワークは特定のクラス名を追加すると、部品スタイルをよしなに設定してくれるものが多い。Jekyll で使うためには、 ｍarkdown でクラス名を追加する必要があるが、デフォルトの markdown の仕様にはそういう仕組みが無い。しかし markdownレンダラーの kramdown ならクラス指定などができる。ちょっとめんどうだけど。</p>
+<p>Bulma などのCSSフレームワークは特定のクラス名を追加すると、部品スタイルをよしなに設定してくれるものが多い。Jekyll で使うためには、 ｍarkdown でクラス名を追加する必要がある。ただデフォルトの markdown の仕様にはそういう仕組みが無い。しかし markdownレンダラーの kramdown ならクラス指定などができる。ちょっとめんどうだけど。</p>
 
 <p class="caption-name">[markdown]</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element
-{: .post-elem}
+{:.post-elem}
 </code></pre></div></div>
 
 <p>こう書くとこうなる。</p>
@@ -109,7 +114,15 @@
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"post-elem"</span><span class="nt">&gt;</span>Element<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
 
-<p>直接のスタイル指定もできなくはない。まあ面倒だししないだろうけど。</p>
+<p>これを<code class="highlighter-rouge">attribute list definitions (ALDs)</code>と言うらしい。詳しくは <a href="https://kramdown.gettalong.org/syntax.html">kramdown</a> のマニュアル参照。</p>
+
+<p>この方法は Jekyll の記事の中で使える。</p>
+
+<p>今までどうしていたかというと、記事の本文の中は見出しや文章などに直接クラス指定できないので、<code class="highlighter-rouge">styles.scss</code>などに<code class="highlighter-rouge">.post #title h2</code>とか<code class="highlighter-rouge">.post &gt; .contents p</code>とか テンプレートレベルで付けたIDやクラス名から contents中のタグを指定してCSSを書いている。基本的なレイアウトやデザインはそれでいいのだけれど、記事を書きながらごく部分的にココをこうしたい！という時があり、いちいち SCSS を弄るのは面倒だし、基本のデザインに影響するのはもっとイヤ。</p>
+
+<p>でもこの<code class="highlighter-rouge">ALDs</code>なら、多少の面倒さを差し引けば、見出しや章の区切り線などに短い名前のクラス名を付けて、統一したデザインを使ってCSS側でいじるといった目的に利用できる。自分テーマのSCSSを書いて利用したりすると便利かも。</p>
+
+<p>もちろん Markdown から直接のスタイル指定もできなくはない。ただ面倒だし、あまりしないだろうけど。</p>
 
 <p class="caption-name">[markdown]</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element
@@ -117,51 +130,32 @@
 {: style="padding: 10px 15px; border: 1px solid #ccc;"}
 </code></pre></div></div>
 
-<p>ここでは<code class="highlighter-rouge">{: xxxxx}</code>を2行に分けて書いたけど別に1行にまとめてもいい。</p>
+<p>書き方だけど、ここでは<code class="highlighter-rouge">{: xxxxx}</code>を2行に分けて書いたけど別に1行にまとめてもいい。</p>
 
 <p class="post-elem" style="padding: 10px 15px; border: 1px solid #ccc;">Element</p>
 
 <p class="caption-name">[html]</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"post-elem"</span> <span class="na">style=</span><span class="s">"padding: 10px 15px; border: 1px solid #ccc;"</span><span class="nt">&gt;</span>Element<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
-<hr />
-<h2 id="bulmaの見出し設定のやり方">Bulmaの見出し設定のやり方</h2>
 
-<p>Bulma では指定されているクラスを追加すると、H1などの見出しタグでなくても見出しになる。
- Bulma の見出しには<code class="highlighter-rouge">.title .is-N</code>（Nは1〜6までの数字）の形のタイトルと、<code class="highlighter-rouge">.subtitle .is-N</code>の形のサブタイトルがある。</p>
+<p>ただし、ブロック要素は基本ブロックの直下の行に、インライン要素は同じ行に書く必要があるようだ。分からない場合は試しながらやるしかない。</p>
 
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Title1
-{: .title .is-1}
-</code></pre></div></div>
+<p>ちなみに<code class="highlighter-rouge">{: #id}</code>で ID を HTML に渡したり、<code class="highlighter-rouge">{: key="value"}</code>という形でキーと値の組を渡すこともできる。
+詳しくは<a href="https://kramdown.gettalong.org/quickref.html">Kramdown</a> のマニュアルに書いてある。
+キーと値の組はすでに見た<code class="highlighter-rouge">{: style="xxxx;"}</code>というCSS渡しと同じ形で、あとでCSS変数を利用するのに使える。</p>
 
-<p class="title is-1" style="font-size:3rem; padding: 10px 15px; border: 1px solid #ccc;">Title01</p>
+<hr class="sec-br" />
+<h3 class="sub-hd" id="フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</h3>
 
-<p class="caption-name"><br />
-[html]</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title is-1"</span><span class="nt">&gt;</span>Title1<span class="nt">&lt;/h1&gt;</span> 
-</code></pre></div></div>
-
-<p>手始めとして、例えば次のような目的で、このやり方が使えないだろうか。</p>
-
-<ol>
-  <li>一つは、特定のクラスを指定すると文字の大きさがそこだけ変えられる。</li>
-  <li>さらに cord を表示する際にキャプションを付けたい時、適当なスタイルが適応されるクラス。</li>
-  <li>段落中のちょっとした文字寄せを指定できるとか。</li>
-</ol>
-
-<hr />
-<h2 id="フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</h2>
-
-<p>フレームワークファイルをどこに置いてどう読み込むか？</p>
+<p>さて、その前にフレームワークファイルをどこに置いてどう読み込むか？</p>
 
 <p>いろんなやり方があるのだろうが、ここではJekyll の<code class="highlighter-rouge">_sass</code>ディレクトリに<code class="highlighter-rouge">_private-framework.scss</code>というファイルをつくる。さらに同じく<code class="highlighter-rouge">_sass</code>ディレクトリの中に<code class="highlighter-rouge">framework-modules</code>というサブディレクトリを作り、そのなかに役割りを表す名前のファイルを置く。これが個別のモジュールになる。</p>
 
-<p>例えば<code class="highlighter-rouge">_sass/framework-modules/_font-style.scss</code>などの名前のモジュール・ファイルを置く。そして<code class="highlighter-rouge">_sass/_private-framework.scss</code>に、<code class="highlighter-rouge">@import "framework-modules/font-style.scss"</code>などとして個別のモジュール・ファイルを読み込む。</p>
+<p>例えば<code class="highlighter-rouge">_sass/framework-modules/_font-styles.scss</code>などの名前のモジュール・ファイルを置く。そして<code class="highlighter-rouge">_sass/_private-framework.scss</code>に、<code class="highlighter-rouge">@import "framework-modules/font-styles"</code>などとして個別のモジュール・ファイルを読み込む。</p>
 
 <p class="caption-name">[_sass/_private-framework.scss]</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Custom framework</span>
-<span class="k">@import</span> <span class="s2">"framework-modules/font-style.scss"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"framework-modules/font-styles"</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>そしてこの<code class="highlighter-rouge">_sass/_private-framework.scss</code> をメインの<code class="highlighter-rouge">assets/css/styles.scss</code>から<code class="highlighter-rouge">@import</code>する。</p>
@@ -171,7 +165,7 @@
 <span class="k">@import</span> <span class="s2">"private-framework"</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>あとは追加のモジュールを、例えば<code class="highlighter-rouge">_sass/framework-modules/_table-style.scss</code>とか作れば、また<code class="highlighter-rouge">_private-framework.scss</code> に<code class="highlighter-rouge">@import</code>して足していけばよい。</p>
+<p>あとは追加のモジュールを、例えば<code class="highlighter-rouge">_sass/framework-modules/_table-styles.scss</code>とか作れば、また<code class="highlighter-rouge">_private-framework.scss</code> に<code class="highlighter-rouge">@import</code>して足していけばよい。</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>_sass/
 <span class="nv">$ </span>tree <span class="nb">.</span>
@@ -183,7 +177,7 @@
   .............................
 ├── _private-framework.scss <span class="c"># &lt;- フレームワークのモジュールを読み込むscss</span>
 └── framework-modules <span class="c"># &lt;- モジュールの置き場所</span>
-    └── _font-style.scss <span class="c"># &lt;- 個別のフレームワーク・モジュール</span>
+    └── _font-styles.scss <span class="c"># &lt;- 個別のフレームワーク・モジュール</span>
 </code></pre></div></div>
 
 <p>以下この方法で私的使用のミニフレームワークを作ってみよう。</p>
@@ -203,7 +197,7 @@
   
   <dl class="post-attr-list">
     <dt class="entry">post archive date: </dt>
-    <dd class="item date"><a href="/Febris/archives/2019/06">13th June 2019</a></dd>
+    <dd class="item date"><a href="/Febris/archives/2019/06">10th June 2019</a></dd>
   
     
     <dt class="entry">categories: </dt>
@@ -231,6 +225,26 @@
   </dl>
 </div>
 
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager_item--next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-2">&lt; HTML中のmarkdown記述処理（parse_block_htmlオプション）</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/language/ruby/Ruby-very-great">Ruby great! &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
 <div class="post-toc sticky">
   <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
@@ -238,10 +252,13 @@
   </div>
   <div id="post-toc-box">
     <ul>
-  <li class="anchor"><a href="#そもそもやりたかったこと">そもそもやりたかったこと</a></li>
-  <li class="anchor"><a href="#markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</a></li>
-  <li class="anchor"><a href="#bulmaの見出し設定のやり方">Bulmaの見出し設定のやり方</a></li>
-  <li class="anchor"><a href="#フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</a></li>
+  <li class="anchor"><a href="#簡易フレームワークの自作">簡易フレームワークの自作</a>
+    <ul>
+      <li class="anchor"><a href="#そもそもやりたかったこと">そもそもやりたかったこと</a></li>
+      <li class="anchor"><a href="#markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</a></li>
+      <li class="anchor"><a href="#フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</a></li>
+    </ul>
+  </li>
 </ul>
   </div>
 </div>
@@ -253,7 +270,7 @@
   <div class="pager">
   
     <p class="pager_item--next">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-2">&lt; 簡易なミニCSSフレームワークを作ってみる（２）</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-2">&lt; HTML中のmarkdown記述処理（parse_block_htmlオプション）</a>
     </p>
   
 
@@ -308,70 +325,73 @@
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -397,14 +417,17 @@
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -415,15 +438,15 @@
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -432,7 +455,7 @@
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -441,11 +464,11 @@
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -472,70 +495,73 @@
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -680,16 +706,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }

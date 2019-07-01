@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Flex, image, Cardの応用 | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-15">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-15">
+      <span class="title-text">Flex, image, Cardの応用</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１５）</h4>
+  <p class="page-appendix"><span class="post-date">June 28, 2019</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open"><span></span></label>
+    <label for="pinfoTgl" class="close"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="image-cardの応用">Image, Cardの応用</h2>
+
+<h3 class="sub-hd" id="image">Image</h3>
+
+<p>画像の大きさも指定できるようにしてみたかったが、markdown ( kramdown? )での画像の挿入方法に大きさを指定できる書き方があるので、わざわざ作る必要は無い。</p>
+
+<p class="caption-name fc-chocolate font xd8 bg-transparent mgn-l1 wd align-c" style="--wd:128px">[World Heritage]</p>
+<p><img src="/assets/images/001.jpg" alt="world Heritage" height="128px" width="128px" class="pad-0" /></p>
+
+<p class="caption-name">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">world Heritage</span><span class="p">](</span><span class="sx">/assets/images/001.jpg</span><span class="p">)</span>{:height="128px" width="128px"}
+</code></pre></div></div>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="サムネイル画像付きの-link-card">サムネイル画像付きの Link Card</h3>
+
+<p>これらの仕組みを使って、サムネイル画像とリンクのついたよくあるリンクカードを作ってみる。</p>
+
+<p>リンクカードを作るのに何かいいツールはないか？と探したところ、Google Chrome の拡張機能で <a href="https://chrome.google.com/webstore/detail/gettabinfo/iadhcoaabobddcebhmheikmbcjcigjhc" title="GetTabInfo">GetTabInfo</a>というのを見つけた。
+<code class="highlighter-rouge">GetTabInfo</code>の使い方などは、リンク先を参照してほしいが、簡単なのですぐわかる。</p>
+
+<p>このアドオンがなかなか便利で、リンクカードを作りたいページを単独のタブにして読み込み、テンプレートを指定すると、リンクカードのHTMLがクリップボードにコピーされるというもの。このテンプレートは<code class="highlighter-rouge">%%TITLE%%</code>,<code class="highlighter-rouge">%%URL%%</code>といった変数を置き換えているだけなので、自分でカスタマイズできる。ちなみに JSONバージョンのテンプレートも可能。</p>
+
+<p>このテンプレートを下記のような markdown にしてみる。</p>
+
+<p class="caption-name">[markdown template]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ![%%TITLE%%](http://capture.heartrails.com/75x75/?%%URL%%){:height="75px" width="75px"}</span>
+<span class="gt">&gt; {: .card .link-card-image .border-none .wd}</span>
+<span class="gt">&gt; {: style="--wd:16%"}</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; &gt; [%%TITLE%%](%%URL%% "%%TITLE%%")</span>
+<span class="gt">&gt; &gt; {: .link-card-title}</span>
+<span class="gt">&gt; &gt; [URL: %%URL%%](%%URL%% "%%TITLE%%")</span>
+<span class="gt">&gt; &gt; {: .link-card-longurl}</span>
+<span class="gt">&gt; &gt; </span>
+<span class="gt">&gt; &gt; [(short url :  %%sURL%%)](%%sURL%%){: .link-card-shorturl-title}</span>
+<span class="gt">&gt; &gt; {: .link-card-shorturl}</span>
+<span class="gt">&gt; {: .card .link-card-url-block .border-none .wd-80}</span>
+{: .link-card .to-flex .fc-dimgray .border .bdr-rad}
+{: style="--bdr-set:1px solid lightgray; --bdr-rad:5px;"}
+</code></pre></div></div>
+
+<p>このテンプレートでニュースを一つ拾ってきた。最低限のスタイルは markdown で書いてあり、適当にクラス名を付けてあるのでCSSで味付けすれば、貼り付けるだけで簡単に使える。まあ用意されてる HTML のテンプレートを使っても同じことができるし、お世辞にも読みやすい markdown にはなっていないが、使い方のアイデアとして考えてみた。</p>
+
+<p>プレビューがこれ</p>
+
+<blockquote class="link-card to-flex fc-dimgray border bdr-rad" style="--bdr-set:1px solid lightgray; --bdr-rad:5px;">
+  <p class="card link-card-image border-none wd" style="--wd:16%"><img src="http://capture.heartrails.com/75x75/?https://news.livedoor.com/article/detail/16681735/" alt="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース" height="75px" width="75px" /></p>
+
+  <blockquote class="card link-card-url-block border-none wd-80">
+    <p class="link-card-title"><a href="https://news.livedoor.com/article/detail/16681735/" title="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース">アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース</a></p>
+    <p class="link-card-longurl"><a href="https://news.livedoor.com/article/detail/16681735/" title="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース">URL: https://news.livedoor.com/article/detail/16681735/</a></p>
+
+    <p class="link-card-shorturl"><a href="https://gti.page.link/2DCfTCCpox1veH6E7" class="link-card-shorturl-title">(short url :  https://gti.page.link/2DCfTCCpox1veH6E7)</a></p>
+  </blockquote>
+</blockquote>
+
+<hr class="none" />
+<p><code class="highlighter-rouge">GetTabInfo</code>から出力されたコードがこれ。</p>
+
+<p class="caption-name">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ![アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース](http://capture.heartrails.com/75x75/?https://news.livedoor.com/article/detail/16681735/){:height="75px" width="75px"}</span>
+<span class="gt">&gt; {: .card .link-card-image .border-none .wd}</span>
+<span class="gt">&gt; {: style="--wd:16%"}</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; &gt; [アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース](https://news.livedoor.com/article/detail/16681735/ "アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース")</span>
+<span class="gt">&gt; &gt; {: .link-card-title}</span>
+<span class="gt">&gt; &gt; [URL: https://news.livedoor.com/article/detail/16681735/](https://news.livedoor.com/article/detail/16681735/ "アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース")</span>
+<span class="gt">&gt; &gt; {: .link-card-longurl}</span>
+<span class="gt">&gt; &gt; </span>
+<span class="gt">&gt; &gt; [(short url :  https://gti.page.link/LHDQwFY3ot5gj6NA6)](https://gti.page.link/LHDQwFY3ot5gj6NA6){: .link-card-shorturl-title}</span>
+<span class="gt">&gt; &gt; {: .link-card-shorturl}</span>
+<span class="gt">&gt; {: .card .link-card-url-block .border-none .wd-80}</span>
+{: .link-card .to-flex .fc-dimgray .border .bdr-rad}
+{: style="--bdr-set:1px solid lightgray; --bdr-rad:5px;"}
+</code></pre></div></div>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="tag-card">Tag Card</h3>
+
+<p>よくある小さいタグ。小中大の3種用意。</p>
+
+<p class="font h6">Small</p>
+
+<blockquote class="to-flex mgn-0">
+  <p class="tag tagcard-small mgn-l2">Jekyll</p>
+
+  <blockquote class="mgn-l1 mgn-t0 mgn-b0 wd-70">
+    <p class="caption-name mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-small}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p class="font h6">Medium</p>
+
+<blockquote class="to-flex mgn-0">
+  <p class="tag tagcard-medium mgn-l2">Jekyll</p>
+
+  <blockquote class="mgn-l1 mgn-t0 mgn-b0 wd-70">
+    <p class="caption-name mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-medium}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p class="font h6">Large</p>
+
+<blockquote class="to-flex mgn-0">
+  <p class="tag tagcard-large mgn-l2">Jekyll</p>
+
+  <blockquote class="mgn-l1 mgn-t0 mgn-b0 wd-70">
+    <p class="caption-name mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-large}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p>SCSS</p>
+
+<p class="caption-name">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Tag Card</span>
+
+<span class="nc">.tag</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-flex</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="n">fit-content</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">0</span><span class="mi">.55em</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">0</span><span class="mi">.55em</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="mh">#707070</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5</span><span class="p">;</span>
+  <span class="nl">white-space</span><span class="p">:</span> <span class="nb">nowrap</span><span class="p">;</span>
+  <span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">middle</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#aaaaaa</span><span class="p">;;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nc">.tagcard-small</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span> 
+  <span class="p">}</span>
+  
+  <span class="k">&amp;</span><span class="nc">.tagcard-medium</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.0rem</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">&amp;</span><span class="nc">.tagcard-large</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.3rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>バックや文字の色を変えたければ適当に<code class="highlighter-rouge">bg-xxxx</code>や<code class="highlighter-rouge">fc-xxxx</code>で。</p>
+
+<p class="tag tagcard-small bg-lime fc-white mgn-l2 border-none">Hello</p>
+<p class="tag tagcard-medium bg-gold fc-red border-none">Jekyll</p>
+<p class="tag tagcard-large bg-crimson fc-white border-none">World</p>
+
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry">post archive date: </dt>
+    <dd class="item date"><a href="/Febris/archives/2019/06">28th June 2019</a></dd>
+  
+    
+    <dt class="entry">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry">tags: </dt>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css">css</a></dd>
+    
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-14">Flexを少しだけ &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top"><i class="far fa-arrow-alt-circle-up">Top</i></a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#image-cardの応用">Image, Cardの応用</a>
+    <ul>
+      <li class="anchor"><a href="#image">Image</a></li>
+      <li class="anchor"><a href="#サムネイル画像付きの-link-card">サムネイル画像付きの Link Card</a></li>
+      <li class="anchor"><a href="#tag-card">Tag Card</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-14">Flexを少しだけ &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label>
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link_item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link_item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    if ($(window).width() < 860) {
+      let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 75, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+    // current_color: 'rgba(175, 238, 238, 0.5)' // "paleturquoise",
+  });
+
+  console.log(TocScrollable.settings);
+
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>

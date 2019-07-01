@@ -7,7 +7,7 @@
 
 <title>
   
-    簡易なミニCSSフレームワークを作ってみる（２） | Febris
+    HTML中のmarkdown記述処理（parse_block_htmlオプション） | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -50,11 +50,12 @@
   <h1 class="title">
     <span class="title-lmark">【</span>
     <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-2">
-      <span class="title-text">簡易なミニCSSフレームワークを作ってみる（２）</span>
+      <span class="title-text">HTML中のmarkdown記述処理（parse_block_htmlオプション）</span>
     </a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page-appendix"><span class="post-date">June 13, 2019</span></p>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（２）</h4>
+  <p class="page-appendix"><span class="post-date">June 12, 2019</span></p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
@@ -63,283 +64,136 @@
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
-      <h2 id="文字の大きさを指定するクラス">文字の大きさを指定するクラス</h2>
+      <p>さて、実際に自分CSSフレームワークを作っていく前に、<code class="highlighter-rouge">ALDs</code>について確認しておきたいことがある。それは HTMLの中に書かれた Markdown についてだ。</p>
 
-<p>とりあえず文字関連のスタイルを指定するクラスの定義ファイルから作ってみる。<code class="highlighter-rouge">_sass/framework/_font-style.scss</code>としよう。クラス名は後で利用するときは短いものがいいだろうが、ここでは少々長くても直感的に意味の分かるものにする。<code class="highlighter-rouge">_font-style.scss</code>に次のように書いていく。</p>
+<p>Markdown は、生の HTML を書くこともできて、それが期待通りに変換される。ただ一行に書かれた単純な HTML の断片では気が付かないが、ほんの少し複雑な HTMLブロックを書くと、そのブロックの中の要素には先にみたような方法ではCSSクラス名が渡せない。それをどうしてもしなければならない場面はあまりないと思うけど、一応回避方法を知っておくのは、何かの役に立つ。</p>
 
-<p class="caption-name">[scss]</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size1</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">3</span><span class="mi">.0rem</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<hr class="none" />
 
-<p>これを使って markdown で記事中に何か書いてみる。</p>
+<h2 class="main-hd" id="markdownkramdown-内のhtmlで-markdown-を変換する">Markdown(Kramdown) 内のHTMLで Markdown を変換する</h2>
+
+<p>以下の方法は、あくまで Kramdown に限定した方法です。他のパーサなどでどうやるかは調べてません。</p>
+
+<p class="font xd9 b-closer fc-olive">[Source]</p>
+<p><a href="https://stackoverflow.com/questions/22291211/jekyll-how-to-get-markdown-parsing-inside-blocks-using-kramdown">Jekyll: How to get markdown parsing inside blocks using Kramdown?</a></p>
+
+<h3 class="sub-hd" id="kramdown-でのデフォルトの動作">Kramdown でのデフォルトの動作</h3>
+
+<p>jekyll で Markdown(Kramdown)を使っている際、HTMLの直書きはそのままHTMLに変換されるのだけれど、そのHTMLの中の Markdown は変換されない。普通は….</p>
 
 <p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 1
-{: .font-size1}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+<span class="gh"># Headline2
+------------
+</span><span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<p class="font-size1">Font Size 1</p>
-
-<p>HTML は次のように書きだされる。</p>
+<div>
+# Headline2
+------------
+</div>
 
 <p class="caption-name">[html]</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"font-size1"</span><span class="nt">&gt;</span>Font Size 1<span class="nt">&lt;/p&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+# Headline2
+------------
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<hr />
-<p>以下 H2〜H6。Bulma では級数が一つ下がると 0.5rem 下がるのでこれに準じることにするが、最後の<code class="highlighter-rouge">font-size5</code>と<code class="highlighter-rouge">font-size6</code>は小さくなりすぎるので微調整。以下HTMLは省略。</p>
+<p>ただの文字列に（;o;）</p>
 
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size2</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.5rem</span><span class="p">;</span>
-<span class="p">}</span>
+<p>ずっとそういうものだと思っていたが、これはデフォルトの動作で、実はオプションで変えられる。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="parse_block_html-オプション">parse_block_html オプション</h3>
+
+<p>ドキュメントの中に<code class="highlighter-rouge">parse_block_html</code>オプションを有効にする記述を入れる。</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{::options parse_block_html="true" /}
 </code></pre></div></div>
+
+<p>するとその設定変更を書いた行以降のHTML内で Markdown が有効になる。</p>
 
 <p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 2
-{: .font-size2}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+<span class="gh"># Headline2
+------------
+</span><span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<p class="font-size2">Font Size 2</p>
-
-<hr />
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size3</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.0rem</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 3
-{: .font-size3}
-</code></pre></div></div>
-
-<p class="font-size3">Font Size 3</p>
-
-<hr />
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size4</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5rem</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 4
-{: .font-size4}
-</code></pre></div></div>
-
-<p class="font-size4">Font Size 4</p>
-
-<hr />
-<p class="caption-name">[css]</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size5</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.3rem</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 5
-{: .font-size5}
-</code></pre></div></div>
-
-<p class="font-size5">Font Size 5</p>
-
-<hr />
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.font-size6</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.1rem</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font Size 6
-{: .font-size6}
-</code></pre></div></div>
-
-<p class="font-size6">Font Size 6</p>
-
-<hr />
-<h2 id="図やコードなどのキャプション">図やコードなどのキャプション</h2>
-
-<p>図の表題とかコードの上にファイル名を付けたい時など、普通にPタグや H6 などでは地味であったりいらないマージンがあったりして使いづらい。クラスに<code class="highlighter-rouge">caption-name</code>と付けると図やコードの左上に近づいたキャプションになるようにする。</p>
-
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.caption-name</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">0.7rem</span><span class="p">;</span>
-  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[print_out.cpp]
-{: .caption-name}
-```cpp
-std::cout &lt;&lt; "Test";
-```
-</code></pre></div></div>
-
-<p>それで、もうすでにこのサイトであちこち使っているキャプションだが、こんな感じになる。<br />
-　　　↓<br /></p>
-
-<p class="caption-name">[print_out.cpp]</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Test"</span><span class="p">;</span>
-</code></pre></div></div>
-
-<hr />
-<h2 id="左寄せ右寄せ中央両端揃え数値寄せ">左寄せ、右寄せ、中央、両端揃え、数値寄せ</h2>
-
-<p>横方向の文字寄せのためのこんなクラス名を考えた。</p>
-
-<p><code class="highlighter-rouge">align-l</code>, <code class="highlighter-rouge">align-r</code>, <code class="highlighter-rouge">align-c</code>, <code class="highlighter-rouge">align-j</code>, <code class="highlighter-rouge">margin-xx</code></p>
-
-<p class="caption-name">[css]</p>
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.align-l</span> <span class="p">{</span>
-  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text left
-{: .align-l}
-</code></pre></div></div>
-
-<p class="align-l" style="background: #eee; padding: 5px;">Text left</p>
+<div>
+  <h1 id="headline2">Headline2</h1>
+  <hr />
+</div>
 
 <p class="caption-name">[html]</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"align-l"</span><span class="nt">&gt;</span>Text left<span class="nt">&lt;/p&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"headline2"</span><span class="nt">&gt;</span>Headline2<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<p>以下プレヴューのみ</p>
+<hr class="sec-br" />
+<h3 class="sub-hd" id="_configyml-に書く方法">_config.yml に書く方法</h3>
 
-<p class="align-r" style="background: #eee; padding: 5px;">[Text right]</p>
+<p>しかしいちいち記事に書くのは面倒くさい。
+そこで<code class="highlighter-rouge">_config.yml</code>に書いておいて、全ページで有効になる方法も用意されている。</p>
 
-<p class="align-c" style="background: #eee; padding: 5px;">[Text center]</p>
-
-<p class="caption-name">[Text left]</p>
-<p class="align-l" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text right]</p>
-<p class="align-r" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text center]</p>
-<p class="align-c" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text justify]</p>
-<p class="align-j" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p><code class="highlighter-rouge">margin-l1</code>で左マージン 1.0rem 寄り。数字だけ変えて 2.0rem, 3.0rem の3種対応。
-同様に<code class="highlighter-rouge">margin-r1</code>で右マージン 1.0rem, 2.0rem, 3.0rem。</p>
-
-<p class="caption-name">[Text margin left 1.0rem, align justify]</p>
-<p class="margin-l1 align-j" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin left 2.0rem, align justify]</p>
-<p class="margin-l2 align-j" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin left 3.0rem, align justify]</p>
-<p class="margin-l3 align-j" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin right １.0rem, align right]</p>
-<p class="margin-r1 align-r" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin right 2.0rem, align right]</p>
-<p class="margin-r2 align-r" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin right 3.0rem, align right]</p>
-<p class="margin-r3 align-r" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<p class="caption-name">[Text margin left 3.0rem, right 3.0rem, align justify]</p>
-<p class="margin-l3 margin-r3 align-j" style="background: #eee; padding: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-
-<hr />
-
-<h2 id="上下の空き">上下の空き</h2>
-
-<p>段落の改行ほどは要らないがちょっとだけ上下を空けたいときがある。</p>
-
-<dl>
-  <dt>margin-top 10〜20px</dt>
-  <dd><code class="highlighter-rouge">margin-t1</code>, <code class="highlighter-rouge">margin-t2</code>, <code class="highlighter-rouge">margin-t3</code></dd>
-  <dt>margin-bottom 10〜20px</dt>
-  <dd><code class="highlighter-rouge">margin-b1</code>, <code class="highlighter-rouge">margin-b2</code>, <code class="highlighter-rouge">margin-b3</code></dd>
-</dl>
-
-<h6 id="-指定なしの場合">□ 指定なしの場合</h6>
-
-<p style="border: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-<p style="border: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-<h6 id="-2行目にmargin-top10px">□ 2行目に<code class="highlighter-rouge">margin-top:10px</code></h6>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>文章どうしの空き
-
-文章どうしの空き
-{: .margin-t1}
+<p class="caption-name">[_config.yml]</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">markdown</span><span class="pi">:</span> <span class="s">kramdown</span>
+<span class="na">kramdown</span><span class="pi">:</span> 
+  <span class="na">parse_block_html</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre></div></div>
 
-<p style="border-bottom: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
+<p>こうやって設定変更しておけば、例えばフォーム要素の中の<code class="highlighter-rouge">input</code>や<code class="highlighter-rouge">button</code>にクラス名を渡したりできるので、<code class="highlighter-rouge">_includes</code>や<code class="highlighter-rouge">_layouts</code>のテンプレートに Markdown を使ってCSSクラスを設定しておいたりできる。</p>
 
-<p class="margin-t1" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
+<p class="caption-name">[html&amp;markdown]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;input&gt;</span>
+  <span class="nt">&lt;button&gt;</span>Button<span class="nt">&lt;/button&gt;</span>{: .button}
+<span class="nt">&lt;/form&gt;</span>{: .test-form}
+</code></pre></div></div>
+<form class="test-form">
+  <p><input />
+<button class="button">Button</button></p>
+</form>
 
-<hr class="bg-none" />
-<h6 id="-2行目にmargin-top20px">□ 2行目に<code class="highlighter-rouge">margin-top:20px</code></h6>
-
-<p style="border-bottom: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<p class="margin-t2" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-<h6 id="-2行目にmargin-top30px">□ 2行目に<code class="highlighter-rouge">margin-top:30px</code></h6>
-
-<p style="border-bottom: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<p class="margin-t3" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-
-<p>見た目わかりにくいけどこんどは<code class="highlighter-rouge">margin-bottom:xxx</code></p>
-
-<h6 id="-1行目にmargin-bottom10px">□ 1行目に<code class="highlighter-rouge">margin-bottom:10px</code></h6>
-
-<p class="margin-b1" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
-
-<p style="border-top: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-<h6 id="-1行目にmargin-bottom20px">□ 1行目に<code class="highlighter-rouge">margin-bottom:20px</code></h6>
-
-<p class="margin-b2" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
-
-<p style="border-top: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-<h6 id="-1行目にmargin-bottom30px">□ 1行目に<code class="highlighter-rouge">margin-bottom:30px</code></h6>
-
-<p class="margin-b3" style="border: 1px solid #bbb; padding: 0 3px;">文章どうしの空き</p>
-
-<p style="border-top: 1px solid #bbb; padding: 0 3px; margin: 0;">文章どうしの空き</p>
-
-<hr class="bg-none" />
-
-<h3 id="透明な線">透明な線</h3>
-
-<p>バックが透明な線<code class="highlighter-rouge">hr</code>を入れることで、少し空きを持たせる方法もある。</p>
-
-<p>次のように書くと透明な線になる。</p>
-
-<p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------------------------------
-{: .bg-none}
+<p class="caption-name">[html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"test-form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;input&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
 
-<p>たまに前の段落とタイトルとかが思い通りの空きにならないときに使えるかも。ただしどの程度空くかは他の<code class="highlighter-rouge">hr</code>の設定しだい。そこもバリエーションつけたクラスを作ってもいいけど、面倒なのでやらない。</p>
+<p>ただし、よけいな<code class="highlighter-rouge">&lt;P&gt;</code>とか入ってしまうのが難点。インデントを外しても入ってしまう。</p>
+
+<p>マニュアルによれば「このオプションが<code class="highlighter-rouge">true</code>の場合、kramdownパーサーはブロックHTMLタグの内容をブロックレベルの要素を含むテキストとして処理する」とあるので、そこが問題かと。</p>
+
+<p>これはいつも有効にしたい機能とは言えない。だからデフォルトは<code class="highlighter-rouge">false</code>になっているのだろう。したがってこの<code class="highlighter-rouge">_config.yml</code>に設定を書いてしまうやりかたは、一見便利だがあまりおすすめできない。マニュアルにしたがって「<strong>markdown属性を介してkramdown処理を選択的に有効にする</strong>」、つまりドキュメントで使いたい箇所の直前に<code class="highlighter-rouge">true</code>にし、外したい場所で<code class="highlighter-rouge">false</code>に戻すのが賢いやり方だろう。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="parse_span_html-オプション">parse_span_html オプション</h3>
+
+<p>ちなみに「スパンHTMLタグ内のkramdown構文を処理する」というインライン版のオプション<code class="highlighter-rouge">parse_span_html</code>もある。こちらはデフォルトで有効になっているようだ。</p>
+
+<p class="caption-name">[markdown &amp; html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label&gt;&lt;span&gt;</span>*Title H4*<span class="nt">&lt;/span&gt;</span>{: .test-class}<span class="nt">&lt;/label&gt;</span>
+</code></pre></div></div>
+
+<p><label><span class="test-class"><em>Title H4</em></span></label></p>
+
+<p class="caption-name">[html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label&gt;&lt;span</span> <span class="na">class=</span><span class="s">"test-class"</span><span class="nt">&gt;&lt;em&gt;</span>Title H4<span class="nt">&lt;/em&gt;&lt;/span&gt;&lt;/label&gt;</span>
+</code></pre></div></div>
+
+<p>無効にするとこんなのになってしまう。</p>
+
+<p><code class="highlighter-rouge">{::options parse_span_html="false" /}</code></p>
+
+<p><code class="bg-transparent fc-dark-gray3 highlighter-rouge">*Title H4*{: .test-class}</code></p>
+
+<p>それと<code class="highlighter-rouge">parse_block_html</code>オプションのように有効にした区間だけ有効になるのではなく、<code class="highlighter-rouge">parse_span_html="false"</code>を書いたドキュメント単位で無効になる（それを書いた記事の位置より前の記述も<code class="highlighter-rouge">false</code>扱いになる）ので使い方に注意が必要だ。</p>
+
 
     </div>
     <div class="post-info is-loading">
@@ -356,7 +210,7 @@ std::cout &lt;&lt; "Test";
   
   <dl class="post-attr-list">
     <dt class="entry">post archive date: </dt>
-    <dd class="item date"><a href="/Febris/archives/2019/06">13th June 2019</a></dd>
+    <dd class="item date"><a href="/Febris/archives/2019/06">12th June 2019</a></dd>
   
     
     <dt class="entry">categories: </dt>
@@ -384,6 +238,26 @@ std::cout &lt;&lt; "Test";
   </dl>
 </div>
 
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager_item--next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">&lt; Font関係など</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-1">Markdown の中で使えるCSS設定 &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
 <div class="post-toc sticky">
   <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
@@ -391,12 +265,12 @@ std::cout &lt;&lt; "Test";
   </div>
   <div id="post-toc-box">
     <ul>
-  <li class="anchor"><a href="#文字の大きさを指定するクラス">文字の大きさを指定するクラス</a></li>
-  <li class="anchor"><a href="#図やコードなどのキャプション">図やコードなどのキャプション</a></li>
-  <li class="anchor"><a href="#左寄せ右寄せ中央両端揃え数値寄せ">左寄せ、右寄せ、中央、両端揃え、数値寄せ</a></li>
-  <li class="anchor"><a href="#上下の空き">上下の空き</a>
+  <li class="anchor"><a href="#markdownkramdown-内のhtmlで-markdown-を変換する">Markdown(Kramdown) 内のHTMLで Markdown を変換する</a>
     <ul>
-      <li class="anchor"><a href="#透明な線">透明な線</a></li>
+      <li class="anchor"><a href="#kramdown-でのデフォルトの動作">Kramdown でのデフォルトの動作</a></li>
+      <li class="anchor"><a href="#parse_block_html-オプション">parse_block_html オプション</a></li>
+      <li class="anchor"><a href="#_configyml-に書く方法">_config.yml に書く方法</a></li>
+      <li class="anchor"><a href="#parse_span_html-オプション">parse_span_html オプション</a></li>
     </ul>
   </li>
 </ul>
@@ -410,13 +284,13 @@ std::cout &lt;&lt; "Test";
   <div class="pager">
   
     <p class="pager_item--next">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">&lt; 簡易なミニCSSフレームワークを作ってみる（３）</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">&lt; Font関係など</a>
     </p>
   
 
   
     <p class="pager_item--prev">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-1">簡易なミニCSSフレームワークを作ってみる（１） &gt;</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-1">Markdown の中で使えるCSS設定 &gt;</a>
     </p>
   
 </div><!-- post pagination end -->
@@ -465,70 +339,73 @@ std::cout &lt;&lt; "Test";
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -554,14 +431,17 @@ std::cout &lt;&lt; "Test";
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -572,15 +452,15 @@ std::cout &lt;&lt; "Test";
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -589,7 +469,7 @@ std::cout &lt;&lt; "Test";
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -598,11 +478,11 @@ std::cout &lt;&lt; "Test";
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -629,70 +509,73 @@ std::cout &lt;&lt; "Test";
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -837,16 +720,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }

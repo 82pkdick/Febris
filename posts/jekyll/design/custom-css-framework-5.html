@@ -7,7 +7,7 @@
 
 <title>
   
-    簡易なミニCSSフレームワークを作ってみる（５） | Febris
+    文字のカラー設定 | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -50,10 +50,11 @@
   <h1 class="title">
     <span class="title-lmark">【</span>
     <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-5">
-      <span class="title-text">簡易なミニCSSフレームワークを作ってみる（５）</span>
+      <span class="title-text">文字のカラー設定</span>
     </a>
     <span class="title-rmark">】</span>
   </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（５）</h4>
   <p class="page-appendix"><span class="post-date">June 14, 2019</span></p>
 </div><!-- post header end -->
 
@@ -63,224 +64,86 @@
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
-      <h2 id="grid-で横並びのブロックを作ってみよう">Grid で横並びのブロックを作ってみよう</h2>
+      <h2 class="main-hd" id="文字のスタイル設定続き">文字のスタイル設定（続き）</h2>
+<h3 class="sub-hd" id="文字に色を付ける">文字に色を付ける</h3>
 
-<p>Box や Card を組み合わせて横並びのブロック要素を作ってみます。
-といっても markdown の中に HTML をごりごり書きたくない。またできるだけ Grid System でやりたい。</p>
+<p><code class="highlighter-rouge">em</code>（強調）ってあんまし使わない。</p>
 
-<p>で、markdown で作ろうとしたら要素を入れ子にできる記法をつかわなくてはならないわけですが、まさかリストでやるわけにもいかない。そこでそういうのに使える記法が１つだけあります。<code class="highlighter-rouge">blockquote</code>です。</p>
+<p>このあまり使わない<code class="highlighter-rouge">emphasis</code>を利用して文字色を変えてみる。<br />
+色指定クラスを指定しなければ普通に<code class="highlighter-rouge">emphasis</code>として使えるので問題ないかと思う。</p>
 
-<h3 id="3-columns-box">3 Columns Box</h3>
-
-<p>次の例は左右３コラムの Box、内側に３個の Card を持っている。</p>
-
-<blockquote class="box grid-col3 fc-gray">
-  <p class="card">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<p><code class="highlighter-rouge">.box .grid-col3</code>でできるようにした。</p>
+<p>こうすれば<code class="highlighter-rouge">emphasis</code>だが、</p>
 
 <p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Nested paragraph 1.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card}
-&gt;
-&gt; Nested paragraph 2.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card}
-&gt;
-&gt; Nested paragraph 3.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card}
-{: .box .grid-col3 .fc-gray}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*フォントに色*を付ける。
 </code></pre></div></div>
+
+<p><em>フォントに色</em>を付ける。</p>
+
+<p>インライン要素にクラス名が付けられるのを利用して文字色を変えてみる。</p>
+
+<p class="caption-name">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*フォントに色*{: .fc-red}を付ける
+</code></pre></div></div>
+
+<p><em class="fc-red">フォントに色</em>を付ける</p>
+
+<p class="caption-name">[html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;em</span> <span class="na">class=</span><span class="s">"fc-red"</span><span class="nt">&gt;</span>フォントに色を付ける<span class="nt">&lt;/em&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">em</code>タグだがCSS側で<code class="highlighter-rouge">font-style: normal;</code>にしてしまい<code class="highlighter-rouge">color: red;</code>にしている。
+クラス名に<code class="highlighter-rouge">fc-色名</code>で文字色指定する。</p>
+
+<p>本文中の説明とかいれたいとき。　<em class="fc-limegreen">&lt;– こんな感じで使える</em>かも</p>
+
+<p>もし斜体文字に色をつけたかったらまたスタイルを指定しないといけないが、日本語だとあまり使わないので問題ないだろう。ただ。どうしてもイタリックの色文字にしたい場合のために、<code class="highlighter-rouge">{: style="font-style: italic;"}</code>とか書かなくていいように、<code class="highlighter-rouge">em</code>クラスも定義しておく。</p>
+
+<p class="caption-name">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*イタリックの色文字*{: .em .fc-red} です。
+</code></pre></div></div>
+
+<p><em class="em fc-red">イタリックの色文字</em> です。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="文字の太さを変える">文字の太さを変える</h3>
+
+<p>同じ手法で文字の太さを部分的に変える。markdownでも<code class="highlighter-rouge">**太文字**</code>とすれば<strong>太文字</strong>になるが、より太く、より細くも用意できる。</p>
+
+<p class="caption-name">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>フォントの*太さノーマル*{: .fw-normal}。_font weight is normal_{: .fw-normal}.
+
+フォントの*太さを*{: .fw-bold}変える。_font weight is bold_{: .fw-bold}.
+
+より*太い文字*{: .fw-bolder}。_font weight is bolder_{: .fw-bolder}.
+
+より*細い文字*{: .fw-lighter}。_font weight is lighter_{: .fw-lighter}.
+</code></pre></div></div>
+
+<p>フォントの<em class="fw-normal">太さノーマル</em>。<em class="fw-normal">font weight is normal</em>.</p>
+
+<p>フォントの<em class="fw-bold">太さを</em>変える。<em class="fw-bold">font weight is bold</em>.</p>
+
+<p>より<em class="fw-bolder">太い文字</em>。<em class="fw-bolder">font weight is bolder</em>.</p>
+
+<p>より<em class="fw-lighter">細い文字</em>。<em class="fw-lighter">font weight is lighter</em>.</p>
+
+<p>cssの設定は<code class="highlighter-rouge">bold</code>と<code class="highlighter-rouge">bolder</code>の区別がつきにくいので<code class="highlighter-rouge">bolder</code>のみ数値で設定している。<code class="highlighter-rouge">font-weight: 1000;</code>は最高値なので細かい文字はつぶれる。また日本語だと<code class="highlighter-rouge">lighter</code>にあまり意味がない。</p>
 
 <p class="caption-name">[css]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.grid-col3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(2.0rem, auto);
-  justify-content: center;
-  grid-row-gap: 2%;
-  grid-column-gap: 1%;
-  grid-auto-flow: dense;
-}
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.fw-lighter</span> <span class="p">{</span> <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">lighter</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.fw-normal</span> <span class="p">{</span> <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.fw-bold</span> <span class="p">{</span> <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.fw-bolder</span> <span class="p">{</span> <span class="nl">font-weight</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<p>外側の罫線が不要なら<code class="highlighter-rouge">.border-none</code>で消せる。もちろん内側にこれを指定すれば内罫線も消える。<code class="highlighter-rouge">.fc-gray</code> は内側の文字の色をグレーにしているだけ。</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .box .grid-col3 .fc-gray .border-none}
-</code></pre></div></div>
-
-<blockquote class="box grid-col3 fc-gray border-none">
-  <p class="card">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<p>外の箱と内の箱は、Box と Card のどういう組合せでもOK.いろいと仕組みができてきたので、一部分だけバックの色を変えるとかも可能。次の例は内側の Card のバックや文字の色を変えたり、外の Card にタイトル(H4)やちょっとした文章、フッターとなる一文など追加した例。</p>
-
-<p>Gridはそのままだと一番文章の長い要素に合わせて高さが決まってしまうので、タイトルやパラグラフなどに見せようとしても高さが広がりすぎてしまったりする。そこで<code class="highlighter-rouge">.block-title</code>, <code class="highlighter-rouge">.block-para</code>, <code class="highlighter-rouge">.block-footer</code>といったクラスを追加して空きを調整している。またデフォルトのままだと横幅が１コラムになる。タイトルとかパラグラフ、フッターなどは横幅100％使わないとダメなので<code class="highlighter-rouge">.grid-col3</code>でコラム3つ分の巾にする。ただし<code class="highlighter-rouge">640px</code>以下のスマートフォン・スクリーンではコラム１の巾にしないと中のボックスが伸縮して縦並びになってくれない。ま、そこは<code class="highlighter-rouge">Media Queries</code>で対処した。</p>
-
-<blockquote class="card grid-col3 fc-gray">
-  <h4 class="grid-col-span3 block-title" id="headers-in-box-3-columns">Headers in box 3 columns</h4>
-
-  <p class="grid-col-span3 block-para">A blockquote box.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card fc-darkblue bg-whitesmoke">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="card fc-white bg-dark-gray3">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="grid-col-span3 block-footer align-r">This is the outer quote again.</p>
-</blockquote>
+<p>太さ<code class="highlighter-rouge">bold</code>で、文字色<code class="highlighter-rouge">olive</code>とした例</p>
 
 <p class="caption-name">[markdown]</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; #### Headers in box 3 columns
-&gt; {: .grid-col-span3 .block-title}
-&gt;
-&gt; A blockquote box.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-&gt; {: .grid-col-span3 .block-para}
-&gt;
-&gt; Nested paragraph 1.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card .fc-darkblue .bg-whitesmoke}
-&gt;
-&gt; Nested paragraph 2.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card}
-&gt;
-&gt; Nested paragraph 3.
-&gt; John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-&gt; {: .card .fc-white .bg-dark-gray3}
-&gt;
-&gt; This is the outer quote again.
-&gt; {: .grid-col-span3 .block-footer .align-r}
-{: .card .grid-col3 .fc-gray}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_オリーブ色の太い文字_{: .fw-bold .fc-olive}です。
 </code></pre></div></div>
 
-<p>まあここまでくると HTML 直書きと変わらないややこしさになってくるが、いろいろ出来るのはいいかと。</p>
-
-<p>以下コラム数を変えたパターン。<code class="highlighter-rouge">.grid-col数字</code>で 2〜6まで作ってみた。サイトのレイアウトに用いる Grid は直接 Jekyll のテンプレートや CSS に書いていくし、文中に使うものとしては６コラム以上はいらんだろうと考えた。</p>
-
-<p>一応スマートフォン対応で、どのコラム数設定の場合も<code class="highlighter-rouge">640px</code>以下のスクリーンでコラム数１(縦並び)になる。</p>
-
-<h3 id="2-columns-box">2 Columns Box</h3>
-
-<p>次の例は左右２コラムの Card、内側に２個の Box を持っている。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .card .grid-col2 .fc-gray}
-</code></pre></div></div>
-
-<blockquote class="card grid-col2 fc-gray">
-  <p class="box">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<hr class="bg-none" />
-
-<h3 id="4-columns-box">4 Columns Box</h3>
-
-<blockquote class="card grid-col4 fc-gray">
-  <p class="box">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 4.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<hr class="bg-none" />
-
-<h3 id="5-columns-box">5 Columns Box</h3>
-
-<blockquote class="card grid-col5 fc-gray">
-  <p class="box">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 4.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 5.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<hr class="bg-none" />
-
-<h3 id="6-columns-box">6 Columns Box</h3>
-
-<blockquote class="card grid-col6 fc-gray">
-  <p class="box">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 4.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 5.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  <p class="box">Nested paragraph 6.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
-<p>もちろん Grid の仕様でアイテムの数がコラム数より多ければ、自動的に次の行に配置される。たとえば<code class="highlighter-rouge">.grid-col4</code>でアイテムが６なら、</p>
-
-<blockquote class="card grid-col4 fc-gray">
-  <p class="box">Nested paragraph 1.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 2.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 3.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 4.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-  <p class="box">Nested paragraph 5.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  <p class="box">Nested paragraph 6.
-John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</blockquote>
-
+<p><em class="fw-bold fc-olive">オリーブ色の太い文字</em>です。</p>
 
     </div>
     <div class="post-info is-loading">
@@ -325,6 +188,26 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
   </dl>
 </div>
 
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager_item--next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-6">&lt; BoxとCard</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-4">罫線の設定 &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
 <div class="post-toc sticky">
   <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
@@ -332,17 +215,10 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
   </div>
   <div id="post-toc-box">
     <ul>
-  <li class="anchor"><a href="#grid-で横並びのブロックを作ってみよう">Grid で横並びのブロックを作ってみよう</a>
+  <li class="anchor"><a href="#文字のスタイル設定続き">文字のスタイル設定（続き）</a>
     <ul>
-      <li class="anchor"><a href="#3-columns-box">3 Columns Box</a>
-        <ul>
-          <li class="anchor"><a href="#headers-in-box-3-columns">Headers in box 3 columns</a></li>
-        </ul>
-      </li>
-      <li class="anchor"><a href="#2-columns-box">2 Columns Box</a></li>
-      <li class="anchor"><a href="#4-columns-box">4 Columns Box</a></li>
-      <li class="anchor"><a href="#5-columns-box">5 Columns Box</a></li>
-      <li class="anchor"><a href="#6-columns-box">6 Columns Box</a></li>
+      <li class="anchor"><a href="#文字に色を付ける">文字に色を付ける</a></li>
+      <li class="anchor"><a href="#文字の太さを変える">文字の太さを変える</a></li>
     </ul>
   </li>
 </ul>
@@ -356,13 +232,13 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
   <div class="pager">
   
     <p class="pager_item--next">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-6">&lt; 簡易なミニCSSフレームワークを作ってみる（６）</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-6">&lt; BoxとCard</a>
     </p>
   
 
   
     <p class="pager_item--prev">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-4">簡易なミニCSSフレームワークを作ってみる（４） &gt;</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-4">罫線の設定 &gt;</a>
     </p>
   
 </div><!-- post pagination end -->
@@ -411,70 +287,73 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -500,14 +379,17 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -518,15 +400,15 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -535,7 +417,7 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -544,11 +426,11 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -575,70 +457,73 @@ John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -783,16 +668,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }

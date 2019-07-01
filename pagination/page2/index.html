@@ -43,31 +43,32 @@
     <div id="main-container" class="grid">
       <span id="page-top"></span>
       <article id="main-contents">
-        <!-- Page -->
+        <!-- Page Lauout designated frontpage -->
+
 <div class="container page frontpage">
-
-  
-
   <!-- Page Header -->
-  
-
-
-
-
-<div class="contents-header page-header frontpage">
+  <div class="contents-header page-header frontpage">
   <h1 class="title">
     <span class="title-lmark">【</span>
-    
-
-    
 
     <span class="title-text">Latest article list</span>
   
-    </a>
     <span class="title-rmark">】</span>
   </h1>
-  <!-- page description -->
-  
+  <div id="tgl-frontpage-view-style">
+      <!-- toggle button for frontpage view style -->
+
+<label class="view-selector box-view">
+  <span>
+    <a href="/Febris/" class="select-link"><i class="fas fa-grip-horizontal"></i></a>
+  </span>
+</label>
+<label class="view-selector list-view">
+  <span>
+    <a href="/Febris/index-vertically.html" class="select-link"><i class="fas fa-align-justify"></i></a>
+  </span>
+</label>
+  </div>
 </div><!-- page header end -->
 
   <!-- Page Body -->
@@ -79,112 +80,12 @@
     
 
   
-<div class="frontpage-widget gridrow-1">
-	
-	
-	
-  
-  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-2">
-    
-      
-      <img class="fpw image" src="/Febris/assets/images/015.jpg" alt="" />
-    
-  </a>
-  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-2">簡易なミニCSSフレームワークを作ってみる（２）</a></h2>
-  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。文字の大きさ、文字の寄せ、空きなど</div>
-  <p class="fpw post-date"><time>June 13, 2019</time></p>
-  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-2">More ›</a></p>
-</div>
-
-
-
-  
-<div class="frontpage-widget gridrow-1">
-	
-	
-	
-  
-  <a class="fpw img-link" href="/Febris/posts/jekyll/design/custom-css-framework-1">
-    
-      
-      <img class="fpw image" src="/Febris/assets/images/015.jpg" alt="" />
-    
-  </a>
-  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/design/custom-css-framework-1">簡易なミニCSSフレームワークを作ってみる（１）</a></h2>
-  <div class="fpw archive_excerpt">CSSフレームワークBulmaを参考に、Jekyllで使ってみるための小さなスタイル設定を作る。開発というほどの話ではない。仕組みと規定値を決めてクラスを指定するとデザインが決まるという程度のもの。</div>
-  <p class="fpw post-date"><time>June 13, 2019</time></p>
-  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/design/custom-css-framework-1">More ›</a></p>
-</div>
-
-
-
-  
-<div class="frontpage-widget gridrow-4">
-	
-	
-	
-  
-  <a class="fpw img-link" href="/Febris/posts/language/ruby/Ruby-very-great">
-    
-      
-      <img class="fpw image" src="/Febris/assets/images/004.jpg" alt="" />
-    
-  </a>
-  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/language/ruby/Ruby-very-great">Ruby great!</a></h2>
-  <div class="fpw archive_excerpt"><h2 id="rubyとは">Rubyとは</h2>
-
-<p>Rubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。</p>
-
-<noscript><pre>400: Invalid request
-</pre></noscript>
-<script src="https://gist.github.com/5598133.js?file=creature.rb"> </script>
-
-<h3 id="try-ruby">Try Ruby</h3>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="k">class</span> <span class="n">person</span>
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">hello</span>
-    <span class="s2">"Hello, friend!</span><span class="se">\n</span><span class="s2">My name is </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">!"</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="n">charlie</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Charlie"</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">charlie</span><span class="p">.</span><span class="nf">hello</span>
-
-<span class="c1">#=&gt; Hello, friend!</span>
-<span class="c1">#=&gt; My name is Charlie!</span></pre></td></tr></tbody></table></code></pre></figure>
-
-</div>
-  <p class="fpw post-date"><time>February 14, 2019</time></p>
-  <p  class="fpw button-more"><a href="/Febris/posts/language/ruby/Ruby-very-great">More ›</a></p>
-</div>
-
-
-
-  
 <div class="frontpage-widget gridrow-2">
 	
 	
 	
   
+
   <a class="fpw img-link" href="/Febris/posts/jekyll/update/welcome-to-jekyll">
     
       
@@ -192,6 +93,9 @@
     
   </a>
   <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/update/welcome-to-jekyll">Welcome to Jekyll!</a></h2>
+
+  
+
   <div class="fpw archive_excerpt"><h2 id="welcome-to-jekyll">Welcome to Jekyll!</h2>
 
 <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
@@ -213,6 +117,7 @@
 	
 	
   
+
   <a class="fpw img-link" href="/Febris/posts/jekyll/jekyll-Tutorial">
     
       
@@ -220,6 +125,9 @@
     
   </a>
   <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/jekyll-Tutorial">Jekyllのチュートリアル</a></h2>
+
+  
+
   <div class="fpw archive_excerpt"><h2 id="jekyllのチュートリアル">Jekyllのチュートリアル</h2>
 
 <p>grid-row:</p>
@@ -229,6 +137,251 @@
 </div>
   <p class="fpw post-date"><time>January 28, 2019</time></p>
   <p  class="fpw button-more"><a href="/Febris/posts/jekyll/jekyll-Tutorial">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/test/hello-world">
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/test/hello-world">Hello World!</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><h2 id="first-post">First post.</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+  <p class="fpw post-date"><time>November 21, 2018</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/test/hello-world">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/jekyll/post/second-blog-post">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/003.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/post/second-blog-post">Second Blog Post</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><p>This is <big>the second</big> <span>blog</span> post<br /> on my website!</p>
+
+</div>
+  <p class="fpw post-date"><time>September 04, 2016</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/post/second-blog-post">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/jekyll/post/my-first-post">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/005.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/jekyll/post/my-first-post">My First Blog Post</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build
+the site to see your changes. You can rebuild the site in many different ways, but
+the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and
+auto-regenerates your site when a file is updated.</p>
+
+</div>
+  <p class="fpw post-date"><time>July 02, 2016</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/jekyll/post/my-first-post">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/ruby/ruby_02">
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/ruby/ruby_02">Rubyの哲学</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt">開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミングを楽しむこと (Enjoy programming) である」と述べている(ただし...</div>
+  <p class="fpw post-date"><time>August 06, 2012</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/ruby/ruby_02">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/ruby/ruby_01_memo-1">
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/ruby/ruby_01_memo-1">Rubyのクロージャ</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><h3 id="クロージャーclosure-とは">クロージャー(Closure) とは？</h3>
+
+<p>プログラミング言語において、クロージャ (クロージャー、Closure) は関数の一種である。引数以外の変数を
+実行時の環境ではなく、自身が定義された環境（静的スコープ）において解決する。関数とそれを評価する環境
+のペアであるともいえる。</p>
+</div>
+  <p class="fpw post-date"><time>August 05, 2012</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/ruby/ruby_01_memo-1">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-3">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/ruby/ruby_01">
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/ruby/ruby_01">Rubyとは</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><h2 id="rubyとは">Rubyとは？</h2>
+
+<p>Ruby（ルビー）は、まつもとゆきひろ（通称Matz）により開発されたオブジェクト指向スクリプト言語であり、
+従来Perlなどのスクリプト言語が用いられてきた領域でのオブジェクト指向プログラミングを実現する。Rubyは
+当初1993年2月24日に生まれ、1995年12月にfj上で発表された。名称のRubyは、プログラミング言語Perlが6月の
+誕生石であるPearl（真珠）とほぼ同じ発音をすることから、まつもとの同僚の誕生石（7月）のルビーを取って
+名付けられた。</p>
+
+<p>機能として、クラス定義、ガベージコレクション、強力な正規表現処理、マルチスレッド、例外処理、イテレー
+タ・クロージャ、Mixin、演算子オーバーロードなどがある。Perlの代替となることができることが初期の段階
+から重視されている。Perlと同様にグルー言語としての使い方が可能で、Cプログラムやライブラリを呼び出す
+拡張モジュールを組み込むことができる。</p>
+
+<p>Ruby処理系は、主にインタプリタとして実装されている（詳しくは[[実装]]を参照）。</p>
+
+<p>構文は、ALGOL系を継承しながら、可読性を重視している。Rubyにおいては整数や文字列なども含めデータ型は
+すべてがオブジェクトであり、純粋なオブジェクト指向言語といえる。</p>
+
+</div>
+  <p class="fpw post-date"><time>August 04, 2012</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/ruby/ruby_01">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/c/cpp/cpp_03">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/008.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/c/cpp/cpp_03">入力ストリーム</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt">今度は入力ストリームを見ていきます。これは標準入力 （通常はキーボード）からの入力を受け取ります。具体的には......</div>
+  <p class="fpw post-date"><time>December 31, 2011</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/c/cpp/cpp_03">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/c/cpp/cpp_02">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/007.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/c/cpp/cpp_02">出力ストリーム</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt">C++では、cout を使って出力処理を行えます。例えば、次のようにコードを書けば、画面に"Test"と......</div>
+  <p class="fpw post-date"><time>November 30, 2011</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/c/cpp/cpp_02">More ›</a></p>
+</div>
+
+
+
+  
+<div class="frontpage-widget gridrow-1">
+	
+	
+	
+  
+
+  <a class="fpw img-link" href="/Febris/posts/programming/c/cpp/cpp_01">
+    
+      
+      <img class="fpw image" src="/Febris/assets/images/006.jpg" alt="" />
+    
+  </a>
+  <h2 class="fpw archive_title"><a class="fpw title-link" href="/Febris/posts/programming/c/cpp/cpp_01">最小のC++プログラム</a></h2>
+
+  
+
+  <div class="fpw archive_excerpt"><p>まずは、一番小さいC++プログラムを見てみます。</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+  <p class="fpw post-date"><time>October 29, 2011</time></p>
+  <p  class="fpw button-more"><a href="/Febris/posts/programming/c/cpp/cpp_01">More ›</a></p>
 </div>
 
 
@@ -254,17 +407,7 @@
       <span class="pagination_item current">2</span>
     
   
-    
-      <a class="pagination_item" href="/Febris/pagination/page3">3</a>
-    
-  
-    
-      <a class="pagination_item" href="/Febris/pagination/page4">4</a>
-    
-  
 
-  
-    <a class="pagination_item" href="/Febris/pagination/page3">next &gt;</a>
   
 
 </div><!-- pagination -->
@@ -319,70 +462,73 @@
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -408,14 +554,17 @@
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -426,15 +575,15 @@
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -443,7 +592,7 @@
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -452,11 +601,11 @@
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -483,70 +632,73 @@
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -691,16 +843,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }

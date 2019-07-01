@@ -7,7 +7,7 @@
 
 <title>
   
-    簡易なミニCSSフレームワークを作ってみる（４） | Febris
+    罫線の設定 | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -50,11 +50,12 @@
   <h1 class="title">
     <span class="title-lmark">【</span>
     <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-4">
-      <span class="title-text">簡易なミニCSSフレームワークを作ってみる（４）</span>
+      <span class="title-text">罫線の設定</span>
     </a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page-appendix"><span class="post-date">June 14, 2019</span></p>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（４）</h4>
+  <p class="page-appendix"><span class="post-date">June 13, 2019</span></p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
@@ -63,132 +64,143 @@
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
-      <h2 id="box-と-card">Box と Card</h2>
+      <h2 class="main-hd" id="罫線hr">罫線（hr）</h2>
 
-<p>Bulma の Box はこんな感じのもの。</p>
+<p>罫線（hr）のバリエーションを考える。
+<code class="highlighter-rouge">_block-styles.scss</code>というファイルに定義していく。今後背景色などもこのファイルに書くことにした。ブロック要素のスタイル全般という意味。</p>
 
-<p class="box">John Smith @johnsmith 31m 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+<p>markdown では、</p>
 
-<p>Bulma の Card.</p>
+<p><code class="bg-transparent highlighter-rouge">------</code> とか、</p>
 
-<p class="card">John Smith @johnsmith 31m 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+<p><code class="bg-transparent highlighter-rouge">*****************</code> とか</p>
 
-<p>見た目は角が四角いか丸いかの違いである。
-この Bulma の Box と Card を参考に似たような仕組みを作れないだろうか？</p>
+<p>書くと罫線(hr)になる。色と太さとスタイルを変えられるようにしてみる。</p>
 
-<hr />
-<h2 id="block要素の-width指定">block要素の width指定</h2>
+<hr class="sec-br" />
+<h3 class="sub-hd" id="色変更">色変更</h3>
 
-<p><code class="highlighter-rouge">.box</code>,<code class="highlighter-rouge">.card</code>というクラスで上のような箱になるようにして。それとは別に<code class="highlighter-rouge">wd-数値</code>で横幅を指定できるようにしてみる。</p>
+<p><code class="highlighter-rouge">hr</code>の色は<code class="highlighter-rouge">background</code>属性を変更することでできる。<code class="highlighter-rouge">{: .none}</code>で透明化できたように、<code class="highlighter-rouge">bg-xxxx</code>で<code class="highlighter-rouge">xxxx</code>に適当な（WEB標準140色で定義された）色名を付けると、背景色を変えられるようにした。</p>
 
-<p><code class="highlighter-rouge">20%</code>から<code class="highlighter-rouge">100%</code>まで<code class="highlighter-rouge">10%</code>きざみで選べるようにする。<code class="highlighter-rouge">width:20%</code>の<code class="highlighter-rouge">.wd2</code>から<code class="highlighter-rouge">width:100%</code>の<code class="highlighter-rouge">.wd10</code>まで揃える。</p>
+<p>さきほどの線に他の色を付けてみる。ちょっとわずらわしいのだが、<code class="highlighter-rouge">-----------</code>の下にクラス指定を書かないと反映されない。</p>
 
-<p class="caption-name">[HTML(Box width:”20%”) sample]</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"box wd2"</span><span class="nt">&gt;</span>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.
-<span class="nt">&lt;/p&gt;</span>
+<p class="caption-name">[sample markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-----------------------------------------</span>
+{: .bg-palegreen}
 </code></pre></div></div>
 
-<p class="caption-name">[css]</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5rem</span><span class="p">;</span>
-    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">6px</span><span class="p">;</span>
-    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span> <span class="m">3px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">),</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nc">.wd2</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">20%</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<p class="font-size09 fc-gray mgn-b1">[palegreen]</p>
 
-<p>boxクラスのCSSに横幅は指定しない。ブラウザにもよるのだろうがChromeだと<code class="highlighter-rouge">width:"auto"</code>で親要素の横幅いっぱいになる。だから指定しないとデフォルトの<code class="highlighter-rouge">width: auto</code>になっている。</p>
+<hr class="bg-palegreen mgn-t1 mgn-b1" />
 
-<hr class="bg-none" />
+<p class="font-size09 fc-gray mgn-b1">[royalblue]</p>
 
-<h3 id="box-の例">Box の例</h3>
+<hr class="bg-royalblue mgn-t1 mgn-b1" />
 
-<p class="caption-name">[.box wd2]</p>
-<p class="box wd2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<p class="font-size09 fc-gray mgn-b1">[olivedrab]</p>
 
-<p class="caption-name">[.box wd3]</p>
-<p class="box wd3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<hr class="bg-olivedrab mgn-t1 mgn-b1" />
 
-<p class="caption-name">[.box wd4]</p>
-<p class="box wd4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<p class="font-size09 fc-gray mgn-b1">[orange]</p>
 
-<p class="caption-name">[.box wd5]</p>
-<p class="box wd5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<hr class="bg-orange mgn-t1 mgn-b1" />
 
-<p class="caption-name">[.box wd6]</p>
-<p class="box wd6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<p class="font-size09 fc-gray mgn-b1">[deeppink]</p>
 
-<p class="caption-name">[.box wd7]</p>
-<p class="box wd7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<hr class="bg-deeppink mgn-t1 mgn-b1" />
 
-<p class="caption-name">[.box wd8]</p>
-<p class="box wd8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+<hr class="sec-br" />
+<h3 class="sub-hd" id="太さ変更">太さ変更</h3>
 
-<p class="caption-name">[.box wd9]</p>
-<p class="box wd9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.box wd10]</p>
-<p class="box wd10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<hr />
-<h3 id="card-の例">Card の例</h3>
-
-<p class="caption-name">[.card wd2]</p>
-<p class="card wd2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd3]</p>
-<p class="card wd3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd4]</p>
-<p class="card wd4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd5]</p>
-<p class="card wd5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd6]</p>
-<p class="card wd6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd7]</p>
-<p class="card wd7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd8]</p>
-<p class="card wd8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd9]</p>
-<p class="card wd9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<p class="caption-name">[.card wd10]</p>
-<p class="card wd10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
-
-<hr class="bg-none" />
-<h2 id="box-card-の活用">Box, card の活用</h2>
-
-<p>kramdown のクラス指定は、一番直近(外側)の要素に加わる。
-例えば Box と card の中身を次のようにHTMLで書けば、外側の<code class="highlighter-rouge">DIV</code>要素に<code class="highlighter-rouge">box</code>クラスが加えられる。こんな写真入りのカードっぽい要素にもなる。内側だけ Flexbox 使えばもっとよくなるかも。手書きはちょっとめんどうだが、テンプレ作って<code class="highlighter-rouge">include</code>ならできそう。</p>
+<p>hrタグの太さは特殊で<code class="highlighter-rouge">height</code>で指定する。<code class="highlighter-rouge">.ht-1px</code>で太さ<code class="highlighter-rouge">1px</code>。そんなにバリエーションは要らないだろう。<code class="highlighter-rouge">1px</code>から<code class="highlighter-rouge">10px</code>まで用意した。</p>
 
 <p class="caption-name">[markdown]</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/013.jpg"</span> <span class="na">alt=</span><span class="s">"church"</span> <span class="na">style=</span><span class="s">"width:20%;"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean efficitur sit amet massa fringilla egestas.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-{: .box}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-----------------------------------------</span>
+{: .bg-gray .ht-1px}
 </code></pre></div></div>
 
-<div class="box">
-<img src="/assets/images/013.jpg" alt="church" style="width:20%;" />
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean efficitur sit amet massa fringilla egestas.
-</p>
-</div>
+<p class="font-size09 fc-gray mgn-b1">[height 1px]</p>
+<hr class="bg-gray ht-1px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 2px]</p>
+<hr class="bg-gray ht-2px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 3px]</p>
+<hr class="bg-gray ht-3px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 4px]</p>
+<hr class="bg-gray ht-4px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 5px]</p>
+<hr class="bg-gray ht-5px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 6px]</p>
+<hr class="bg-gray ht-6px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 7px]</p>
+<hr class="bg-gray ht-7px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 8px]</p>
+<hr class="bg-gray ht-8px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 9px]</p>
+<hr class="bg-gray ht-9px mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[height 10px]</p>
+<hr class="bg-gray ht-10px mgn-t1 mgn-b1" />
+
+<p>この<code class="highlighter-rouge">.ht-XXpx</code>の指定は単純に<code class="highlighter-rouge">height: XXpx</code>としているだけだから、作ればいくらでも応用が効く。
+P タグに背景色と高さを与えてみる。<code class="highlighter-rouge">.ht-auto</code>というクラスも作ってみる。</p>
+
+<p class="ht-auto bg-lightcyan pad-5px mgn-l1 wd-40 align-c">背景のある段落<br />
+背景のある段落<br />
+背景のある段落<br /></p>
+
+<p>詳細は省くが、<code class="highlighter-rouge">padding: 5px</code>を渡す<code class="highlighter-rouge">.pad-5px</code>などいろいろ作ってみたので利用している。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="罫線のスタイル変更">罫線のスタイル変更</h3>
+
+<p>hr のスタイル変更は特殊。hr要素って線というより実は面だから。
+やり方はまた他のエレメントで説明するが、CSS変数を使って<code class="highlighter-rouge">border-top: Xpx style color</code>の形の設定を渡している。</p>
+
+<p><code class="highlighter-rouge">inset</code>と<code class="highlighter-rouge">outset</code>については設定はできるが効果がないので省略。</p>
+
+<p class="font-size09 fc-gray mgn-b1">[default: 1px solid gray]</p>
+<hr class="hr-style mgn-t1 mgn-b1" />
+
+<p class="font-size09 fc-gray mgn-b1">[solid]</p>
+<hr class="hr-style mgn-t1 mgn-b1" style="--hr-style:3px solid blue" />
+
+<p class="font-size09 fc-gray mgn-b1">[dotted]</p>
+
+<hr class="hr-style bg-transparent mgn-t1 mgn-b1" style="--hr-style:3px dotted limegreen" />
+
+<p class="font-size09 fc-gray mgn-b1">[dashed]</p>
+<hr class="hr-style bg-transparent mgn-t1 mgn-b1" style="--hr-style:3px dashed palegreen" />
+
+<p class="font-size09 fc-gray mgn-b1">[double]</p>
+<hr class="hr-style bg-transparent mgn-t1 mgn-b1" style="--hr-style:5px double royalblue" />
+
+<p class="font-size09 fc-gray mgn-b1">[groove]</p>
+<hr class="hr-style mgn-t1 mgn-b1" style="--hr-style:10px groove gold" />
+
+<p class="font-size09 fc-gray mgn-b1">[ridge]</p>
+<hr class="hr-style mgn-t1 mgn-b1" style="--hr-style:10px ridge orange" />
+
+<p><code class="highlighter-rouge">dashed</code>を例に markdown を載せておく。</p>
+
+<p class="caption-name">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">------------------------------------------------</span>
+{: .hr-style .bg-transparent style="--hr-style:3px dashed palegreen" }
+</code></pre></div></div>
+
+<p>背景を<code class="highlighter-rouge">.bg-transparent</code>せずに色を指定するとこういう罫線にもなる。</p>
+
+<hr class="hr-style bg-gold" style="--hr-style:8px dashed lime" />
+
+<p>まあこの程度のことなら<code class="highlighter-rouge">{: style="border:8px dashed lime"}</code>などと<code class="highlighter-rouge">ALDs</code>に直接CSS指定を書いても同じでバカバカしい（いやそのほうがちょっとだけ短い（笑））けど、このCSS変数を渡すやり方が表組みなど複雑な指定で使えるようになるので、知っていて損はないと思う。</p>
+
 
     </div>
     <div class="post-info is-loading">
@@ -205,7 +217,7 @@ Aenean efficitur sit amet massa fringilla egestas.
   
   <dl class="post-attr-list">
     <dt class="entry">post archive date: </dt>
-    <dd class="item date"><a href="/Febris/archives/2019/06">14th June 2019</a></dd>
+    <dd class="item date"><a href="/Febris/archives/2019/06">13th June 2019</a></dd>
   
     
     <dt class="entry">categories: </dt>
@@ -233,6 +245,26 @@ Aenean efficitur sit amet massa fringilla egestas.
   </dl>
 </div>
 
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager_item--next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">&lt; 文字のカラー設定</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">Font関係など &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
 <div class="post-toc sticky">
   <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
@@ -240,14 +272,13 @@ Aenean efficitur sit amet massa fringilla egestas.
   </div>
   <div id="post-toc-box">
     <ul>
-  <li class="anchor"><a href="#box-と-card">Box と Card</a></li>
-  <li class="anchor"><a href="#block要素の-width指定">block要素の width指定</a>
+  <li class="anchor"><a href="#罫線hr">罫線（hr）</a>
     <ul>
-      <li class="anchor"><a href="#box-の例">Box の例</a></li>
-      <li class="anchor"><a href="#card-の例">Card の例</a></li>
+      <li class="anchor"><a href="#色変更">色変更</a></li>
+      <li class="anchor"><a href="#太さ変更">太さ変更</a></li>
+      <li class="anchor"><a href="#罫線のスタイル変更">罫線のスタイル変更</a></li>
     </ul>
   </li>
-  <li class="anchor"><a href="#box-card-の活用">Box, card の活用</a></li>
 </ul>
   </div>
 </div>
@@ -259,13 +290,13 @@ Aenean efficitur sit amet massa fringilla egestas.
   <div class="pager">
   
     <p class="pager_item--next">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">&lt; 簡易なミニCSSフレームワークを作ってみる（５）</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">&lt; 文字のカラー設定</a>
     </p>
   
 
   
     <p class="pager_item--prev">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">簡易なミニCSSフレームワークを作ってみる（３） &gt;</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-3">Font関係など &gt;</a>
     </p>
   
 </div><!-- post pagination end -->
@@ -314,70 +345,73 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -403,14 +437,17 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -421,15 +458,15 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -438,7 +475,7 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -447,11 +484,11 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -478,70 +515,73 @@ Aenean efficitur sit amet massa fringilla egestas.
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -686,16 +726,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }

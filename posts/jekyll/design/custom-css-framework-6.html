@@ -7,7 +7,7 @@
 
 <title>
   
-    簡易なミニCSSフレームワークを作ってみる（６） | Febris
+    BoxとCard | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -50,11 +50,12 @@
   <h1 class="title">
     <span class="title-lmark">【</span>
     <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-6">
-      <span class="title-text">簡易なミニCSSフレームワークを作ってみる（６）</span>
+      <span class="title-text">BoxとCard</span>
     </a>
     <span class="title-rmark">】</span>
   </h1>
-  <p class="page-appendix"><span class="post-date">June 15, 2019</span></p>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（６）</h4>
+  <p class="page-appendix"><span class="post-date">June 14, 2019</span></p>
 </div><!-- post header end -->
 
   <!-- Post Body -->
@@ -63,308 +64,137 @@
     <label for="pinfoTgl" class="open"><span></span></label>
     <label for="pinfoTgl" class="close"></label>
     <div class="post-content">
-      <style>
-.color-card {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 0.9em;
-}
-</style>
+      <h2 class="main-hd" id="box-と-card">Box と Card</h2>
 
-<h2 id="カラーパレットを作ってみよう">カラーパレットを作ってみよう</h2>
+<p>Bulma に Box とか Card とかいうのがある。これを真似てみる。</p>
 
-<p>前に作った Card と Grid Layout を使った仕組みで、１４０色+α のカラーパレットを作ってみよう。</p>
+<h3 class="sub-hd" id="bulma-の-box-と-card">Bulma の Box と Card</h3>
 
-<p>こういう細かいものを作っていくと部分部分で <code class="highlighter-rouge">padding</code>とか<code class="highlighter-rouge">font-size</code>とかいじりたくなるが、Jekyll の markdown は HTML をまんま処理してくれるので、ある記事の中でしか使わないようなスタイル設定は、記事先頭の Front-Matter の外、すぐ下に<code class="highlighter-rouge">&lt;style&gt;〜&lt;/stayle&gt;</code>で書いておくという方法もある。</p>
+<p>Bulma の Box はこんな感じのもの。</p>
 
-<p>ここでは次のような CSS クラス<code class="highlighter-rouge">.color-card</code>を記事先頭に設定して、各カードに割り当てた。<code class="highlighter-rouge">.bg-xxxxxx</code>が背景色設定、カードを囲む全体のグリッドブロックに付けた<code class="highlighter-rouge">.grid-gap0</code>クラスは、グリッド間隔を０にする設定。これらは自作フレームワークに新しく作った。</p>
+<p class="box">John Smith @johnsmith 31m 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
-<span class="nc">.color-card</span> <span class="p">{</span>
-  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
-  <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>  <span class="c">/* 文字天地中央にする(ゴマカシｗ) */</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">0.9em</span><span class="p">;</span>
+<p>Bulma の Card.</p>
+
+<p class="card">John Smith @johnsmith 31m 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+
+<p>見た目は角が四角いか丸いかの違いである。
+この Bulma の Box と Card を参考に似たような仕組みを作れないだろうか？</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="block要素の-width指定">block要素の width指定</h3>
+
+<p><code class="highlighter-rouge">.box</code>,<code class="highlighter-rouge">.card</code>というクラスで上のような箱になるようにして、それとは別に<code class="highlighter-rouge">wd-数値</code>で横幅を指定できるようにしてみる。</p>
+
+<p><code class="highlighter-rouge">20%</code>から<code class="highlighter-rouge">100%</code>まで<code class="highlighter-rouge">10%</code>きざみで選べるようにする。<code class="highlighter-rouge">width:20%</code>の<code class="highlighter-rouge">.wd-20</code>から<code class="highlighter-rouge">width:100%</code>の<code class="highlighter-rouge">.wd-100</code>まで揃える。</p>
+
+<p class="caption-name">[HTML(Box width:”20%”) sample]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"box .wd-20"</span><span class="nt">&gt;</span>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p class="caption-name">[css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5rem</span><span class="p">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">6px</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span> <span class="m">3px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">),</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-</code></pre></div></div>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.bg-light-gray1</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="nv">$light-gray1</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// &lt;--色名部分を変えていくだけ</span>
-</code></pre></div></div>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-gap0</span> <span class="p">{</span>
-  <span class="py">grid-gap</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="nc">.wd-20</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">20%</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p>boxクラスのCSSに横幅は指定しない。ブラウザにもよるのだろうがChromeだと<code class="highlighter-rouge">width:"auto"</code>で親要素の横幅いっぱいになる。だから指定しないとデフォルトの<code class="highlighter-rouge">width: auto</code>になっている。</p>
+
+<hr />
+<h4 id="box-の例">Box の例</h4>
+
+<p class="caption-name">[.box .wd-20]</p>
+<p class="box wd-20 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-30]</p>
+<p class="box wd-30 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-40]</p>
+<p class="box wd-40 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-50]</p>
+<p class="box wd-50 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-60]</p>
+<p class="box wd-60 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-70]</p>
+<p class="box wd-70 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-80]</p>
+<p class="box wd-80 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-90]</p>
+<p class="box wd-90 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.box .wd-100]</p>
+<p class="box wd-100 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<hr />
+<h4 id="card-の例">Card の例</h4>
+
+<p class="caption-name">[.card .wd-20]</p>
+<p class="card wd-20 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-30]</p>
+<p class="card wd-30 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-40]</p>
+<p class="card wd-40 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-50]</p>
+<p class="card wd-50 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-60]</p>
+<p class="card wd-60 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-70]</p>
+<p class="card wd-70 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-80]</p>
+<p class="card wd-80 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-90]</p>
+<p class="card wd-90 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-name">[.card .wd-100]</p>
+<p class="card wd-100 mgn-t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p>この手の width 指定は他の要素でも使える。margin はもう作ったので、height, padding なども作ってみよう。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="box-card-の活用">Box, card の活用</h3>
+
+<p>kramdown のクラス指定は、一番直近(外側)の要素に加わる。
+例えば Box と card の中身を次のようにHTMLで書けば、外側の<code class="highlighter-rouge">DIV</code>要素に<code class="highlighter-rouge">box</code>クラスが加えられる。こんな写真入りのカードっぽい要素にもなる。内側だけ Flexbox 使えばもっとよくなるかも。手書きはちょっとめんどうだが、テンプレ作って<code class="highlighter-rouge">include</code>ならできそう。他にももっといい方法はないかな？</p>
+
 <p class="caption-name">[markdown]</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; light-gray1</span>
-<span class="gt">&gt; {: .card .bg-light-gray1 .color-card}</span>
-<span class="gt">&gt; light-gray2</span>
-<span class="gt">&gt; {: .card .bg-light-gray2 .color-card}</span>
-<span class="gt">&gt; light-gray3</span>
-<span class="gt">&gt; {: .card .bg-light-gray3 .color-card}</span>
-<span class="gt">&gt; light-gray4</span>
-<span class="gt">&gt; {: .card .bg-light-gray4 .color-card}</span>
-<span class="gt">&gt; light-gray5</span>
-<span class="gt">&gt; {: .card .bg-light-gray5 .color-card}</span>
-<span class="gt">&gt; mid-gray1</span>
-<span class="gt">&gt; {: .card .bg-light-gray6 .color-card}</span>
-  ......
-<span class="gt">&gt; dark-gray3</span>
-<span class="gt">&gt; {: .card .bg-light-gray1 .color-card}</span>
-<span class="gt">&gt; dark-gray4</span>
-<span class="gt">&gt; {: .card .bg-light-gray1 .color-card}</span>
-{: .card .grid-col5 .grid-gap0 .border-none}
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/013.jpg"</span> <span class="na">alt=</span><span class="s">"church"</span> <span class="na">style=</span><span class="s">"width:20%;"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean efficitur sit amet massa fringilla egestas.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+{: .box}
 </code></pre></div></div>
 
-<p>全ての色を定義したファイルを、Jekyllのサイトルート直下の<code class="highlighter-rouge">_sass/framework-modules/_color-palette.scss</code>とした。</p>
-
-<hr />
-<h3 id="monotone">Monotone</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-white color-card">white</p>
-  <p class="card bg-black color-card fc-white">black</p>
-</blockquote>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-whitesmoke color-card">whitesmoke</p>
-  <p class="card bg-gainsboro color-card">gainsboro</p>
-  <p class="card bg-lightgray color-card">lightgray</p>
-  <p class="card bg-silver color-card">silver</p>
-  <p class="card bg-darkgray color-card">darkgray</p>
-  <p class="card bg-gray color-card fc-white">gray</p>
-  <p class="card bg-dimgray color-card fc-white">dimgray</p>
-</blockquote>
-
-<p class="font-size09">グレイ13色は独自に定義</p>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-light-gray1 color-card">light-gray1</p>
-  <p class="card bg-light-gray2 color-card">light-gray2</p>
-  <p class="card bg-light-gray3 color-card">light-gray3</p>
-  <p class="card bg-light-gray4 color-card">light-gray4</p>
-  <p class="card bg-light-gray5 color-card">light-gray5</p>
-  <p class="card bg-mid-gray1 color-card fc-white">mid-gray1</p>
-  <p class="card bg-mid-gray2 color-card fc-white">mid-gray2</p>
-  <p class="card bg-mid-gray3 color-card fc-white">mid-gray3</p>
-  <p class="card bg-mid-gray4 color-card fc-white">mid-gray4</p>
-  <p class="card border-none"> </p>
-  <p class="card bg-dark-gray1 color-card fc-white">dark-gray1</p>
-  <p class="card bg-dark-gray2 color-card fc-white">dark-gray2</p>
-  <p class="card bg-dark-gray3 color-card fc-white">dark-gray3</p>
-  <p class="card bg-dark-gray4 color-card fc-white">dark-gray4</p>
-</blockquote>
-
-<hr />
-<h3 id="skin-color">Skin color</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-snow color-card">snow</p>
-  <p class="card bg-ghostwhite color-card">ghostwhite</p>
-  <p class="card bg-floralwhite color-card">floralwhite</p>
-  <p class="card bg-linen color-card">linen</p>
-  <p class="card bg-antiquewhite color-card">antique<br />white</p>
-  <p class="card bg-papayawhip color-card">papayawhip</p>
-  <p class="card bg-blanchedalmond color-card">blanche<br />dalmond</p>
-  <p class="card bg-bisque color-card">bisque</p>
-  <p class="card bg-moccasin color-card">moccasin</p>
-  <p class="card bg-navajowhite color-card">navajo<br />white</p>
-  <p class="card bg-peachpuff color-card">peachpuff</p>
-</blockquote>
-
-<hr />
-<h3 id="bright-and-pale">Bright and pale</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-mistyrose color-card">mistyrose</p>
-  <p class="card bg-lavenderblush color-card">lavender<br />blush</p>
-  <p class="card bg-seashell color-card">seashell</p>
-  <p class="card bg-oldlace color-card">oldlace</p>
-  <p class="card bg-ivory color-card">ivory</p>
-  <p class="card bg-honeydew color-card">honeydew</p>
-  <p class="card bg-mintcream color-card">mintcream</p>
-  <p class="card bg-azure color-card">azure</p>
-  <p class="card bg-aliceblue color-card">aliceblue</p>
-  <p class="card bg-lavender color-card">lavender</p>
-</blockquote>
-
-<hr />
-<h3 id="blue-gray">Blue gray</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-lightsteelblue color-card">light<br />steelblue</p>
-  <p class="card bg-lightslategray color-card">light<br />slategray</p>
-  <p class="card bg-slategray color-card fc-white">slategray</p>
-  <p class="card border-none"> </p>
-  <p class="card border-none"> </p>
-</blockquote>
-
-<hr />
-<h3 id="blue">Blue</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-steelblue color-card fc-white">steelblue</p>
-  <p class="card bg-royalblue color-card fc-white">royalblue</p>
-  <p class="card bg-midnightblue color-card fc-white">midnight<br />blue</p>
-  <p class="card bg-navy color-card fc-white">navy</p>
-  <p class="card bg-darkblue color-card fc-white">darkblue</p>
-  <p class="card bg-mediumblue color-card fc-white">medium<br />blue</p>
-  <p class="card bg-blue color-card fc-white">blue</p>
-  <p class="card bg-dodgerblue color-card">dodgerblue</p>
-  <p class="card bg-cornflowerblue color-card">cornflower<br />blue</p>
-  <p class="card bg-deepskyblue color-card">deep<br />skyblue</p>
-</blockquote>
-
-<hr />
-<h3 id="sky-blue">Sky Blue</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-lightskyblue color-card">light<br />skyblue</p>
-  <p class="card bg-skyblue color-card">skyblue</p>
-  <p class="card bg-lightblue color-card">lightblue</p>
-  <p class="card bg-powderblue color-card">powderblue</p>
-  <p class="card bg-paleturquoise color-card">pale<br />turquoise</p>
-  <p class="card bg-lightcyan color-card">lightcyan</p>
-</blockquote>
-
-<hr />
-<h3 id="cyan">Cyan</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-cyan color-card">cyan</p>
-  <p class="card bg-aqua color-card">aqua</p>
-  <p class="card bg-turquoise color-card">turquoise</p>
-  <p class="card bg-mediumturquoise color-card">medium<br />turquoise</p>
-  <p class="card bg-darkturquoise color-card">dark<br />turquoise</p>
-  <p class="card bg-lightseagreen color-card fc-white">light<br />seagreen</p>
-  <p class="card bg-cadetblue color-card fc-white">cadetblue</p>
-  <p class="card bg-darkcyan color-card fc-white">darkcyan</p>
-  <p class="card bg-teal color-card fc-white">teal</p>
-</blockquote>
-
-<hr />
-<h3 id="green">Green</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-darkslategray color-card fc-white">darkslategray</p>
-  <p class="card bg-darkgreen color-card fc-white">darkgreen</p>
-  <p class="card bg-green color-card fc-white">green</p>
-  <p class="card bg-forestgreen color-card fc-white">forestgreen</p>
-  <p class="card bg-seagreen color-card fc-white">seagreen</p>
-  <p class="card bg-mediumseagreen color-card">medium<br />seagreen</p>
-  <p class="card bg-mediumaquamarine color-card">medium<br />aquamarine</p>
-  <p class="card bg-darkseagreen color-card">dark<br />seagreen</p>
-  <p class="card bg-aquamarine color-card">aquamarine</p>
-  <p class="card bg-palegreen color-card">palegreen</p>
-  <p class="card bg-lightgreen color-card">lightgreen</p>
-  <p class="card bg-springgreen color-card">springgreen</p>
-  <p class="card bg-mediumspringgreen color-card">medium<br />springgreen</p>
-  <p class="card bg-lawngreen color-card">lawngreen</p>
-  <p class="card bg-chartreuse color-card">chartreuse</p>
-  <p class="card bg-greenyellow color-card">greenyellow</p>
-  <p class="card bg-lime color-card">lime</p>
-  <p class="card bg-limegreen color-card">limegreen</p>
-  <p class="card bg-yellowgreen color-card">yellowgreen</p>
-</blockquote>
-
-<hr />
-<h3 id="olive-and-silky">Olive and Silky</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-darkolivegreen color-card fc-white">dark<br />olivegreen</p>
-  <p class="card bg-olivedrab color-card fc-white">olivedrab</p>
-  <p class="card bg-olive color-card fc-white">olive</p>
-  <p class="card bg-darkkhaki color-card">darkkhaki</p>
-  <p class="card bg-palegoldenrod color-card">pale<br />goldenrod</p>
-  <p class="card bg-cornsilk color-card">cornsilk</p>
-  <p class="card bg-beige color-card">beige</p>
-</blockquote>
-
-<hr />
-<h3 id="yellow-and-orange">Yellow and Orange</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-lightyellow color-card">lightyellow</p>
-  <p class="card bg-lightgoldenrodyellow color-card">lightgolden<br />rodyellow</p>
-  <p class="card bg-lemonchiffon color-card">lemon<br />chiffon</p>
-  <p class="card bg-wheat color-card">wheat</p>
-  <p class="card bg-burlywood color-card">burlywood</p>
-  <p class="card bg-tan color-card">tan</p>
-  <p class="card bg-khaki color-card">khaki</p>
-  <p class="card bg-yellow color-card">yellow</p>
-  <p class="card bg-gold color-card">gold</p>
-  <p class="card bg-orange color-card">orange</p>
-  <p class="card bg-sandybrown color-card">sandybrown</p>
-  <p class="card bg-darkorange color-card">darkorange</p>
-  <p class="card bg-goldenrod color-card">goldenrod</p>
-  <p class="card bg-peru color-card">peru</p>
-  <p class="card bg-darkgoldenrod color-card">dark<br />goldenrod</p>
-  <p class="card bg-chocolate color-card">chocolate</p>
-</blockquote>
-
-<hr />
-<h3 id="brown-and-salmon">Brown and Salmon</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-sienna color-card fc-white">sienna</p>
-  <p class="card bg-saddlebrown color-card fc-white">saddlebrown</p>
-  <p class="card bg-maroon color-card fc-white">maroon</p>
-  <p class="card bg-darkred color-card fc-white">darkred</p>
-  <p class="card bg-brown color-card fc-white">brown</p>
-  <p class="card bg-firebrick color-card fc-white">firebrick</p>
-  <p class="card bg-indianred color-card">indianred</p>
-  <p class="card bg-rosybrown color-card">rosybrown</p>
-  <p class="card bg-darksalmon color-card">darksalmon</p>
-  <p class="card bg-lightcoral color-card">lightcoral</p>
-  <p class="card bg-salmon color-card">salmon</p>
-  <p class="card bg-lightsalmon color-card">lightsalmon</p>
-</blockquote>
-
-<hr />
-<h3 id="red">Red</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-coral color-card">coral</p>
-  <p class="card bg-tomato color-card">tomato</p>
-  <p class="card bg-orangered color-card">orangered</p>
-  <p class="card bg-red color-card">red</p>
-  <p class="card bg-crimson color-card fc-white">crimson</p>
-</blockquote>
-
-<hr />
-<h3 id="pink">Pink</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-mediumvioletred color-card fc-white">medium<br />violetred</p>
-  <p class="card bg-deeppink color-card">deeppink</p>
-  <p class="card bg-hotpink color-card">hotpink</p>
-  <p class="card bg-palevioletred color-card">pale<br />violetred</p>
-  <p class="card bg-pink color-card">pink</p>
-  <p class="card bg-lightpink color-card">lightpink</p>
-  <p class="card bg-thistle color-card">thistle</p>
-  <p class="card bg-magenta color-card">magenta</p>
-  <p class="card bg-fuchsia color-card">fuchsia</p>
-</blockquote>
-
-<hr />
-<h3 id="violet">Violet</h3>
-
-<blockquote class="card grid-col5 grid-gap0 border-none">
-  <p class="card bg-violet color-card">violet</p>
-  <p class="card bg-plum color-card">plum</p>
-  <p class="card bg-orchid color-card">orchid</p>
-  <p class="card bg-mediumorchid color-card">medium<br />orchid</p>
-  <p class="card bg-darkorchid color-card fc-white">darkorchid</p>
-  <p class="card bg-darkviolet color-card fc-white">darkviolet</p>
-  <p class="card bg-darkmagenta color-card fc-white">dark<br />magenta</p>
-  <p class="card bg-purple color-card fc-white">purple</p>
-  <p class="card bg-indigo color-card fc-white">indigo</p>
-  <p class="card bg-darkslateblue color-card fc-white">dark<br />slateblue</p>
-  <p class="card bg-blueviolet color-card fc-white">blueviolet</p>
-  <p class="card bg-mediumpurple color-card fc-white">medium<br />purple</p>
-  <p class="card bg-slateblue color-card fc-white">slateblue</p>
-  <p class="card bg-mediumslateblue color-card fc-white">medium<br />slateblue</p>
-</blockquote>
+<div class="box">
+<img src="/assets/images/013.jpg" alt="church" style="width:20%;" />
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean efficitur sit amet massa fringilla egestas.
+</p>
+</div>
 
     </div>
     <div class="post-info is-loading">
@@ -381,7 +211,7 @@
   
   <dl class="post-attr-list">
     <dt class="entry">post archive date: </dt>
-    <dd class="item date"><a href="/Febris/archives/2019/06">15th June 2019</a></dd>
+    <dd class="item date"><a href="/Febris/archives/2019/06">14th June 2019</a></dd>
   
     
     <dt class="entry">categories: </dt>
@@ -409,6 +239,26 @@
   </dl>
 </div>
 
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager_item--next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">&lt; BoxやCardの配置</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">文字のカラー設定 &gt;</a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
 <div class="post-toc sticky">
   <h4 class="caption">Table of contents</h4>
   <div class="up-to-top">
@@ -416,22 +266,16 @@
   </div>
   <div id="post-toc-box">
     <ul>
-  <li class="anchor"><a href="#カラーパレットを作ってみよう">カラーパレットを作ってみよう</a>
+  <li class="anchor"><a href="#box-と-card">Box と Card</a>
     <ul>
-      <li class="anchor"><a href="#monotone">Monotone</a></li>
-      <li class="anchor"><a href="#skin-color">Skin color</a></li>
-      <li class="anchor"><a href="#bright-and-pale">Bright and pale</a></li>
-      <li class="anchor"><a href="#blue-gray">Blue gray</a></li>
-      <li class="anchor"><a href="#blue">Blue</a></li>
-      <li class="anchor"><a href="#sky-blue">Sky Blue</a></li>
-      <li class="anchor"><a href="#cyan">Cyan</a></li>
-      <li class="anchor"><a href="#green">Green</a></li>
-      <li class="anchor"><a href="#olive-and-silky">Olive and Silky</a></li>
-      <li class="anchor"><a href="#yellow-and-orange">Yellow and Orange</a></li>
-      <li class="anchor"><a href="#brown-and-salmon">Brown and Salmon</a></li>
-      <li class="anchor"><a href="#red">Red</a></li>
-      <li class="anchor"><a href="#pink">Pink</a></li>
-      <li class="anchor"><a href="#violet">Violet</a></li>
+      <li class="anchor"><a href="#bulma-の-box-と-card">Bulma の Box と Card</a></li>
+      <li class="anchor"><a href="#block要素の-width指定">block要素の width指定</a>
+        <ul>
+          <li class="anchor"><a href="#box-の例">Box の例</a></li>
+          <li class="anchor"><a href="#card-の例">Card の例</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#box-card-の活用">Box, card の活用</a></li>
     </ul>
   </li>
 </ul>
@@ -445,13 +289,13 @@
   <div class="pager">
   
     <p class="pager_item--next">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">&lt; 簡易なミニCSSフレームワークを作ってみる（７）</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">&lt; BoxやCardの配置</a>
     </p>
   
 
   
     <p class="pager_item--prev">
-      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">簡易なミニCSSフレームワークを作ってみる（５） &gt;</a>
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">文字のカラー設定 &gt;</a>
     </p>
   
 </div><!-- post pagination end -->
@@ -500,70 +344,73 @@
 
 
 
-<li class="nav-item 2011/10"><a class="menu-list" href="/Febris/archives/2011/10">2011/10</a>
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/11"><a class="menu-list" href="/Febris/archives/2011/11">2011/11</a>
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2011/12"><a class="menu-list" href="/Febris/archives/2011/12">2011/12</a>
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2012/08"><a class="menu-list" href="/Febris/archives/2012/08">2012/08</a>
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/07"><a class="menu-list" href="/Febris/archives/2016/07">2016/07</a>
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2016/09"><a class="menu-list" href="/Febris/archives/2016/09">2016/09</a>
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2018/11"><a class="menu-list" href="/Febris/archives/2018/11">2018/11</a>
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/01"><a class="menu-list" href="/Febris/archives/2019/01">2019/01</a>
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/02"><a class="menu-list" href="/Febris/archives/2019/02">2019/02</a>
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
 </li>
 
 
 
 
 
-<li class="nav-item 2019/06"><a class="menu-list" href="/Febris/archives/2019/06">2019/06</a>
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
 </li>
 
 
@@ -589,14 +436,17 @@
 
 
 
+
+
+
 <li class="nav-item programming" ontouchstart="">
-  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger">programming</a>
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item c"><a class="menu-list inner" href="/Febris/categories/c">c</a></li>
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -607,15 +457,15 @@
 
 
 <li class="nav-item jekyll" ontouchstart="">
-  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger">Jekyll</a>
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item post"><a class="menu-list inner" href="/Febris/categories/post">post</a></li>
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
   
-    <li class="nav-item update"><a class="menu-list inner" href="/Febris/categories/update">update</a></li>
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
   
-    <li class="nav-item design"><a class="menu-list inner" href="/Febris/categories/design">design</a></li>
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
   
   </ul>
 </li>
@@ -624,7 +474,7 @@
 
 
 
-<li class="nav-item test"><a class="menu-list" href="/Febris/categories/test">test</a>
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
 </li>
 
 
@@ -633,11 +483,11 @@
 
 
 <li class="nav-item language" ontouchstart="">
-  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger">language</a>
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
   <span class=sm-arrow></span>
   <ul class="inner-sub-menu">
   
-    <li class="nav-item ruby"><a class="menu-list inner" href="/Febris/categories/ruby">ruby</a></li>
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
   
   </ul>
 </li>
@@ -664,70 +514,73 @@
 
 
 
-<li class="nav-item programming_language"><a class="menu-list" href="/Febris/tags/programming_language">programming_language</a>
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
 </li>
 
 
 
 
 
-<li class="nav-item ll"><a class="menu-list" href="/Febris/tags/LL">LL</a>
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
 </li>
 
 
 
 
 
-<li class="nav-item closure"><a class="menu-list" href="/Febris/tags/Closure">Closure</a>
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
 </li>
 
 
 
 
 
-<li class="nav-item blog"><a class="menu-list" href="/Febris/tags/blog">blog</a>
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
 </li>
 
 
 
 
 
-<li class="nav-item testpost"><a class="menu-list" href="/Febris/tags/testpost">testpost</a>
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
 </li>
 
 
 
 
 
-<li class="nav-item technology"><a class="menu-list" href="/Febris/tags/technology">technology</a>
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
 </li>
 
 
 
 
 
-<li class="nav-item ruby"><a class="menu-list" href="/Febris/tags/ruby">ruby</a>
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
 </li>
 
 
 
 
 
-<li class="nav-item programing"><a class="menu-list" href="/Febris/tags/programing">programing</a>
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
 </li>
 
 
 
 
 
-<li class="nav-item jekyll"><a class="menu-list" href="/Febris/tags/Jekyll">Jekyll</a>
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
 </li>
 
 
 
 
 
-<li class="nav-item css"><a class="menu-list" href="/Febris/tags/css">css</a>
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
 </li>
 
 
@@ -872,16 +725,21 @@ $(function() {
   let anch = $("#main-contents .container .page-body .post-info a");
   let tgl = $("#main-contents .container .page-body > #pinfoTgl");
   let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
 
   function response() {
     if ($(window).width() < 860) {
       let checked = tgl.prop('checked');
       let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
       if (checked == false) {
         tgl.prop('checked', true);
       }
       if (checked2 == false) {
         tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
       }
     }
   }
