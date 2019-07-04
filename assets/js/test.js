@@ -7,8 +7,8 @@ if (typeof(global.$site) == 'undefined') {
 }
 
 global.$site.config = {
-  baseurl: "/Febris",
-  url:     "https://82pkdick.github.io",
+  baseurl: "",
+  url:     "http://localhost:4000",
   port:     4000,
   host:    "127.0.0.1",
   

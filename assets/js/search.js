@@ -30,7 +30,7 @@
 
   // Initialize search logic
   function initLunr() {
-    $.getJSON("/Febris/search_data.json").done(function(index) {
+    $.getJSON("/search_data.json").done(function(index) {
         pagesIndex = index;
         lunrIndex = lunr(function() {
           let lunrConfig = this;
