@@ -7,7 +7,7 @@
 
 <title>
   
-    Febris | My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Flexを少しだけ | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
-<link rel="canonical" href="https://82pkdick.github.io/Febris/404">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-15">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
@@ -51,26 +51,242 @@
 
 
       <article id="main-contents">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-15">
+      <span class="title-text">Flexを少しだけ</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１５）</h4>
+  <p class="page-appendix"><span class="post-date">June 24, 2019</span></p>
+</div><!-- post header end -->
 
-<div class="container">
-  <h1>404</h1>
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="flex">Flex</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<h3 class="sub-hd" id="flexbox-を少しだけ">Flexbox を少しだけ</h3>
+
+<p>基本 Grid で作っているんだけど、本文中にちょこっとだけ画像などを横並びにしたいことがある。そういう時は、全体のレイアウトに使う的な印象の強い Grid より Flex を使った方が似合う感じがする（あくまで個人の意見）。</p>
+
+<p>で、あまり複雑な仕組みは要らないので、ちょっと書くと横並びみたいなふうにできないか。</p>
+
+<p>ただここでも Box と Card の時に出会った問題があって、markdown の中では HTML をごりごり書かないと入れ子のエレメントにならないということ。なのでまた<code class="highlighter-rouge">blockquote</code>を使う。</p>
+
+<p>見た目は Card や Box に似ているが、普通の文の段落でも ブロック状にして横並びにする。</p>
+
+<p>親要素の<code class="highlighter-rouge">blockquote</code>を Flex にして、２つ Pタグで囲まれた文を横に並べた例。</p>
+
+<blockquote class="to-flex">
+  <p class="wd-45 bg-lightblue align-c mgn-r05 pad-10 wd-flex">Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p class="wd-45 bg-lemonchiffon align-c pad-10 wd-flex">Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</blockquote>
+
+<p>同じようにして３つ並べた例</p>
+
+<blockquote class="to-flex">
+  <p class="wd-25 bg-lightblue align-c mgn-r05 pad-10 wd-flex">Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p class="wd-25 bg-lemonchiffon align-c mgn-r05 pad-10 wd-flex">Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p class="wd-25 bg-mistyrose align-c pad-10 wd-flex">Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</blockquote>
+
+<p class="code-label">[markdown: ２つ並べた例]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&gt; {: .wd-45 .bg-lightblue .align-c .mgn-r05 .pad-10}
+&gt; Nested paragraph 1. John Smith @johnsmith 31m Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+&gt; {: .wd-45 .bg-lemonchiffon .align-c .pad-10}
+{: .to-flex}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.to-flex</code>で Flex 指定されるようにした。内側の Pブロックに渡す設定と、外の<code class="highlighter-rouge">blockquote</code>に渡す設定をどこに書くかがミソ。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="空きや幅高さの指示を柔軟に">空きや幅、高さの指示を柔軟に</h3>
+
+<h4 id="wd">.wd</h4>
+
+<p>前につくった width を指定するクラス<code class="highlighter-rouge">.wd</code>は1〜100％まで1％刻みで指定できる。</p>
+
+<p><code class="highlighter-rouge">.wd-32</code>クラスを追加して、<code class="highlighter-rouge">width:32%</code>のボックスを3つ並べた例。さすがに小数点以下までは指定できないが、これで横幅いっぱい100％を３つに割ったサイズで並べられる。</p>
+
+<blockquote class="to-flex">
+  <p class="wd-32 bg-oldlace align-j mgn-r05 pad-10 wd-flex">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <p class="wd-32 bg-honeydew align-j mgn-r05 pad-10 wd-flex">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <p class="wd-32 bg-lavender align-j pad-10 wd-flex">幅が33％より少し小さいので、外側を Flex な<code class="highlighter-rouge">blockquote</code>にすることで横にボックスが３つ並ぶ。実際の markdown は下記のような感じになる。</p>
+</blockquote>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
+<span class="gt">&gt; {: .wd-32 .bg-oldlace .align-j .mgn-r05 .pad-10}</span>
+<span class="gt">&gt; </span>
+<span class="gt">&gt; `.wd`クラスを付けただけで何も指定しなかったら、ただの`width:100%;`がデフォルト値。`{: style="--wd:数値"}`と指定するとその数値が渡される。これで width が32％ の背景付き段落になった。</span>
+<span class="gt">&gt; {: .wd-32 .bg-honeydew .align-j .mgn-r05 .pad-10}</span>
+<span class="gt">&gt; </span>
+<span class="gt">&gt; 幅が33％より少し小さいので、外側を Flex な`blockquote`にすることで横にボックスが３つ並ぶ。実際の markdown は下記のような感じになる。</span>
+<span class="gt">&gt; {: .wd-32 .bg-lavender .align-j .pad-10}</span>
+{: .to-flex}
+</code></pre></div></div>
+
+<p>ただCSS変数を渡す仕組みをここでもつくってある。<code class="highlighter-rouge">.wd</code>クラスを指定し、<code class="highlighter-rouge">style="--wd:X%;"</code>で width の微調整をすることができる。<code class="highlighter-rouge">.wd</code>クラスを付けただけで何も指定しなかったら、ただの<code class="highlighter-rouge">width:100%;</code>がデフォルト値。<code class="highlighter-rouge">{: style="--wd:数値"}</code>と指定するとその数値が渡される。</p>
+
+<p class="code-label">[SCSS]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.wd</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">wd</span><span class="o">,</span> <span class="m">100%</span><span class="p">);</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>次の例では、45％、30.3％、22.2％幅のボックスで合計100％よりほんの少し短い幅にして並べてみた。ただしスマートフォンサイズの画面では縦並びになるため、幅は横いっぱいになり数値とは関係なくなる。</p>
+
+<blockquote class="to-flex">
+  <p class="wd bg-oldlace align-j mgn-r05 pad-10 wd-flex" style="--wd:45%"><em class="fc-red">幅が45％</em><br /> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+  <p class="wd bg-honeydew align-j mgn-r05 pad-10 wd-flex" style="--wd:30.3%"><em class="fc-red">幅が30.3％</em><br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+  <p class="wd bg-lavender align-j pad-10 wd-flex" style="--wd:22.2%"><em class="fc-red">幅が22.2％</em><br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</blockquote>
+
+<hr />
+<h4 id="ht">.ht</h4>
+
+<p>height の調整。説明は同じようなことなので省略するが、下記の例は右のボックスに<code class="highlighter-rouge">.ht-80px</code>クラスを指定。</p>
+
+<blockquote class="to-flex">
+  <p class="wd-50 bg-oldlace align-j mgn-r05 pad-10 wd-flex">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <p class="wd-50 ht-80px bg-lavender align-j pad-10 wd-flex">右のボックスは<code class="highlighter-rouge">.ht-80px</code>クラスを指定</p>
+</blockquote>
+
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">24th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
 </div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-16">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Tag, Image, Shadow, Link Card, その他</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-14">Form要素 Textarea 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#flex">Flex</a>
+    <ul>
+      <li class="anchor"><a href="#flexbox-を少しだけ">Flexbox を少しだけ</a></li>
+      <li class="anchor"><a href="#空きや幅高さの指示を柔軟に">空きや幅、高さの指示を柔軟に</a>
+        <ul>
+          <li class="anchor"><a href="#wd">.wd</a></li>
+          <li class="anchor"><a href="#ht">.ht</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-16">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Tag, Image, Shadow, Link Card, その他</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-14">Form要素 Textarea 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
 
       </article>
       

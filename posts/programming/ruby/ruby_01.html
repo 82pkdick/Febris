@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Rubyとは | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/programming/ruby/ruby_01">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+
+      <!-- navigation button for left slide menu -->
+      <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open"><span></span></label>
+      <label for="navTgl" class="close"></label>
+
+
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/programming/ruby/ruby_01">
+      <span class="title-text">Rubyとは</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle"></h4>
+  <p class="page-appendix"><span class="post-date">August 04, 2012</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 id="rubyとは">Rubyとは？</h2>
+
+<p>Ruby（ルビー）は、まつもとゆきひろ（通称Matz）により開発されたオブジェクト指向スクリプト言語であり、
+従来Perlなどのスクリプト言語が用いられてきた領域でのオブジェクト指向プログラミングを実現する。Rubyは
+当初1993年2月24日に生まれ、1995年12月にfj上で発表された。名称のRubyは、プログラミング言語Perlが6月の
+誕生石であるPearl（真珠）とほぼ同じ発音をすることから、まつもとの同僚の誕生石（7月）のルビーを取って
+名付けられた。</p>
+
+<p>機能として、クラス定義、ガベージコレクション、強力な正規表現処理、マルチスレッド、例外処理、イテレー
+タ・クロージャ、Mixin、演算子オーバーロードなどがある。Perlの代替となることができることが初期の段階
+から重視されている。Perlと同様にグルー言語としての使い方が可能で、Cプログラムやライブラリを呼び出す
+拡張モジュールを組み込むことができる。</p>
+
+<p>Ruby処理系は、主にインタプリタとして実装されている（詳しくは[[実装]]を参照）。</p>
+
+<p>構文は、ALGOL系を継承しながら、可読性を重視している。Rubyにおいては整数や文字列なども含めデータ型は
+すべてがオブジェクトであり、純粋なオブジェクト指向言語といえる。</p>
+
+<!-- more -->
+
+<p>フリーソフトウェアとしてruby ライセンス（Ruby License や Ruby’s と表記されることもある。GPLか
+Artisticに似た独自ライセンスを選択するデュアルライセンス）で配布されている。</p>
+
+<hr />
+
+<h3 id="ruby哲学">Ruby哲学</h3>
+
+<p>開発者のまつもとゆきひろは、「Rubyの言語仕様策定において最も重視しているのはストレスなくプログラミン
+グを楽しむことである (Enjoy programming)」と述べている。(ただし、明文化された公式な言語仕様は2008年5
+月現在存在しない。)Perlのモットー「やり方はいろいろある (TMTOWTDI; There’s More Than One Way To Do
+It)」は「多様性は善(Diversity is Good)」というスローガンでRubyに引き継がれてはいるものの最重要なもの
+ではないとも述べており、非推奨な手法も可能にするとともに、そのような手法を言語仕様により使いにくくす
+ることによって自粛を促している。これは言語仕様が「望ましい」習慣の押し付けを行うということであり、洗
+脳言語(Babel-17)と言われる一面でもある。</p>
+
+<hr />
+
+<h2 id="実装">実装</h2>
+
+<h3 id="公式な実装">公式な実装</h3>
+
+<p>Rubyの公式な実装には、以下の二種類が存在する。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>MRI（Matz’ Ruby Implementation)</td>
+      <td>1.8.x以前の公式実装。まつもとゆきひろによって開発されはじめたC言語による実装であり、最も広く使われている。JRubyに対してCRubyと呼ばれることもある。</td>
+    </tr>
+    <tr>
+      <td>YARV</td>
+      <td>1.9.0で採用された、MRIを拡張した公式な処理系。これはソースコードをJIT方式でバイトコードへコンパイルした後、バイトコードを仮想機械上で実行するインタプリタである。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="その他の実装">その他の実装</h3>
+
+<p>:JRuby:Javaベースの実装。純粋なJavaで行われているため、プラットフォーム非依存の利用が可能。ほとんどのRubyク
+ラスが組み込みで提供されている。JIT方式に加え、AOT方式のJavaバイトコードへのコンパイラも用意されてい
+る（AOT方式でコンパイルしたJavaバイトコードはJRubyが無くても他のJavaプラットフォーム上で動作させるこ
+とが可能となる）。</p>
+<ul>
+  <li>IronRuby := .NET Framework上でRubyを動作させる実装であり、.NET Frameworkのライブラリと連携させることができる。JIT方式のバイトコードインタプリタ。共通言語基盤に準拠した実装（Monoなど）で動作するため、プラットフォーム非依存の利用も可能（ただし、ソースコードが.NET Frameworkのライブラリに依存している場合はMonoでの動作は不可能）。</li>
+  <li>RubyCocoa、MacRuby := いずれもMac OS X上で動作するRuby実装。Cocoaを含む様々なフレームワークとの連携が可能。RubyCocoaはMac OS X Leopard以降に標準でインストールされており、MacRubyはRubyCocoaの問題点を解決するために開発されている。</li>
+  <li>Rubinius := 仮想機械上でRubyを実行するJIT方式のバイトコードインタプリタ。大部分がRubyで実装されている。</li>
+</ul>
+
+<p>その他  Parrot上でRubyを動作させるための実装なども開発されている。</p>
+
+<h2 id="競合言語としてのpython">競合言語としてのPython</h2>
+
+<p>プログラミング言語としてのRubyは大雑把に言うと「Perlのオブジェクト指向版」、つまりインタプリタで実行する高機能なスクリプト言語でありオブジェクト指向機能を持つもの、と位置づけることができるが、この位置付けはスクリプト言語Pythonと同じである。このことがそれぞれの言語のユーザ同士の間で「どちらの言語が優れているか」といった論争を生んできた。しかしその論争は技術的な細部にとらわれた不毛な議論になることも多かった。</p>
+
+<p>ここであえて両者の細部を比較はしないが、ユーザ数や書かれたシステムの数量・質などを現時点で比べると世界的にはPythonの方が人気が高い。一方、日本では開発者が日本人であることもあり、Rubyの人気は高く書籍も多く出版されている。とはいえ2004年前後まで圧倒的なキラーアプリがなく、tDiaryやバグトラッキングシステム「影舞」程度しか知られていなかったため、大きな普及には至らなかった。ところが2004年末に発表され2005年に大ブレイクしたRuby on Railsにより一気に注目を集めている。</p>
+
+<hr />
+
+<h2 id="例">例</h2>
+
+<h3 id="基本的なコード">基本的なコード</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 文字リテラルを含め全てがオブジェクトである</span>
+<span class="o">-</span><span class="mi">199</span><span class="p">.</span><span class="nf">abs</span>                                       <span class="c1"># 199</span>
+<span class="s2">"ruby is cool"</span><span class="p">.</span><span class="nf">length</span>                          <span class="c1"># 12</span>
+<span class="s2">"Rick"</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="s2">"c"</span><span class="p">)</span>                              <span class="c1"># 2</span>
+<span class="s2">"Nice Day Isn't It?"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">//</span><span class="p">).</span><span class="nf">uniq</span><span class="p">.</span><span class="nf">sort</span><span class="p">.</span><span class="nf">join</span>  <span class="c1"># " '?DINaceinsty"</span>
+</code></pre></div></div>
+
+<h3 id="コレクション">コレクション</h3>
+
+<h4 id="配列の作成と使用法">配列の作成と使用法</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+ 
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>                      <span class="c1"># 3.14</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">reverse</span>                 <span class="c1"># [[4, 5], 2, 1, 3.14, 'hi', 1]</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">flatten</span><span class="p">.</span><span class="nf">uniq</span>            <span class="c1"># [1, 'hi', 3.14, 2, 4, 5]</span>
+</code></pre></div></div>
+
+<h4 id="ハッシュの作成と使用法">ハッシュの作成と使用法</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'water'</span> <span class="o">=&gt;</span> <span class="s1">'wet'</span><span class="p">,</span> <span class="s1">'fire'</span> <span class="o">=&gt;</span> <span class="s1">'hot'</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="nb">hash</span><span class="p">[</span><span class="s1">'fire'</span><span class="p">]</span>       <span class="c1"># 表示:  hot</span>
+ 
+<span class="nb">hash</span><span class="p">.</span><span class="nf">each_pair</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+ 
+<span class="c1"># 表示:               water is wet</span>
+<span class="c1">#                     fire is hot</span>
+ 
+<span class="nb">hash</span><span class="p">.</span><span class="nf">delete_if</span> <span class="p">{</span><span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">'water'</span><span class="p">}</span>   <span class="c1"># Deletes 'water' =&gt; 'wet'</span>
+</code></pre></div></div>
+
+<h3 id="制御構造">制御構造</h3>
+
+<p>ほかの言語でもよくみられるような制御構造を用いることができる</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s2">"fablic"</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">3</span>
+  <span class="nb">puts</span> <span class="s1">'ya'</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s1">'nop'</span>
+<span class="k">end</span>
+<span class="c1"># 表示:         ya</span>
+ 
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span>
+  <span class="nb">puts</span> <span class="s1">'foobar'</span>
+  <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+<span class="c1"># 表示:         foobar</span>
+<span class="c1">#               foobar</span>
+<span class="c1">#               foobar</span>
+</code></pre></div></div>
+
+<p>一部の制御構造は後述するイテレータで代替することができる。</p>
+
+<h4 id="ブロックとイテレータ">ブロックとイテレータ</h4>
+
+<p>rubyではブロック付きメソッド呼び出し（イテレータとも呼ばれる）を 用いるコードが好まれることが多い。これを用いると、ユーザー定義の制御構造やコールバック など様々な処理を簡潔に記述できる利点があるからである。</p>
+
+<p>ブロックの表記方法には二つの方法がある。メソッドの末尾に記述することで機能する</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hello, World!"</span> <span class="p">}</span>
+
+<span class="k">do</span> <span class="nb">puts</span> <span class="s2">"Hello, World!"</span> <span class="k">end</span>
+</code></pre></div></div>
+
+<p>ブロック付きメソッド呼び出しが繰り返し処理を主な役割としていたことから、イテレータと呼ばれていた時期がある。しかし、実際には繰り返し処理にとどまらず、様々な使われ方をしているので、最近はブロック付きメソッド呼び出し全体の総称としてイテレータという名称を用いるのは適切でないと考えられている。[1]</p>
+
+<h4 id="繰り返し処理">繰り返し処理</h4>
+
+<h5 id="配列の各要素への繰り返し処理">配列の各要素への繰り返し処理</h5>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">collect!</span><span class="p">{</span><span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>          <span class="c1"># listの各要素を２倍する</span>
+</code></pre></div></div>
+
+<p>以下はブロックを使わずに同じことを行う場合</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">list</span><span class="p">.</span><span class="nf">length</span>
+  <span class="n">list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+  <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h5 id="指定した回数の繰り返し処理">指定した回数の繰り返し処理</h5>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span><span class="p">.</span><span class="nf">times</span><span class="p">{</span> <span class="nb">puts</span> <span class="s1">'foobar'</span> <span class="p">}</span>       <span class="c1">#制御構造の項のwhileの例と同じ</span>
+</code></pre></div></div>
+
+<h4 id="後処理の省力化">後処理の省力化</h4>
+
+<p>ブロックの内容を実行してから、決められた後処理を行うメソッドもある</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'file.txt'</span><span class="p">,</span> <span class="s1">'w+b'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+  <span class="n">file</span><span class="p">.</span><span class="nf">puts</span> <span class="s1">'Wrote some text.'</span>
+<span class="k">end</span>                             <span class="c1"># Fileはここで自動的にcloseされる</span>
+</code></pre></div></div>
+
+<p>これは次の例と同様の処理を行う（ensureについては例外処理の項を参照）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">begin</span>
+  <span class="n">file</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'file.txt'</span><span class="p">,</span> <span class="s1">'w+b'</span><span class="p">)</span>
+  <span class="n">file</span><span class="p">.</span><span class="nf">puts</span> <span class="s1">'Wrote some text.'</span>
+<span class="k">ensure</span>
+  <span class="n">file</span><span class="p">.</span><span class="nf">close</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h6 id="本処理を後から指定">本処理を後から指定</h6>
+
+<p>実際に行いたい処理をブロックで記述する。 前項の後処理の省力化もこれの一例といえる。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>       <span class="c1">#配列をツリーに見立てた処理</span>
+  <span class="k">while</span> <span class="n">not</span> <span class="n">list</span><span class="p">.</span><span class="nf">empty?</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="nf">shift</span>
+    <span class="k">yield</span> <span class="n">unit</span>      <span class="c1">#ブロックの内容を実行</span>
+    <span class="n">unit</span><span class="p">.</span><span class="nf">each</span><span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="n">list</span><span class="p">.</span><span class="nf">push</span> <span class="n">v</span><span class="p">}</span> <span class="k">if</span> <span class="n">defined?</span> <span class="n">unit</span><span class="p">.</span><span class="nf">push</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">bfs</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">4</span><span class="p">,[</span><span class="mi">5</span><span class="p">,[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]],</span><span class="mi">9</span><span class="p">])</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">p</span> <span class="n">v</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>この例は”ツリーから要素と分枝をつぎつぎと取り出し”て”取り出したものになんらかの処理を行う” ものであ
+る。メソッドの利用者は、”なんらかの処理”のみを記述すればよく、取り出しのアルゴリズムなど、本質的でな
+い内容に意識を向ける必要がなくなる。</p>
+
+<h3 id="h3-クロージャ">H3 クロージャ</h3>
+
+<h4 id="h4-クロージャとなるようなブロックの引数渡し">H4 クロージャとなるようなブロックの引数渡し</h4>
+
+<h5 id="h5-クロージャとなるようなブロックの引数渡し">H5 クロージャとなるようなブロックの引数渡し</h5>
+
+<h6 id="h6-クロージャとなるようなブロックの引数渡し">H6 クロージャとなるようなブロックの引数渡し</h6>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># オブジェクトのインスタンス変数（変数名の頭に@が付く）でブロックを記憶。</span>
+<span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">p</span><span class="p">)</span>
+  <span class="vi">@block</span> <span class="o">=</span> <span class="nb">p</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># nameを受け取るブロックを引数に、上記のメソッドを呼び出す。</span>
+<span class="n">remember</span> <span class="p">{</span><span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Hello, "</span> <span class="o">+</span> <span class="nb">name</span> <span class="o">+</span> <span class="s2">"!"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 後に必要になった時点でクロージャを呼び出す。</span>
+<span class="vi">@block</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"John"</span><span class="p">)</span>
+<span class="c1"># 表示:"Hello, John!"</span>
+</code></pre></div></div>
+
+<h4 id="メソッドからクロージャを返す例">メソッドからクロージャを返す例</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_set_and_get</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nb">proc</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">},</span> <span class="nb">proc</span> <span class="p">{</span> <span class="n">value</span> <span class="p">}</span>
+<span class="k">end</span>
+ 
+<span class="n">setter</span><span class="p">,</span> <span class="n">getter</span> <span class="o">=</span> <span class="n">create_set_and_get</span>
+<span class="n">setter</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">getter</span><span class="p">.</span><span class="nf">call</span> <span class="c1"># =&gt; 21</span>
+</code></pre></div></div>
+
+<p>“クロージャ”:ruby_01_memo-1.html</p>
+
+<h3 id="クラス">クラス</h3>
+
+<p>次のコードはPersonという名前のクラスである。その中、まずinitializeはオブジェクトを初期化するコンストラクタである。ほかに2つのメソッドがあり、1つは比較演算子である&lt;=&gt;をオーバーライドしておりArray#sortによりプロパティageでソートすることができる。もう1つのオーバーライド箇所のto_sメソッドは Kernel#puts での表示の形式を整える。attr_readerはRubyにおけるメタプログラミングの例であり、attr はインスタンス変数の入出力を司るgetterやsetterメソッド（アクセサ）を定義する。attr_readerはgetterメソッドのみの定義である。なおメソッド中では最後に評価された式が返り値となり、明示的なreturnは省略できる。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+    <span class="vi">@name</span><span class="p">,</span> <span class="vi">@age</span> <span class="o">=</span> <span class="nb">name</span><span class="p">,</span> <span class="n">age</span>
+  <span class="k">end</span>
+ 
+  <span class="k">def</span> <span class="nf">&lt;</span><span class="o">=&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+    <span class="vi">@age</span> <span class="o">&lt;=&gt;</span> <span class="n">person</span><span class="p">.</span><span class="nf">age</span>
+  <span class="k">end</span>
+ 
+  <span class="k">def</span> <span class="nf">to_s</span>
+    <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="vi">@age</span><span class="si">}</span><span class="s2">)"</span>
+  <span class="k">end</span>
+ 
+  <span class="nb">attr_reader</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
+<span class="k">end</span>
+ 
+<span class="n">group</span> <span class="o">=</span> <span class="p">[</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"John"</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+          <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Markus"</span><span class="p">,</span> <span class="mi">63</span><span class="p">),</span>
+          <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Ash"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="p">]</span>
+ 
+<span class="nb">puts</span> <span class="n">group</span><span class="p">.</span><span class="nf">sort</span><span class="p">.</span><span class="nf">reverse</span>
+</code></pre></div></div>
+
+<p>結果は3つの名前が年の大きい順に表示される</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Markus</span> <span class="p">(</span><span class="mi">63</span><span class="p">)</span>
+<span class="no">John</span> <span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="no">Ash</span> <span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="例外処理">例外処理</h3>
+
+<p>例外はなにか不具合が起こったときraiseの呼び出しで発生させることができる。 Rubyでの例外はExceptionクラスか、そのサブクラスのインスタンスである。</p>
+
+<p>例外にはメッセージを追加することもできる</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">raise</span> <span class="s2">"This is a message"</span>
+</code></pre></div></div>
+
+<p>さらに例外のタイプも指定できる</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">"Illegal arguments!"</span>
+</code></pre></div></div>
+
+<p>例外はrescue節で処理することができ、次のようにコードにrescueを付加するだけである</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">begin</span>
+  <span class="c1"># 通常処理</span>
+<span class="k">rescue</span>
+  <span class="c1"># 例外処理</span>
+<span class="k">ensure</span>
+  <span class="c1"># 例外の発生に関わらず必ず実行される処理</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="rubyの周辺技術">Rubyの周辺技術</h2>
+
+<ul>
+  <li>分散オブジェクトを実現するdRuby</li>
+  <li>Apache HTTP Serverに組み込むためのmod ruby</li>
+  <li>サーバサイドでHTMLへの埋め込みRuby文を実現するeRuby</li>
+  <li>Rubyスクリプトに埋め込むことができる文書形式RD</li>
+  <li>RubyによるRDを採用したWikiクローン、RWiki</li>
+  <li>RubyからSDLライブラリを扱えるようにするRuby/SDL</li>
+  <li>RubyからDelphiを扱えるようにするApollo</li>
+  <li>RubyによるWebアプリケーションフレームワークRuby on Rails</li>
+  <li>Rubyの別の処理系であるYARV（Yet another RubyVM）</li>
+  <li>Rubyの統合開発環境RDE（Ruby Development Environment）</li>
+  <li>RubyのコードをWindowsの実行形式ファイルに変換するExerb</li>
+  <li>Ruby用のライブラリ管理システムであるRubyGems</li>
+  <li>Microsoft WindowsのActiveX環境でrubyインタープリターを呼び出すActiveScriptRuby (Internet Explorer限定だがHTMLに埋めこんでクライアント上で動かすスクリプト言語としてRubyを指定できるようになる - サーバ上で動作する eRubyとは区別すること)</li>
+  <li>RubyからWin32APIやCOMコンポーネントを呼び出すためのライブラリー WIN32OLE</li>
+  <li>JavaScriptやFlash上で動くRubyの処理系HotRuby</li>
+  <li>Rubyによるビヘイビア駆動開発のためのフレームワークRSpec</li>
+  <li>Rubyで書かれたビルドツール Rake</li>
+</ul>
+
+<h2 id="rubyで開発されたアプリケーション">Rubyで開発されたアプリケーション</h2>
+
+<ol>
+  <li>tDiary
+    <ol>
+      <li>分散オブジェクトを実現するdRuby</li>
+    </ol>
+  </li>
+  <li>影舞</li>
+  <li>Hiki</li>
+  <li>Ruby on Rails</li>
+  <li>Redmine</li>
+  <li>qwikWeb</li>
+  <li>WEBrick</li>
+</ol>
+
+<h3 id="rubyを組み込んだアプリケーション">Rubyを組み込んだアプリケーション</h3>
+
+<ul>
+  <li>RPGツクールXP・RPGツクールVX := 株式会社エンターブレインから発売されているRPG制作ソフトシリーズのうち、RPGツクールXPとRPGツクールVXでは、Rubyをツクール専用にカスタマイズした Ruby Game Scripting System (RGSS)を搭載している。同シリーズの従来ソフトではあらかじめ用意された機能しか使えなかったが、これにより戦闘などのシステムを一から構築する事が出来るようになった。</li>
+</ul>
+
+<h3 id="エピソード">エピソード</h3>
+
+<p>Rubyではブロック構造をendで終える構文が採用されているが、開発者のまつもとゆきひろは他の構文が採用さ
+れる可能性があったことを述べている。当時、Emacs上でendで終える構文をオートインデントさせた例はあまり
+なく、Ruby言語用の編集モードにオートインデント機能を持たせられるかどうかが問題になっていたためである
+。実際には数日の試行でオートインデント可能であることがわかり、現在の構文になった。C言語のような{}
+を使った構文を採用することも検討されていたが、結局これは採用されなかった。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: right">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Cell Contents</td>
+      <td style="text-align: center">More Stuff</td>
+      <td style="text-align: right">And Again</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You Can Also</td>
+      <td style="text-align: center">Put Pipes In</td>
+      <td style="text-align: right">Like this |</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Things</strong></td>
+      <td><em>Don’t</em></td>
+      <td><a href="http://makeuseof.com">Need</a></td>
+    </tr>
+    <tr>
+      <td>To</td>
+      <td><em><strong>Look</strong></em></td>
+      <td><code class="highlighter-rouge">Pretty</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fun</th>
+      <th style="text-align: right">With</th>
+      <th style="text-align: center">Tables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">left-aligned column</td>
+      <td style="text-align: right">right-aligned column</td>
+      <td style="text-align: center">centered column</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$100</td>
+      <td style="text-align: right">$100</td>
+      <td style="text-align: center">$100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$10</td>
+      <td style="text-align: right">$10</td>
+      <td style="text-align: center">$10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$1</td>
+      <td style="text-align: right">$1</td>
+      <td style="text-align: center">$1</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2012/08">4th August 2012</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/programming" class="post-link">programming</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/ruby" class="post-link">ruby</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/programming_language" class="tag tagcard-small">programming_language</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/LL" class="tag tagcard-small">LL</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/programming/ruby/ruby_01_memo-1">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Rubyのクロージャ</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/programming/c/cpp/cpp_03">入力ストリーム 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#rubyとは">Rubyとは？</a>
+    <ul>
+      <li class="anchor"><a href="#ruby哲学">Ruby哲学</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#実装">実装</a>
+    <ul>
+      <li class="anchor"><a href="#公式な実装">公式な実装</a></li>
+      <li class="anchor"><a href="#その他の実装">その他の実装</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#競合言語としてのpython">競合言語としてのPython</a></li>
+  <li class="anchor"><a href="#例">例</a>
+    <ul>
+      <li class="anchor"><a href="#基本的なコード">基本的なコード</a></li>
+      <li class="anchor"><a href="#コレクション">コレクション</a>
+        <ul>
+          <li class="anchor"><a href="#配列の作成と使用法">配列の作成と使用法</a></li>
+          <li class="anchor"><a href="#ハッシュの作成と使用法">ハッシュの作成と使用法</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#制御構造">制御構造</a>
+        <ul>
+          <li class="anchor"><a href="#ブロックとイテレータ">ブロックとイテレータ</a></li>
+          <li class="anchor"><a href="#繰り返し処理">繰り返し処理</a></li>
+          <li class="anchor"><a href="#後処理の省力化">後処理の省力化</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#h3-クロージャ">H3 クロージャ</a>
+        <ul>
+          <li class="anchor"><a href="#h4-クロージャとなるようなブロックの引数渡し">H4 クロージャとなるようなブロックの引数渡し</a></li>
+          <li class="anchor"><a href="#メソッドからクロージャを返す例">メソッドからクロージャを返す例</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#クラス">クラス</a></li>
+      <li class="anchor"><a href="#例外処理">例外処理</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#rubyの周辺技術">Rubyの周辺技術</a></li>
+  <li class="anchor"><a href="#rubyで開発されたアプリケーション">Rubyで開発されたアプリケーション</a>
+    <ul>
+      <li class="anchor"><a href="#rubyを組み込んだアプリケーション">Rubyを組み込んだアプリケーション</a></li>
+      <li class="anchor"><a href="#エピソード">エピソード</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/programming/ruby/ruby_01_memo-1">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Rubyのクロージャ</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/programming/c/cpp/cpp_03">入力ストリーム 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><!-- <input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label> -->
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+<script src="/Febris/assets/js/table-expansion.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+    if ($(window).width() < 860) {
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    } else {
+      if (checked == true) {
+        tgl.prop('checked', false);
+      }
+      if (checked2 == true) {
+        tgl_pattr.prop('checked', false);
+      }
+      if (checked3 == true) {
+        tgl_pager.prop('checked', false);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 80, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+  });
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>

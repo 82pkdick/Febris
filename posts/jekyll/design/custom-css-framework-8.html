@@ -7,7 +7,7 @@
 
 <title>
   
-    Febris | My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    BoxとCard | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
-<link rel="canonical" href="https://82pkdick.github.io/Febris/404">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-8">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
@@ -51,26 +51,270 @@
 
 
       <article id="main-contents">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-8">
+      <span class="title-text">BoxとCard</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（８）</h4>
+  <p class="page-appendix"><span class="post-date">June 16, 2019</span></p>
+</div><!-- post header end -->
 
-<div class="container">
-  <h1>404</h1>
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="box-と-card">Box と Card</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<p>Bulma に Box とか Card とかいうのがある。これを真似てみる。</p>
+
+<h3 class="sub-hd" id="bulma-の-box-と-card">Bulma の Box と Card</h3>
+
+<p>Bulma の Box はこんな感じのもの。</p>
+
+<p class="box">John Smith @johnsmith 31m 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+
+<p>Bulma の Card.</p>
+
+<p class="card">John Smith @johnsmith 31m 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+
+<p>見た目は角が四角いか丸いかの違いである。
+この Bulma の Box と Card を参考に似たような仕組みを作れないだろうか？</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="block要素の-width指定">block要素の width指定</h3>
+
+<p><code class="highlighter-rouge">.box</code>,<code class="highlighter-rouge">.card</code>というクラスで上のような箱になるようにして、すでに作った<code class="highlighter-rouge">wd-数値</code>で横幅を指定できるようにしてみる。</p>
+
+<p class="code-label">[HTML(Box width:”20%”) sample]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"box wd-20"</span><span class="nt">&gt;</span>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p class="code-label">[css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5rem</span><span class="p">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">6px</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span> <span class="m">3px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">),</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>boxクラスのCSSに横幅は指定しない。ブラウザにもよるのだろうがChromeだと<code class="highlighter-rouge">width:"auto"</code>で親要素の横幅いっぱいになる。だから指定しないとデフォルトの<code class="highlighter-rouge">width: auto</code>になっている。</p>
+
+<hr />
+<h4 id="box-の例">Box の例</h4>
+
+<p class="caption-label">[.box .wd-20]</p>
+<p class="box wd-20">Lorem ipsum dolor sit amet.</p>
+
+<p class="caption-label">[.box .wd-30]</p>
+<p class="box wd-30">Lorem ipsum dolor sit amet.</p>
+
+<p class="caption-label">[.box .wd-40]</p>
+<p class="box wd-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+<p class="caption-label">[.box .wd-50]</p>
+<p class="box wd-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.box .wd-60]</p>
+<p class="box wd-60">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.box .wd-70]</p>
+<p class="box wd-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.box .wd-80]</p>
+<p class="box wd-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.box .wd-90]</p>
+<p class="box wd-90">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.box .wd-100]</p>
+<p class="box wd-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<hr />
+<h4 id="card-の例">Card の例</h4>
+
+<p class="caption-label">[.card .wd-20]</p>
+<p class="card wd-20">Lorem ipsum dolor sit amet.</p>
+
+<p class="caption-label">[.card .wd-30]</p>
+<p class="card wd-30">Lorem ipsum dolor sit amet.</p>
+
+<p class="caption-label">[.card .wd-40]</p>
+<p class="card wd-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+
+<p class="caption-label">[.card .wd-50]</p>
+<p class="card wd-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.card .wd-60]</p>
+<p class="card wd-60">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.card .wd-70]</p>
+<p class="card wd-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.card .wd-80]</p>
+<p class="card wd-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.card .wd-90]</p>
+<p class="card wd-90">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-label">[.card .wd-100]</p>
+<p class="card wd-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="box-card-の活用">Box, card の活用</h3>
+
+<p>kramdown のクラス指定は、一番直近(外側)の要素に加わる。
+例えば Box と card の中身を次のようにHTMLで書けば、外側の<code class="highlighter-rouge">DIV</code>要素に<code class="highlighter-rouge">box</code>クラスが加えられる。こんな写真入りのカードっぽい要素にもなる。内側だけ Flexbox 使えばもっとよくなるかも。手書きはちょっとめんどうだが、他にももっといい方法はないか？</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+![church](/assets/images/013.jpg){:height="135px" width="150px"}
+<span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, <span class="nt">&lt;br&gt;</span>
+consectetur adipiscing elit.<span class="nt">&lt;br&gt;</span>
+Aenean efficitur sit amet massa fringilla egestas.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+{: .box.wd-fit style="display:flex;padding:0 0.8rem 0 0;"}
+</code></pre></div></div>
+
+<div class="box wd-fit" style="display:flex;padding:0 0.8rem 0 0;">
+  <p><img src="/assets/images/013.jpg" alt="church" height="135px" width="150px" /></p>
+  <p>Lorem ipsum dolor sit amet, <br />
+consectetur adipiscing elit.<br />
+Aenean efficitur sit amet massa fringilla egestas.</p>
 </div>
+
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">16th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-9">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> BoxやCardの配置</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">Border 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#box-と-card">Box と Card</a>
+    <ul>
+      <li class="anchor"><a href="#bulma-の-box-と-card">Bulma の Box と Card</a></li>
+      <li class="anchor"><a href="#block要素の-width指定">block要素の width指定</a>
+        <ul>
+          <li class="anchor"><a href="#box-の例">Box の例</a></li>
+          <li class="anchor"><a href="#card-の例">Card の例</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#box-card-の活用">Box, card の活用</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-9">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> BoxやCardの配置</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">Border 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
 
       </article>
       

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Border | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-7">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+
+      <!-- navigation button for left slide menu -->
+      <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open"><span></span></label>
+      <label for="navTgl" class="close"></label>
+
+
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-7">
+      <span class="title-text">Border</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（７）</h4>
+  <p class="page-appendix"><span class="post-date">June 15, 2019</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="border">Border</h2>
+
+<p>CSS変数でスタイルをアレンジするやり方が分かったので、ボーダー値の変更に応用してみる。
+この設定も<code class="highlighter-rouge">_block-style.scss</code>に追加すればいいと思う。</p>
+
+<h3 class="sub-hd" id="border-クラス">.border クラス</h3>
+
+<p>単に<code class="highlighter-rouge">.border</code>クラスだけを指定するとデフォルト値のボーダーが付く。<code class="highlighter-rouge">1px solid #cdcdcd</code>になる。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Border
+{: .border .pad-10px .wd-30 .text.align-c}
+</code></pre></div></div>
+
+<p class="border pad-10px wd-30 text align-c wd-flex">Box with Border</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="border-none-クラス">.border-none クラス</h3>
+
+<p>ボーダーをなしにするクラス。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box no border
+{: .border-none .pad-10px .wd-30 .text.align-c}
+</code></pre></div></div>
+
+<p class="border-none pad-10px wd-30 text align-c wd-flex">Box no border</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="bdr-set-css変数">–bdr-set CSS変数</h3>
+
+<p>さらに<code class="highlighter-rouge">--bdr-set</code>CSS変数で一括指定</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Border Set
+{: .border .pad-10x20 .wd-30 .text.align-c}
+{: style="--bdr-set:8px double lime;"}
+</code></pre></div></div>
+
+<p class="border pad-10x20 wd-30 text align-c wd-flex" style="--bdr-set:8px double lime;">Box with Border Set</p>
+
+<hr class="sec-br" />
+<h2 class="main-hd" id="border-属性の個別指定">Border 属性の個別指定</h2>
+
+<p><code class="highlighter-rouge">.bdr-width</code>ボーダーの太さ、<code class="highlighter-rouge">.bdr-style</code>スタイル、<code class="highlighter-rouge">.border-color</code>色、<code class="highlighter-rouge">.bdr-rad</code>で角丸、それぞれ個別に指定するクラスを作った。ただしこの3種でボーダーを表示するためにはデフォルトクラス<code class="highlighter-rouge">.border</code>が必要。</p>
+
+<h3 class="sub-hd" id="ボーダーの太さ">ボーダーの太さ</h3>
+
+<h4 class="sub2-hd" id="bdr-width">.bdr-width</h4>
+
+<p><code class="highlighter-rouge">.bdr-width</code>はボーダーの太さ指定。
+<code class="highlighter-rouge">--bdr-width</code>で太さを指定する。数値を省略した場合はデフォルトの 1px。</p>
+
+<p>上下に2px、左右に6pxを指定した例。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with 2ｘ6px Border
+{: .border .bdr-width .pad-10x20 .wd-30 .text.align-c}
+{: style="--bdr-width: 2px 6px;"}
+</code></pre></div></div>
+
+<p class="border bdr-width pad-10x20 wd-30 text align-c wd-flex" style="--bdr-width: 2px 6px;">Box with 2ｘ6px Border</p>
+
+<hr class="none" />
+<h4 class="sub2-hd" id="bwd-wd-xpx">.bwd-wd-Xpx</h4>
+
+<p><code class="highlighter-rouge">.bdr-wd-2px</code>といった形でクラス名だけでボーダーの太さを指定する方法。1〜10pxまで対応。ただし<code class="highlighter-rouge">.bdr-width</code>を使う方法と違って縦横の巾を変えたりはできない。</p>
+
+<p><code class="highlighter-rouge">.border.bdr-wd-10px</code>を指定した例。</p>
+
+<p class="border bdr-wd-10px pad-10x20 wd-30 text align-c wd-flex">Box with 5px Border</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="ボーダーのスタイル">ボーダーのスタイル</h3>
+
+<h4 class="sub2-hd" id="bdr-style">.bdr-style</h4>
+
+<p><code class="highlighter-rouge">.bdr-style</code>ボーダーのスタイル。省略時のデフォルトは solid</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Dashed &amp; Solid Border
+{: .border .bdr-style .bdr-width .pad-10x20 .wd-40 .text.align-c}
+{: style="--bdr-style:dashed solid; --bdr-width: 3px"}
+</code></pre></div></div>
+
+<p class="border bdr-style bdr-width pad-10x20 wd-40 text align-c wd-flex" style="--bdr-style:dashed solid; --bdr-width: 3px">Box with Dashed &amp; Solid Border</p>
+
+<hr class="none" />
+<h4 class="sub2-hd" id="stylename">.styleName</h4>
+
+<p>スタイル名を直接指定する方法。より簡単。ただし<code class="highlighter-rouge">.bdr-style</code>を使う方法と違って縦横別のスタイルにしたりはできない。</p>
+
+<p><code class="highlighter-rouge">.border.dashed</code>の例。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Dashed Border
+{: .border.dashed .bdr-wd-3px .pad-10x20 .wd-40 .text.align-c}
+</code></pre></div></div>
+
+<p class="border dashed bdr-wd-3px pad-10x20 wd-40 text align-c wd-flex">Box with Dashed Border</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="ボーダーの色">ボーダーの色</h3>
+
+<h4 class="sub2-hd" id="bdr-color">.bdr-color</h4>
+
+<p><code class="highlighter-rouge">.bdr-color</code>ボーダーの色。省略時のデフォルトは明るいグレイ（<code class="highlighter-rouge">#cdcdcd</code>）</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with color Border
+{: .border.bdr-wd-8px .bdr-color .pad-10x20 .wd-40 .text.align-c}
+{: style="--bdr-color:red rgba(170, 50, 220, .6) green;"}
+</code></pre></div></div>
+
+<p class="border bdr-wd-8px bdr-color pad-10x20 wd-40 text align-c wd-flex" style="--bdr-color:red rgba(170, 50, 220, .6) green;">Box with color Border</p>
+
+<hr class="none" />
+<h4 class="sub2-hd" id="bdr-color-colorname">.bdr-color-colorName</h4>
+
+<p><code class="highlighter-rouge">.bdr-color-色名</code>で指定する簡単な方法。ただし<code class="highlighter-rouge">.bdr-color</code>のような複雑な指定はできない。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with color Border
+{: .border.bdr-wd-8px.bdr-color-springgreen .pad-10x20 .wd-40 .text.align-c}
+</code></pre></div></div>
+
+<p class="border bdr-wd-8px bdr-color-springgreen pad-10x20 wd-40 text align-c wd-flex">Box with color Border</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="組合せ例">組合せ例</h3>
+
+<p>ボーダーの色がピンクで、スタイルが<code class="highlighter-rouge">dashed</code>の太いボーダー。
+<code class="highlighter-rouge">{: .border.bdr-wd-10px.dashed.bdr-color-hotpink}</code></p>
+
+<p class="border bdr-wd-10px dashed bdr-color-hotpink pad-10x20 wd-40 text align-c wd-flex">Box with Pink Dashed Border</p>
+
+<p>上の<code class="highlighter-rouge">.dashed</code>を省略してみたら、デフォルトの<code class="highlighter-rouge">.solid</code>になった。
+<code class="highlighter-rouge">{:.border.bdr-wd-10px.bdr-color-hotpink}</code></p>
+
+<p class="border bdr-wd-10px bdr-color-hotpink pad-10x20 wd-40 text align-c wd-flex">Box with Pink Solid Border</p>
+
+<p>色も省略したもの。デフォルトのグレーになる
+<code class="highlighter-rouge">{:.border.bdr-wd-10px}</code></p>
+
+<p class="border bdr-wd-10px pad-10x20 wd-40 text align-c wd-flex">Box with Default Gray Solid Border, Width:10px</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="各辺の個別の太さ">各辺の個別の太さ</h3>
+
+<h4 class="sub2-hd" id="bdr-lwd-rwd-twd-bwd">.bdr-lwd, rwd, twd, bwd</h4>
+
+<p>左辺の太さ: <code class="highlighter-rouge">.bdr-lwd</code><br />
+右辺の太さ: <code class="highlighter-rouge">.bdr-rwd</code><br />
+上辺の太さ: <code class="highlighter-rouge">.bdr-twd</code><br />
+下辺の太さ: <code class="highlighter-rouge">.bdr-bwd</code><br /></p>
+
+<p class="b-closer-10px"><br />
+左右だけ10px, 上下は2px。CSSの指定と同じで後からの指定が前の指定を上書きする。この場合はまず全体を太さ2pxにしてから、左右の太さを個別に指定。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Border
+{: .border .bdr-width .bdr-color .bdr-lwd .bdr-rwd .pad-10x20 .wd-40 .text.align-c}
+{: style="--bdr-width:2px; --bdr-color:gold; --bdr-lwd:10px; --bdr-rwd:10px;"}
+</code></pre></div></div>
+
+<p class="border bdr-width bdr-color bdr-lwd bdr-rwd pad-10x20 wd-40 text align-c wd-flex" style="--bdr-width:2px; --bdr-color:gold; --bdr-lwd:10px; --bdr-rwd:10px;">Box with Border</p>
+
+<p class="b-closer-10px"><br />
+左右は3px, 上は15px, 下は10px</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Border
+{: .border .bdr-width .bdr-color .bdr-twd .bdr-bwd .pad-10x20 .wd-40 .text.align-c}
+{: style="--bdr-width:3px; --bdr-color:olivedrab; --bdr-twd:15px; --bdr-bwd:10px;"}
+</code></pre></div></div>
+
+<p class="border bdr-width bdr-color bdr-twd bdr-bwd pad-10x20 wd-40 text align-c wd-flex" style="--bdr-width:3px; --bdr-color:olivedrab; --bdr-twd:15px; --bdr-bwd:10px;">Box with Border</p>
+
+<p class="b-closer"><br />
+いったん全体のボーダー幅を0にして後で必要なボーダーだけ指定しなおせば、特定のボーダーだけ指定することになります。下辺だけ残した例。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Bottom Border
+{: .border .bdr-width .bdr-color .bdr-bwd .pad-b0 .wd-35 .text.align-c .wd-flex}
+{: style="--bdr-width:0; --bdr-color:coral; --bdr-bwd:3px;"}
+</code></pre></div></div>
+
+<p class="border bdr-width bdr-color bdr-bwd pad-b0 wd-35 text align-c wd-flex" style="--bdr-width:0; --bdr-color:coral; --bdr-bwd:3px;">Box with Bottom Border</p>
+
+<hr class="none" />
+<h4 class="sub2-hd" id="bdr-twd-xpx">.bdr-twd-Xpx</h4>
+
+<p>でもだんだん複雑になって書き方が面倒です。なのでクラス名だけで縦横左右の太さを個別に指定するやり方も用意してます。</p>
+
+<p>上記の<code class="highlighter-rouge">.bdr-twd</code>に数値指定をくっつけて<code class="highlighter-rouge">.bdr-twd-5px</code>などと指定するだけ。ただし1〜10pxまでの対応。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Left &amp; Bottom Border
+{: .border.bdr-wd-0px.bdr-lwd-10px.bdr-bwd-2px.bdr-color-royalblue .pad-l12px.pad-b5px .wd-50 .text.align-l}
+</code></pre></div></div>
+
+<p class="border bdr-wd-0px bdr-lwd-10px bdr-bwd-2px bdr-color-royalblue pad-l12px pad-b5px wd-50 text align-l wd-flex">Box with Left &amp; Bottom Border</p>
+
+<p>上の例では、<code class="highlighter-rouge">top</code>と<code class="highlighter-rouge">right</code>のボーダーの太さを何も指定しないと、デフォルトの1pxになるので、一旦消すために<code class="highlighter-rouge">.bdr-wd-0px</code>を先に指定している。これは<code class="highlighter-rouge">.bdr-twd-0px.bdr-rwd-0px</code>と個別に消しても同じこと。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="角丸のボーダー">角丸のボーダー</h3>
+
+<h4 class="sub2-hd" id="bdr-rad">.bdr-rad</h4>
+
+<p><code class="highlighter-rouge">.bdr-rad</code>で角丸、<code class="highlighter-rouge">style="--bdr-rad:数値"</code>で値指定。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Box with Border Radius
+{: .border .bdr-width .bdr-color .bdr-rad .pad-10x20 .wd-40 .text.align-c}
+{: style="--bdr-width:20px; --bdr-color:royalblue; --bdr-rad:35% 5%;"}
+</code></pre></div></div>
+
+<p class="border bdr-width bdr-color bdr-rad pad-10x20 wd-40 text align-c wd-flex" style="--bdr-width:20px; --bdr-color:royalblue; --bdr-rad:35% 5%;">Box with Border Radius</p>
+
+<h4 class="sub2-hd" id="bdr-rad-xpx">.bdr-rad-Xpx</h4>
+
+<p>角丸の指定にも<code class="highlighter-rouge">.bdr-rad-5px</code>などとして、クラス名だけで指定する方法がある。1〜50pxまで対応。もちろん<code class="highlighter-rouge">.bdr-rad</code>のほうが上記のような複雑な指定（css指定そのものなので）ができる。</p>
+
+<p class="border bdr-wd-5px bdr-color-orchid bdr-rad-5px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 5px</p>
+
+<p class="border bdr-wd-6px bdr-color-mediumorchid bdr-rad-10px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 10px</p>
+
+<p class="border bdr-wd-7px bdr-color-darkorchid bdr-rad-20px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 20px</p>
+
+<p class="border bdr-wd-8px bdr-color-darkviolet bdr-rad-30px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 30px</p>
+
+<p class="border bdr-wd-8px bdr-color-darkmagenta bdr-rad-40px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 40px</p>
+
+<p class="border bdr-wd-9px bdr-color-indigo bdr-rad-50px pad-10x20 wd-40 text align-c wd-flex">Box with Border Radius 50px</p>
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">15th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-8">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> BoxとCard</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-6">罫線の設定 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#border">Border</a>
+    <ul>
+      <li class="anchor"><a href="#border-クラス">.border クラス</a></li>
+      <li class="anchor"><a href="#border-none-クラス">.border-none クラス</a></li>
+      <li class="anchor"><a href="#bdr-set-css変数">–bdr-set CSS変数</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#border-属性の個別指定">Border 属性の個別指定</a>
+    <ul>
+      <li class="anchor"><a href="#ボーダーの太さ">ボーダーの太さ</a>
+        <ul>
+          <li class="anchor"><a href="#bdr-width">.bdr-width</a></li>
+          <li class="anchor"><a href="#bwd-wd-xpx">.bwd-wd-Xpx</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#ボーダーのスタイル">ボーダーのスタイル</a>
+        <ul>
+          <li class="anchor"><a href="#bdr-style">.bdr-style</a></li>
+          <li class="anchor"><a href="#stylename">.styleName</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#ボーダーの色">ボーダーの色</a>
+        <ul>
+          <li class="anchor"><a href="#bdr-color">.bdr-color</a></li>
+          <li class="anchor"><a href="#bdr-color-colorname">.bdr-color-colorName</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#組合せ例">組合せ例</a></li>
+      <li class="anchor"><a href="#各辺の個別の太さ">各辺の個別の太さ</a>
+        <ul>
+          <li class="anchor"><a href="#bdr-lwd-rwd-twd-bwd">.bdr-lwd, rwd, twd, bwd</a></li>
+          <li class="anchor"><a href="#bdr-twd-xpx">.bdr-twd-Xpx</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#角丸のボーダー">角丸のボーダー</a>
+        <ul>
+          <li class="anchor"><a href="#bdr-rad">.bdr-rad</a></li>
+          <li class="anchor"><a href="#bdr-rad-xpx">.bdr-rad-Xpx</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-8">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> BoxとCard</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-6">罫線の設定 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><!-- <input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label> -->
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+<script src="/Febris/assets/js/table-expansion.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+    if ($(window).width() < 860) {
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    } else {
+      if (checked == true) {
+        tgl.prop('checked', false);
+      }
+      if (checked2 == true) {
+        tgl_pattr.prop('checked', false);
+      }
+      if (checked3 == true) {
+        tgl_pager.prop('checked', false);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 80, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+  });
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>

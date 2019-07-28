@@ -42,7 +42,8 @@
     target_headings: null,
     headings_map: new Map(),
     anchors: null,
-    selected_anchors: null
+    selected_anchors: null,
+    current_position: null
   };
 
   /**
@@ -59,7 +60,8 @@
     toc_anchor: '.anchor',         // Table of contents list tag class name
     mark: 'scrollable',            // class name of event added anchor
     class_current: 'current',      // class name of current anchor
-    counter: null
+    counter: null,                 // counter view If necessary
+    scroll_position_reset: false
   };
   
   let settings = APP.settings;
@@ -95,7 +97,7 @@
   let get_abspos = function(elem) {
     let rect, abs_rect; 
     rect = elem.getBoundingClientRect();
-    abs_rect = rect.top + window.pageYOffset;
+    abs_rect = rect.top + global.pageYOffset;
     return abs_rect;
   };
 
@@ -141,8 +143,11 @@
       link.addEventListener('click', function (event) {
         let pos = 0;
         pos = app_target.headings_map.get(hash)
-        scroll_to_top(pos);
+        app_target.current_position = hash; // when click, set current heading position
         event.preventDefault();
+        event.stopPropagation();
+        scroll_to_top(pos);
+        return false;
       })
     }
   };
@@ -154,6 +159,7 @@
       behavior: "smooth"
     });
   };
+
 
   /** 
    * Color the relevant lines of the table of contents as you scroll. -----------------------------
@@ -217,7 +223,7 @@
   }
 
   // Get window scroll amount.
-  window.onscroll = function() {
+  global.onscroll = function() {
     let match_rect = 0;
     let anchors = app_target.selected_anchors;
     let pos = Math.floor( config.scroll_target.scrollTop );  // Enter the scroll position.
@@ -253,6 +259,30 @@
   APP.run = function() {
     let target = app_target.selected_anchors;
     set_anchor_event(target);
+  }
+
+  APP.reset = function() {
+    app_target.headings_map = set_headings_map(app_target.target_headings);
+    pos = app_target.headings_map.get(app_target.current_position);
+    scroll_to_top(pos);
+  }
+
+  /* If scroll_position_reset option true, 
+  when resize window, reset scroll position */
+  if (APP.settings.scroll_position_reset) {
+    $(global).resize(function() {
+      self.reset();
+    });
+  
+    // When resize window, hide screen disorder.
+    let page = document.getElementById("main-contents");
+   
+    global.addEventListener('resize', function(event) {
+      page.classList.add('fadein');
+      setTimeout(function(){ 
+        page.classList.remove('fadein'); 
+      }, 800);
+    }, false);
   }
 
 })(window);

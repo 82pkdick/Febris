@@ -1,0 +1,2951 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Table | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-11">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+
+      <!-- navigation button for left slide menu -->
+      <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open"><span></span></label>
+      <label for="navTgl" class="close"></label>
+
+
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-11">
+      <span class="title-text">Table</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１１）</h4>
+  <p class="page-appendix"><span class="post-date">June 17, 2019</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="table">Table</h2>
+
+<p>markdown で書いた表を多少アレンジする方法を考えます。多少ですけどね。実際セル単位で何かいじるのはムリです。セルを縦横つなぐとかムリです。kramdown 自体を拡張しないと。
+markdown 自体で文字揃えを変えたりできるので表現力は増すと思います。</p>
+
+<h3 class="sub-hd" id="基本形">基本形</h3>
+
+<p>まずは markdown の表(table)の書き方をおさらい。とりあえずヘッダー付きで。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown wd-76 wd-smsc-full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Column 1      | Column 2      | Column 3      |
+| :-----------: | :-----------: | :-----------: |
+| Cell Contents | Cell Contents | Cell Contents |
+| You Can Also  | You Can Also  | You Can Also  |
+| Cell Contents | Cell Contents | Cell Contents |
+| You Can Also  | You Can Also  | You Can Also  |
+</code></pre></div></div>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>フッターも付けるとこういう書き方。めんどくさいです。Vscodeだと専用のプラグインあるみたいなので、そういうの使うと多少は楽でしょう。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown wd-76 wd-smsc-full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Column 1      | Column 2      | Column 3      |
+| :------------ | :-----------: | ------------: |
+| Cell Contents | Cell Contents | Cell Contents |
+| You Can Also  | You Can Also  | You Can Also  |
+| Cell Contents | Cell Contents | Cell Contents |
+| You Can Also  | You Can Also  | You Can Also  |
+| ============= | ============= | ============= |
+| Footer        | Footer        | Footer        |
+</code></pre></div></div>
+
+<p>列の中の文字寄せは２行目の書き方</p>
+<ul>
+  <li><code class="highlighter-rouge">| :------------ |</code> 左寄せ</li>
+  <li><code class="highlighter-rouge">| :-----------: |</code> 中央揃え</li>
+  <li><code class="highlighter-rouge">| ------------: |</code> 右寄せ</li>
+</ul>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: right">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: right">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: right">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: right">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: right">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: left">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: right">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+
+<h3 class="sub-hd" id="デフォルトのcssと変数">デフォルトのCSSと変数</h3>
+
+<p>で、例によって<code class="highlighter-rouge">_sass/framework-modules/</code>に<code class="highlighter-rouge">_table-styles.scss</code>を作り、素のテーブル(デフォルト)のSCSSを決めます。</p>
+
+<p class="code-label">[_table-styles.scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// table initial value</span>
+<span class="nt">table</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5em</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">border-spacing</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">border-collapse</span><span class="p">:</span> <span class="nb">collapse</span><span class="p">;</span>
+  <span class="nl">table-layout</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="mi">.875rem</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$default-table-font-color</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$default-table-background-color</span><span class="p">;</span>
+  <span class="nt">th</span><span class="o">,</span> <span class="nt">td</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%table-border-base</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="nv">$default-table-padding</span><span class="p">;</span> 
+  <span class="p">}</span>
+  <span class="nt">thead</span> <span class="nt">th</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%table-header-border-base</span><span class="p">;</span>
+    <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-header-border-width</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nv">$default-table-header-font-color</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">tbody</span> <span class="p">{</span>
+    <span class="nt">td</span> <span class="p">{</span>
+      <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-cell-border-width</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">th</span> <span class="p">{</span>
+      <span class="nl">border-bottom-width</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nt">tfoot</span> <span class="p">{</span>
+    <span class="nt">td</span> <span class="p">{</span>
+      <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-foot-border-width</span><span class="p">;</span>
+      <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$default-table-foot-border-color</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>この中で使っている変数のリストが以下。これでも一部です。色の変数名は前に作った<code class="highlighter-rouge">_color-palette.scss</code>で定義されているもの。デフォルト値の色はほとんどモノクロ系です。後で表の部分部分の色変更をしますが、<code class="highlighter-rouge">$light-gray3</code>とかの独自定義のグレー以外は基本WEB140色の名前なので、色名知ってればわかります。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Table default value</span>
+<span class="c1">// font color</span>
+<span class="nv">$default-table-font-color</span><span class="p">:</span> <span class="nv">$dark-gray1</span><span class="p">;</span>
+<span class="nv">$default-table-header-font-color</span><span class="p">:</span> <span class="nv">$dark-gray3</span><span class="p">;</span>
+<span class="c1">// border</span>
+<span class="nv">$default-table-border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+<span class="nv">$default-table-border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
+<span class="nv">$default-table-border-color</span><span class="p">:</span> <span class="nv">$light-gray3</span><span class="p">;</span>
+<span class="nv">$default-table-header-border-width</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">2px</span><span class="p">;</span>
+<span class="nv">$default-table-header-border-color</span><span class="p">:</span> <span class="nv">$light-gray4</span><span class="p">;</span>
+<span class="nv">$default-table-cell-border-width</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span><span class="p">;</span>
+<span class="nv">$default-table-foot-border-width</span><span class="p">:</span> <span class="m">2px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="nv">$default-table-foot-border-color</span><span class="p">:</span> <span class="nv">$light-gray4</span><span class="p">;</span>
+<span class="nv">$default-table-outside-border-color</span><span class="p">:</span> <span class="nv">$light-gray4</span><span class="p">;</span>
+<span class="c1">// background</span>
+<span class="nv">$default-table-background-color</span><span class="p">:</span> <span class="nv">$white</span><span class="p">;</span>
+<span class="nv">$default-table-hover-background-color</span><span class="p">:</span> <span class="nv">$azure</span><span class="p">;</span>
+<span class="c1">// padding</span>
+<span class="nv">$default-table-padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.5em</span> <span class="m">0</span><span class="mi">.75em</span><span class="p">;</span>
+
+<span class="nv">$default-table-border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$default-table-border-color</span><span class="p">;</span>
+<span class="nv">$default-table-outside-border</span><span class="p">:</span> <span class="m">1</span><span class="mi">.0px</span> <span class="nb">solid</span> <span class="nv">$default-table-outside-border-color</span><span class="p">;</span>
+
+<span class="c1">// Border settings Inheritance source</span>
+<span class="nv">%table-border-base</span> <span class="p">{</span>
+  <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-border-width</span><span class="p">;</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nv">$default-table-border-style</span><span class="p">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$default-table-border-color</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">%table-header-border-base</span> <span class="p">{</span>
+  <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-header-border-width</span><span class="p">;</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nv">$default-table-border-style</span><span class="p">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="nv">$default-table-header-border-color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>無駄といっていいくらい変数など多用してます。これでとりあえず表の見た目デフォルトがこんな感じになります。</p>
+
+<p class="caption-label">[一番シンプルな形]</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="caption-label">[フッター付き]</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>縦の罫はないタイプ。地味です。<br /><br /></p>
+
+<p>さて Bulma のテーブルのアレンジ方法を真似しつつ、また markdown でCSSクラス名を渡す方法で、この基本形の上に６種類のバリエーションを考えます。</p>
+
+<hr class="sec-br" />
+
+<h3 class="sub-hd" id="bordered">bordered</h3>
+
+<p>まずは<code class="highlighter-rouge">Add borders to all the cells.</code> 全て罫入りのオーソドックスな表。Bulma のクラス名は<code class="highlighter-rouge">table is-bordered</code>ですが、ルール単純化して<code class="highlighter-rouge">.bordered</code>にします。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown wd-76 wd-smsc-full highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Column 1       | Column 2      | Column 3      |
+| :------------: | :-----------: | :-----------: |
+| Cell Contents  | Cell Contents | Cell Contents |
+| You Can Also   | You Can Also  | You Can Also  |
+| Cell Contents  | Cell Contents | Cell Contents |
+| You Can Also   | You Can Also  | You Can Also  |
+{: .bordered}
+</code></pre></div></div>
+
+<p>最後にくっついている<code class="highlighter-rouge">{: .bordered}</code>がテーブルの種類をアレンジするクラス名を kramdown に渡している部分。</p>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>SCSS はベースになるCSSとの差分だけ記述していくので単純です。</p>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// full bordered table</span>
+<span class="nt">table</span><span class="nc">.bordered</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nv">$default-table-outside-border</span><span class="p">;</span>
+  <span class="nt">th</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%table-header-border-base</span><span class="p">;</span>
+    <span class="nl">border-width</span><span class="p">:</span> <span class="nv">$default-table-border-width</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">td</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%table-border-base</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nv">$default-table-border</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 class="sub-hd" id="striped">striped</h3>
+
+<p>偶数番目の行のバックに薄く色がついているやつ。クラス名渡しの部分だけ載せていきます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped}
+</code></pre></div></div>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.striped</span> <span class="p">{</span>
+  <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span>  <span class="nv">$light-gray1</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 class="sub-hd" id="striped-odd">striped-odd</h3>
+
+<p>奇数番目の行のバックに薄く色がついているやつ。<code class="highlighter-rouge">.striped</code>の標準は偶数行、クラス名を<code class="highlighter-rouge">.striped-odd</code>とすると奇数行に色を付ける。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped-odd}
+</code></pre></div></div>
+
+<table class="striped-odd">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.striped-odd</span> <span class="p">{</span>
+  <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">odd</span><span class="o">)</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span>  <span class="nv">$light-gray1</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 class="sub-hd" id="narrow">narrow</h3>
+
+<p>行の高さが狭いやつ。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .narrow}
+</code></pre></div></div>
+
+<table class="narrow">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.narrow</span> <span class="p">{</span>
+  <span class="nt">th</span><span class="o">,</span> <span class="nt">td</span> <span class="p">{</span> <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.3em</span> <span class="m">0</span><span class="mi">.5em</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 class="sub-hd" id="hoverable">hoverable</h3>
+
+<p>マウスを行に重ねるとバックに色がつく。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .hoverable}
+</code></pre></div></div>
+
+<table class="hoverable">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.hoverable</span> <span class="p">{</span>
+  <span class="nt">th</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:hover</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$default-table-hover-background-color</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 class="sub-hd" id="fullwidth">fullwidth</h3>
+
+<p><code class="highlighter-rouge">width: 100%</code>で横幅いっぱいになるやつ。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .fullwidth}
+</code></pre></div></div>
+
+<table class="fullwidth">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.fullwidth</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 class="main-hd" id="markdown上でテーブルのカスタマイズ">Markdown上でテーブルのカスタマイズ</h2>
+
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/Using_CSS_custom_properties">CSSカスタムプロパティ (CSS custom properties for cascading variables)</a>。CSS変数とも呼ばれてるあれで、表を若干ですがカスタマイズできるようにしてみます。変数名とバリエーションは、まんま Bulma を参考にしました。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="font-の色変更">font の色変更</h3>
+
+<h4 id="表全体の文字色を変える">表全体の文字色を変える</h4>
+
+<p><code class="highlighter-rouge">--fcolor:色指定</code>で表全体の文字色を変えます。クラス名渡しの部分だけ載せていきます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .fcolor style="--fcolor:#008000"}
+</code></pre></div></div>
+
+<table class="fcolor" style="--fcolor:#008000">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p><code class="highlighter-rouge">{: style="color:#008000;"}</code>と書いてもヘッダーの文字色以外は変わるのですが、もっと複雑なこともやりたいとなると生のスタイル指定を末尾に書くのは困難でしょう。</p>
+
+<p>このあと出てくるのは全て<code class="highlighter-rouge">.class-name</code>というクラス名が指定されているtableを検知して、<code class="highlighter-rouge">--class-name</code>という名前のCSS変数からその変数値をCSSに適用するやり方です。</p>
+
+<p>最初CSSの属性セレクターを使って作っていったのですが、それだと複数の設定（文字色とバックの色を組み合わせるとか）が反映されない。属性セレクターでは複数の設定値は、最後に書いたもので上書きされてしまう（つまり最後の設定以外は検知されていない）</p>
+
+<p>これ、よく考えてみれば当たり前ですね。私の知恵が足りませんでした（笑）。</p>
+
+<p>で、結局クラス名で検知させる方法にしました。<code class="highlighter-rouge">.fcolor</code>と書いて、そのクラス名の前に”<code class="highlighter-rouge">--</code>“ハイフン２つ付けたCSSカスタム変数と値を書く(<code class="highlighter-rouge">style="--fcolor:xxxxxx"</code>)のでめんどうですが妥協です。</p>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.fcolor</span> <span class="p">{</span> 
+  <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fcolor</span><span class="o">,</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">tbl-color</span><span class="p">));</span>
+  <span class="nt">thead</span> <span class="nt">th</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fcolor</span><span class="o">,</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">tbl-color</span><span class="p">))</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2番目の引数に代替値としてデフォルトの設定<code class="highlighter-rouge">--tbl-color</code>の値が割り当てられます。デフォルトの文字色の濃いグレーになります。</p>
+
+<p><code class="highlighter-rouge">{: style="--fcolor:"}</code>として単に値を指定しないとデフォルトが選ばれるだけですが、デフォルト値を変えれば他の色にもなります。ここでは16進数2桁のカラーコードで指定しましたが、色名が公式に決まっているものなら<code class="highlighter-rouge">{: style="--fcolor:lightblue"}</code>などとも書けます。</p>
+
+<p>テーブル・ヘッダーの文字色はデフォルトの設定が勝つので<code class="highlighter-rouge">thead th</code>も指定しないと変わりません。ここらあたりは<code class="highlighter-rouge">tbody</code>だけでいいよという好みもありますが、仕様ということで。</p>
+
+<p>他にもいくつかCSS変数を定義しましたが、細かい説明は省略します。カスタムプロパティの名前と変更された外観で分かると思います。</p>
+
+<hr />
+<h4 id="表ヘッダーの文字色を変える">表ヘッダーの文字色を変える</h4>
+
+<p><code class="highlighter-rouge">--thead-fcolor</code>で表のヘッダーの文字だけ変えます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .thead-fcolor style="--thead-fcolor:maroon"}
+</code></pre></div></div>
+
+<table class="thead-fcolor" style="--thead-fcolor:maroon">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="表フッターの文字色を変える">表フッターの文字色を変える</h4>
+
+<p><code class="highlighter-rouge">--tfoot-fcolor</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tfoot-fcolor style="--tfoot-fcolor:lime"}
+</code></pre></div></div>
+
+<table class="tfoot-fcolor" style="--tfoot-fcolor:lime">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="backgroundの色変更">backgroundの色変更</h3>
+
+<h4 id="表の背景色を変える">表の背景色を変える</h4>
+
+<p><code class="highlighter-rouge">--tbl-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tbl-bgd style="--tbl-bgd:azure"}
+</code></pre></div></div>
+
+<table class="tbl-bgd" style="--tbl-bgd:azure">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="ヘッダーの背景色を変える">ヘッダーの背景色を変える</h4>
+
+<p><code class="highlighter-rouge">--thead-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .thead-bgd style="--thead-bgd:aquamarine"}
+</code></pre></div></div>
+
+<table class="thead-bgd" style="--thead-bgd:aquamarine">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="表のボディーの背景色を変える">表のボディーの背景色を変える</h4>
+
+<p><code class="highlighter-rouge">--tbody-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tbody-bgd style="--tbody-bgd:palegoldenrod"}
+</code></pre></div></div>
+
+<table class="tbody-bgd" style="--tbody-bgd:palegoldenrod">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="表のフッターの背景色を変える">表のフッターの背景色を変える</h4>
+
+<p><code class="highlighter-rouge">--tfoot-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tfoot-bgd style="--tfoot-bgd:wheat"}
+</code></pre></div></div>
+
+<table class="tfoot-bgd" style="--tfoot-bgd:wheat">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="偶数番目の行のバックの色を変える">偶数番目の行のバックの色を変える</h4>
+
+<p>これは<code class="highlighter-rouge">striped</code>クラスを指定した表に有効です。</p>
+
+<p><code class="highlighter-rouge">--row-even-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped .row-even-bgd style="--row-even-bgd:lavender"}
+</code></pre></div></div>
+
+<table class="striped row-even-bgd" style="--row-even-bgd:lavender">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="奇数番目の行のバックの色を変える">奇数番目の行のバックの色を変える</h4>
+
+<p>これは<code class="highlighter-rouge">striped-odd</code>クラスを指定した表に有効です。</p>
+
+<p><code class="highlighter-rouge">--row-odd-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped-odd .row-odd-bgd style="--row-odd-bgd:honeydew"}
+</code></pre></div></div>
+
+<table class="striped-odd row-odd-bgd" style="--row-odd-bgd:honeydew">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="表のボーダーの変更">表のボーダーの変更</h3>
+
+<h4 id="全体のボーダーの太さスタイル色を一括変更する">全体のボーダーの太さ、スタイル、色を一括変更する</h4>
+
+<p>CSSのボーダー属性の一括指定と同じく<code class="highlighter-rouge">border: width style color</code>の形で値を渡すタイプの変数</p>
+
+<p><code class="highlighter-rouge">--tbl-bdr</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tbl-bdr style="--tbl-bdr: 3px dotted chocolate"}
+</code></pre></div></div>
+
+<table class="tbl-bdr" style="--tbl-bdr: 3px dotted chocolate">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="表のボーダーの太さ変更">表のボーダーの太さ変更</h4>
+<h5 id="表のボーダーの太さを変える">表のボーダーの太さを変える</h5>
+
+<p><code class="highlighter-rouge">border-width: 1px 1px 1px</code>などの形で値を与えるタイプ。</p>
+
+<p><code class="highlighter-rouge">--bdr-width</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bdr-width style="--bdr-width: 0 4px"}
+</code></pre></div></div>
+
+<table class="bdr-width" style="--bdr-width: 0 4px">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h5 id="表ヘッダーのボーダーの太さを変える">表ヘッダーのボーダーの太さを変える</h5>
+
+<p><code class="highlighter-rouge">--thead-bdr-width </code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .thead-bdr-width style="--thead-bdr-width: 8px 0 6px"}
+</code></pre></div></div>
+
+<table class="thead-bdr-width" style="--thead-bdr-width: 8px 0 6px">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h5 id="表フッターのボーダーの太さを変える">表フッターのボーダーの太さを変える</h5>
+
+<p><code class="highlighter-rouge">--tfoot-bdr-width</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tfoot-bdr-width style="--tfoot-bdr-width: 4px 0 6px"}
+</code></pre></div></div>
+
+<table class="tfoot-bdr-width" style="--tfoot-bdr-width: 4px 0 6px">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="ボーダーの色を変える">ボーダーの色を変える</h4>
+
+<p>ボーダーの色を変える設定を３種。
+わかりやすいように<code class="highlighter-rouge">.bordered</code>クラスも渡しています。</p>
+
+<h5 id="表全体のボーダーの色を変える">表全体のボーダーの色を変える</h5>
+
+<p><code class="highlighter-rouge">--tbl-bdr-color</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .tbl-bdr-color}
+{: style="--tbl-bdr-color: deepskyblue"}
+</code></pre></div></div>
+
+<p>クラスを渡す設定の文字数が、あとでだんだんと長くなってくるので、こんな２行以上に分けて書くやりかたも試します。</p>
+
+<table class="bordered tbl-bdr-color" style="--tbl-bdr-color: deepskyblue">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h5 id="表ヘッダーのボーダーの色を変える">表ヘッダーのボーダーの色を変える</h5>
+
+<p>ヘッダー行のボーダーの太さを変える<code class="highlighter-rouge">--thead-bdr-width</code>と併用してみました。</p>
+
+<p><code class="highlighter-rouge">--thead-bdr-color</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .thead-bdr-width .thead-bdr-color}
+{: style="--thead-bdr-width: 3px 1px 2px; --thead-bdr-color: magenta;"}
+</code></pre></div></div>
+
+<table class="bordered thead-bdr-width thead-bdr-color" style="--thead-bdr-width: 3px 1px 2px; --thead-bdr-color: magenta;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>フッターのボーダー色を変える場合も同じですが、外枠がある場合はヘッダーの縦ボーダーの太さを外枠の太さ以上にしないと、色を付けた行の左右枠が埋もれてしまいます。<code class="highlighter-rouge">.bordered</code>などでのデフォルト設定では<code class="highlighter-rouge">1px</code>なので、外枠の太さを<code class="highlighter-rouge">1px</code>より太くしていなければ、表示するには<code class="highlighter-rouge">1px</code>以上でOKです。</p>
+
+<h5 id="表フッターのボーダーの色を変える">表フッターのボーダーの色を変える</h5>
+
+<p><code class="highlighter-rouge">--tfoot-bdr-color</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .tfoot-bdr-width .tfoot-bdr-color}
+{: style="--tfoot-bdr-width: 2px 2px 4px; --tfoot-bdr-color: orangered;"}
+</code></pre></div></div>
+
+<table class="bordered tfoot-bdr-width tfoot-bdr-color" style="--tfoot-bdr-width: 2px 2px 4px; --tfoot-bdr-color: orangered;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="ボーダーのスタイルを変える">ボーダーのスタイルを変える</h4>
+
+<p>ボーダーのスタイルを変える設定も３種。
+わかりやすいように適宜<code class="highlighter-rouge">.bordered</code>クラス、ボーダーの色や太さを変える設定など併用します。</p>
+
+<h5 id="表全体のボーダーのスタイルを変える">表全体のボーダーのスタイルを変える</h5>
+
+<p><code class="highlighter-rouge">--tbl-bdr-style</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .bdr-width .tbl-bdr-color .tbl-bdr-style}
+{: style="--bdr-width:6px 2px; --tbl-bdr-color:blue; --tbl-bdr-style: double dashed;"}
+</code></pre></div></div>
+
+<table class="bordered bdr-width tbl-bdr-color tbl-bdr-style" style="--bdr-width:6px 2px; --tbl-bdr-color:blue; --tbl-bdr-style: double dashed;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h5 id="表ヘッダーのボーダーのスタイルを変える">表ヘッダーのボーダーのスタイルを変える</h5>
+
+<p>ヘッダー行のボーダーの太さを変える<code class="highlighter-rouge">--thead-bdr-width</code>などと併用してみました。</p>
+
+<p><code class="highlighter-rouge">--thead-bdr-style</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .thead-bdr-width .thead-bdr-color .thead-bdr-style}
+{: style="--thead-bdr-width: 12px 0 6px; --thead-bdr-color:lime; --thead-bdr-style: double;"}
+</code></pre></div></div>
+
+<table class="bordered thead-bdr-width thead-bdr-color thead-bdr-style" style="--thead-bdr-width: 12px 0 6px; --thead-bdr-color:lime; --thead-bdr-style: double;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h5 id="表フッターのボーダーのスタイルを変える">表フッターのボーダーのスタイルを変える</h5>
+
+<p><code class="highlighter-rouge">--tfoot-bdr-style</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .tfoot-bdr-width .tfoot-bdr-color .tfoot-bdr-style}
+{: style="--tfoot-bdr-width: 8px 0 15px; --tfoot-bdr-color:lightsteelblue; --tfoot-bdr-style: groove;"}
+</code></pre></div></div>
+
+<table class="bordered tfoot-bdr-width tfoot-bdr-color tfoot-bdr-style" style="--tfoot-bdr-width: 8px 0 15px; --tfoot-bdr-color:lightsteelblue; --tfoot-bdr-style: groove;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="active-hover">active, hover</h3>
+
+<p>基本的にヘッダーとフッターは除いて tbody の要素に作用します。</p>
+
+<h4 id="アクティブな行の文字色を変える">アクティブな行の文字色を変える</h4>
+
+<p>クリックしてからマウスを離すまで、その行の文字色が変わります。</p>
+
+<p><code class="highlighter-rouge">--row-active-fcolor</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .row-active-fcolor style="--row-active-fcolor: red"}
+</code></pre></div></div>
+
+<table class="row-active-fcolor" style="--row-active-fcolor: red">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="アクティブな行の文字を太くする">アクティブな行の文字を太くする</h4>
+
+<p>クリックしてからマウスを離すまで、その行の文字がボールドに変わります。</p>
+
+<p><code class="highlighter-rouge">.active-bold</code></p>
+
+<p>これは文字を太くするだけなのでクラス名だけの指定です。<code class="highlighter-rouge">--row-active-fcolor</code>と併用してみます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .active-bold .row-active-fcolor style="--row-active-fcolor: red"}
+</code></pre></div></div>
+
+<table class="active-bold row-active-fcolor" style="--row-active-fcolor: red">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="マウスを行に重ねた時の文字の色を変える">マウスを行に重ねた時の文字の色を変える</h4>
+
+<p>マウスを重ねた時の行の文字を変えます。<code class="highlighter-rouge">--row-hover-bgd</code>と併用してみます。</p>
+
+<p><code class="highlighter-rouge">--row-hover-fcolor</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .row-hover-fcolor .row-hover-bgd}
+{: style="--row-hover-fcolor: firebrick; --row-hover-bgd: gold;"}
+</code></pre></div></div>
+
+<table class="row-hover-fcolor row-hover-bgd" style="--row-hover-fcolor: firebrick; --row-hover-bgd: gold;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="マウスを行に重ねた時の文字を太くする">マウスを行に重ねた時の文字を太くする</h4>
+
+<p>マウスを重ねた時の行の文字をボールドにします</p>
+
+<p><code class="highlighter-rouge">.hover-bold</code></p>
+
+<p>これもクラス名だけの指定です。<code class="highlighter-rouge">.row-hover-fcolor</code>,<code class="highlighter-rouge">--row-hover-bgd</code>と併用してみます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .hover-bold .row-hover-fcolor .row-hover-bgd}
+{: style="--row-hover-fcolor: firebrick; --row-hover-bgd: gold;"}
+</code></pre></div></div>
+
+<table class="hover-bold row-hover-fcolor row-hover-bgd" style="--row-hover-fcolor: firebrick; --row-hover-bgd: gold;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="アクティブな行の背景色を変える">アクティブな行の背景色を変える</h4>
+
+<p>クリックしてからマウスを離すまで、その行の背景色が変わります。</p>
+
+<p><code class="highlighter-rouge">--row-active-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .row-active-bgd style="--row-active-bgd: mistyrose"}
+</code></pre></div></div>
+
+<table class="row-active-bgd" style="--row-active-bgd: mistyrose">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="マウスを行に重ねた時の背景色を変える">マウスを行に重ねた時の背景色を変える</h4>
+
+<p>マウスを重ねた時の行の色を、指示した色に変更します</p>
+
+<p><code class="highlighter-rouge">--row-hover-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .row-hover-bgd style="--row-hover-bgd: palegreen"}
+</code></pre></div></div>
+
+<table class="row-hover-bgd" style="--row-hover-bgd: palegreen">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="偶数番目の行にマウスを重ねた時の背景色を変える">偶数番目の行にマウスを重ねた時の背景色を変える</h4>
+
+<p><code class="highlighter-rouge">striped</code>クラスで偶数番目の行にだけ色を付けた表で、その行にマウスを重ねた時のバックの色を変えます。</p>
+
+<p><code class="highlighter-rouge">--row-even-hover-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped .row-even-hover-bgd style="--row-even-hover-bgd: pink"}
+</code></pre></div></div>
+
+<table class="striped row-even-hover-bgd" style="--row-even-hover-bgd: pink">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr />
+<h4 id="奇数番目の行にマウスを重ねた時の背景色を変える">奇数番目の行にマウスを重ねた時の背景色を変える</h4>
+
+<p><code class="highlighter-rouge">striped-odd</code>クラスで奇数番目の行にだけ色を付けた表で、その行にマウスを重ねた時のバックの色を変えます。</p>
+
+<p><code class="highlighter-rouge">--row-odd-hover-bgd</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .striped-odd .row-odd-hover-bgd style="--row-odd-hover-bgd: gold"}
+</code></pre></div></div>
+
+<table class="striped-odd row-odd-hover-bgd" style="--row-odd-hover-bgd: gold">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="padding-を変更する">padding を変更する</h3>
+
+<h4 id="表全体の-padding-を変える">表全体の padding を変える</h4>
+
+<p>行の<code class="highlighter-rouge">padding</code>の数値を変えることで、行の幅と高さを変更します。<code class="highlighter-rouge">$default-table-padding</code>の値は 上下 +0.5em、左右 +0.75em なので、渡す値がそれより大きいか小さいかで変化します。</p>
+
+<p><code class="highlighter-rouge">--tbl-padding</code></p>
+
+<p><code class="highlighter-rouge">padding: 0.8rem 1.2rem</code>の例</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .tbl-padding style="--tbl-padding: 0.8rem 1.2rem"}
+</code></pre></div></div>
+
+<table class="tbl-padding" style="--tbl-padding: 0.8rem 1.2rem">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>なおスマートフォンで見た場合、特に縦長で見るときは横サイズが調整されるので、変化がわかりにくいかもしれません。横長で見ると違いが分かるはずです。</p>
+
+<hr />
+<h4 id="表ヘッダーの-padding-を変える">表ヘッダーの padding を変える</h4>
+
+<p>表ヘッダーの幅と高さを変更します。デフォルトは<code class="highlighter-rouge">$default-table-padding</code>の値。変化が分かりにくいので<code class="highlighter-rouge">.bordered</code>クラスも渡しています。</p>
+
+<p><code class="highlighter-rouge">--thead-padding</code></p>
+
+<p><code class="highlighter-rouge">padding-top: 1.0rem, padding-bottom: 0.8rem</code>の例</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .thead-padding}
+{: style="--thead-padding: 1.0rem 0 0.8rem"}
+</code></pre></div></div>
+
+<table class="bordered thead-padding" style="--thead-padding: 1.0rem 0 0.8rem">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>当然ですが、左右は他の行の padding があるので０に設定しても０にはなりません。</p>
+
+<hr />
+<h4 id="表ボディの-padding-を変える">表ボディの padding を変える</h4>
+
+<p>表ボディの幅と高さを変更します。</p>
+
+<p><code class="highlighter-rouge">--tbody-padding</code></p>
+
+<p><code class="highlighter-rouge">padding: 0.2rem 2.0rem</code>で細く横長に。<code class="highlighter-rouge">thead</code>,<code class="highlighter-rouge">tbody</code>,<code class="highlighter-rouge">tfoot</code>どこかの幅を変えれば当然他の行の幅も追随します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .tbody-padding}
+{: style="--tbody-padding: 0.2rem 2.0rem"}
+</code></pre></div></div>
+
+<table class="bordered tbody-padding" style="--tbody-padding: 0.2rem 2.0rem">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>padding を強制的に変えてしまうので、スマートフォンでは横にはみ出ているはずです。</p>
+
+<hr />
+<h4 id="表フッターの-padding-を変える">表フッターの padding を変える</h4>
+
+<p>表フッターの幅と高さを変更します。</p>
+
+<p><code class="highlighter-rouge">--tfoot-padding</code></p>
+
+<p><code class="highlighter-rouge">padding: 0.2px 1.8rem</code>で細いフッターに。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .bordered .tfoot-padding style="--tfoot-padding: 0.2px 1.8rem"}
+</code></pre></div></div>
+
+<table class="bordered tfoot-padding" style="--tfoot-padding: 0.2px 1.8rem;">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="いろいろ組み合わせた例">いろいろ組み合わせた例</h3>
+
+<p>いろんな設定を組み合わせたサンプル。何を使ったかは下の markdown を見て下さい。
+かなりやり過ぎ感満載ですが、markdown から表の中のパーツを装飾できるのは面白いです。</p>
+
+<table class="fullwidth striped bordered tbody-bgd bdr-width tbl-bdr-color tbl-bdr-style thead-fcolor thead-bgd thead-padding thead-bdr-width thead-bdr-color tfoot-fcolor tfoot-bgd tfoot-padding tfoot-bdr-width tfoot-bdr-color row-even-bgd hover-bold row-hover-fcolor row-hover-bgd" style="--tbody-bgd: lightcyan; --bdr-width: 1px;
+          --tbl-bdr-color: silver; --tbl-bdr-style: solid dashed;
+          --thead-fcolor: white; --thead-bgd: darkcyan; 
+          --thead-padding: 1.5rem 0; --thead-bdr-width: 10px 0 5px;
+          --thead-bdr-color: darkblue;
+          --tfoot-fcolor: lightyellow; --tfoot-bgd: seagreen;
+          --tfoot-padding: 2.5px 0; --tfoot-bdr-width: 5px 0;
+          --tfoot-bdr-color: darkblue;
+          --row-even-bgd: lavender;
+          --row-hover-fcolor: deeppink; --row-hover-bgd: lavenderblush; ">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+      <td style="text-align: center">Footer</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p class="code-label">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Column 1       | Column 2      | Column 3      |
+| :------------: | :-----------: | :-----------: |
+| Cell Contents  | Cell Contents | Cell Contents |
+| You Can Also   | You Can Also  | You Can Also  |
+| Cell Contents  | Cell Contents | Cell Contents |
+| You Can Also   | You Can Also  | You Can Also  |
+| ============== | ============= | ============= |
+| Footer         | Footer        | Footer        |
+{: .fullwidth .striped .bordered 
+ .tbody-bgd .bdr-width .tbl-bdr-color .tbl-bdr-style
+ .thead-fcolor .thead-bgd .thead-padding .thead-bdr-width .thead-bdr-color
+ .tfoot-fcolor .tfoot-bgd .tfoot-padding .tfoot-bdr-width .tfoot-bdr-color
+ .row-even-bgd .hover-bold .row-hover-fcolor .row-hover-bgd}
+{: style="--tbody-bgd: lightcyan; --bdr-width: 1px;
+          --tbl-bdr-color: silver; --tbl-bdr-style: solid dashed;
+          --thead-fcolor: white; --thead-bgd: darkcyan; 
+          --thead-padding: 1.5rem 0; --thead-bdr-width: 10px 0 5px;
+          --thead-bdr-color: darkblue;
+          --tfoot-fcolor: lightyellow; --tfoot-bgd: seagreen;
+          --tfoot-padding: 2.5px 0; --tfoot-bdr-width: 5px 0;
+          --tfoot-bdr-color: darkblue;
+          --row-even-bgd: lavender;
+          --row-hover-fcolor: deeppink; --row-hover-bgd: lavenderblush; "}
+</code></pre></div></div>
+<hr />
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">17th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-12">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Button</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-10">カラーパレットを作る 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#table">Table</a>
+    <ul>
+      <li class="anchor"><a href="#基本形">基本形</a></li>
+      <li class="anchor"><a href="#デフォルトのcssと変数">デフォルトのCSSと変数</a></li>
+      <li class="anchor"><a href="#bordered">bordered</a></li>
+      <li class="anchor"><a href="#striped">striped</a></li>
+      <li class="anchor"><a href="#striped-odd">striped-odd</a></li>
+      <li class="anchor"><a href="#narrow">narrow</a></li>
+      <li class="anchor"><a href="#hoverable">hoverable</a></li>
+      <li class="anchor"><a href="#fullwidth">fullwidth</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#markdown上でテーブルのカスタマイズ">Markdown上でテーブルのカスタマイズ</a>
+    <ul>
+      <li class="anchor"><a href="#font-の色変更">font の色変更</a>
+        <ul>
+          <li class="anchor"><a href="#表全体の文字色を変える">表全体の文字色を変える</a></li>
+          <li class="anchor"><a href="#表ヘッダーの文字色を変える">表ヘッダーの文字色を変える</a></li>
+          <li class="anchor"><a href="#表フッターの文字色を変える">表フッターの文字色を変える</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#backgroundの色変更">backgroundの色変更</a>
+        <ul>
+          <li class="anchor"><a href="#表の背景色を変える">表の背景色を変える</a></li>
+          <li class="anchor"><a href="#ヘッダーの背景色を変える">ヘッダーの背景色を変える</a></li>
+          <li class="anchor"><a href="#表のボディーの背景色を変える">表のボディーの背景色を変える</a></li>
+          <li class="anchor"><a href="#表のフッターの背景色を変える">表のフッターの背景色を変える</a></li>
+          <li class="anchor"><a href="#偶数番目の行のバックの色を変える">偶数番目の行のバックの色を変える</a></li>
+          <li class="anchor"><a href="#奇数番目の行のバックの色を変える">奇数番目の行のバックの色を変える</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#表のボーダーの変更">表のボーダーの変更</a>
+        <ul>
+          <li class="anchor"><a href="#全体のボーダーの太さスタイル色を一括変更する">全体のボーダーの太さ、スタイル、色を一括変更する</a></li>
+          <li class="anchor"><a href="#表のボーダーの太さ変更">表のボーダーの太さ変更</a></li>
+          <li class="anchor"><a href="#ボーダーの色を変える">ボーダーの色を変える</a></li>
+          <li class="anchor"><a href="#ボーダーのスタイルを変える">ボーダーのスタイルを変える</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#active-hover">active, hover</a>
+        <ul>
+          <li class="anchor"><a href="#アクティブな行の文字色を変える">アクティブな行の文字色を変える</a></li>
+          <li class="anchor"><a href="#アクティブな行の文字を太くする">アクティブな行の文字を太くする</a></li>
+          <li class="anchor"><a href="#マウスを行に重ねた時の文字の色を変える">マウスを行に重ねた時の文字の色を変える</a></li>
+          <li class="anchor"><a href="#マウスを行に重ねた時の文字を太くする">マウスを行に重ねた時の文字を太くする</a></li>
+          <li class="anchor"><a href="#アクティブな行の背景色を変える">アクティブな行の背景色を変える</a></li>
+          <li class="anchor"><a href="#マウスを行に重ねた時の背景色を変える">マウスを行に重ねた時の背景色を変える</a></li>
+          <li class="anchor"><a href="#偶数番目の行にマウスを重ねた時の背景色を変える">偶数番目の行にマウスを重ねた時の背景色を変える</a></li>
+          <li class="anchor"><a href="#奇数番目の行にマウスを重ねた時の背景色を変える">奇数番目の行にマウスを重ねた時の背景色を変える</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#padding-を変更する">padding を変更する</a>
+        <ul>
+          <li class="anchor"><a href="#表全体の-padding-を変える">表全体の padding を変える</a></li>
+          <li class="anchor"><a href="#表ヘッダーの-padding-を変える">表ヘッダーの padding を変える</a></li>
+          <li class="anchor"><a href="#表ボディの-padding-を変える">表ボディの padding を変える</a></li>
+          <li class="anchor"><a href="#表フッターの-padding-を変える">表フッターの padding を変える</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#いろいろ組み合わせた例">いろいろ組み合わせた例</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-12">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Button</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-10">カラーパレットを作る 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><!-- <input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label> -->
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+<script src="/Febris/assets/js/table-expansion.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+    if ($(window).width() < 860) {
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    } else {
+      if (checked == true) {
+        tgl.prop('checked', false);
+      }
+      if (checked2 == true) {
+        tgl_pattr.prop('checked', false);
+      }
+      if (checked3 == true) {
+        tgl_pager.prop('checked', false);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 80, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+  });
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>

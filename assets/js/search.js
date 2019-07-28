@@ -30,7 +30,7 @@
 
   // Initialize search logic
   function initLunr() {
-    $.getJSON("/search_data.json").done(function(index) {
+    $.getJSON("/Febris/search_data.json").done(function(index) {
         pagesIndex = index;
         lunrIndex = lunr(function() {
           let lunrConfig = this;
@@ -118,10 +118,27 @@
     })
   }
 
-  // reset form
+  // reset form. use SweetAlert plugin
   function reset() {
-    alert('Reset the search results. Is it OK?');
-    $search_results.empty();
+    let form_input = document.forms.site-search.query; 
+    let query_str = form_input.value;
+    swal('Reset the search results. Is it OK?', {
+      buttons: {
+        cancel: "Don't reset",
+        catch: {
+          text: 'Reset',
+        }
+      },
+    })
+    .then((value) => {
+      switch (value) {
+        case "catch":
+          $search_results.empty();
+          break;
+        case "cancel":
+          break;
+      }
+    });
   }
   window.searchReset = reset;
 

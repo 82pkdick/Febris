@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Tag, Image, Shadow, Link Card, その他 | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+
+      <!-- navigation button for left slide menu -->
+      <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open"><span></span></label>
+      <label for="navTgl" class="close"></label>
+
+
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-16">
+      <span class="title-text">Tag, Image, Shadow, Link Card, その他</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１６）</h4>
+  <p class="page-appendix"><span class="post-date">June 28, 2019</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="tag">Tag</h2>
+
+<p>よくある小さいタグ。小中大の3種用意。</p>
+
+<p class="font h6 pad-l10px b-closer">Small</p>
+
+<blockquote class="to-flex mgn-0 pad-l5px">
+  <p class="tag tagcard-small mgn-l1 mgn-auto mgn-center">Jekyll</p>
+
+  <blockquote class="mgn-l2 mgn-t0 mgn-b0 wd-100">
+    <p class="code-label mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-small}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p class="font h6 pad-l10px b-closer mgn-t0">Medium</p>
+
+<blockquote class="to-flex mgn-0 pad-l5px">
+  <p class="tag tagcard-medium mgn-l1 mgn-auto mgn-center">Jekyll</p>
+
+  <blockquote class="mgn-l2 mgn-t0 mgn-b0 wd-100">
+    <p class="code-label mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-medium}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p class="font h6 pad-l10px b-closer mgn-t0">Large</p>
+
+<blockquote class="to-flex mgn-0 pad-l5px">
+  <p class="tag tagcard-large mgn-l1 mgn-auto mgn-center">Jekyll</p>
+
+  <blockquote class="mgn-l2 mgn-t0 mgn-b0 wd-100">
+    <p class="code-label mgn-t0">[markdown]</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll
+{: .tag .tagcard-large}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<p class="pad-l10px">SCSS</p>
+
+<p class="code-label">[scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Tag Card</span>
+
+<span class="nc">.tag</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-flex</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="n">fit-content</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">0</span><span class="mi">.55em</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">0</span><span class="mi">.55em</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="mh">#707070</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5</span><span class="p">;</span>
+  <span class="nl">white-space</span><span class="p">:</span> <span class="nb">nowrap</span><span class="p">;</span>
+  <span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">middle</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#aaaaaa</span><span class="p">;;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nc">.tagcard-small</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span> 
+  <span class="p">}</span>
+  
+  <span class="k">&amp;</span><span class="nc">.tagcard-medium</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.0rem</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">&amp;</span><span class="nc">.tagcard-large</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="mi">.85rem</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.3rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>バックや文字の色を変えたければ適当に<code class="highlighter-rouge">bg-xxxx</code>や<code class="highlighter-rouge">fc-xxxx</code>で。</p>
+
+<p class="tag tagcard-small bg-lime fc-white mgn-l2 border-none">Hello</p>
+<p class="tag tagcard-medium bg-gold fc-red border-none">Jekyll</p>
+<p class="tag tagcard-large bg-crimson fc-white border-none">World</p>
+
+<hr class="sec-br" />
+<h2 class="main-hd" id="その他の設定">その他の設定</h2>
+<h3 class="sub-hd" id="図やコードなどのキャプション">図やコードなどのキャプション</h3>
+
+<p>図の表題とかコードの上にファイル名を付けたい時など、普通にPタグや H6 などでは地味であったりいらないマージンがあったりして使いづらい。クラスに<code class="highlighter-rouge">.code-label</code>と付けると図やコードの左上キャプションになるようにする。</p>
+
+<p class="code-label">[css]</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.code-label</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">0.7rem</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="code-label">[markdown]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[print_out.cpp]
+{: .code-label}
+```cpp
+std::cout &lt;&lt; "Test";
+```
+</code></pre></div></div>
+
+<p>それで、もうすでにこのサイトであちこち使っているキャプションだが、こんな感じになる。<br />
+　　　↓<br /></p>
+
+<p class="code-label">[print_out.cpp]</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Test"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>実際にはこんなHTMLが書き出されるだけなので、デザインはCSSで好きに作りこめばいい。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"code-label"</span><span class="nt">&gt;</span>[print_out.cpp]<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<hr class="none" />
+<hr class="sec-br" />
+<h3 class="sub-hd" id="透明な線">透明な線</h3>
+
+<p>バックが透明な線<code class="highlighter-rouge">hr</code>を入れることで、少し空きを持たせる方法もある。</p>
+
+<p>次のように書くと透明な線になる。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------------------------------
+{: .none}
+</code></pre></div></div>
+
+<p>たまに前の段落とタイトルとかが思い通りの空きにならないときに使えるかも。ただしどの程度空くかはCSSの<code class="highlighter-rouge">hr</code>の設定しだい。</p>
+
+<p><code class="highlighter-rouge">.none</code>はいろんな要素に使える。ただ背景だけでなくその要素自体全てが見えなくなる。もし背景だけ消したい場合は<code class="highlighter-rouge">.bg-transparent</code>を使う。
+たとえばインラインコードで<code class="bg-orchid highlighter-rouge">code</code>というように小さく背景がつくようにしていた時に、その部分だけ</p>
+
+<p><code class="highlighter-rouge">`code`{: .bg-transparent}</code></p>
+
+<p>とすると<code class="bg-transparent highlighter-rouge">code</code>となって背景が消える。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="直下を狭く">直下を狭く</h3>
+
+<p>線を<code class="highlighter-rouge">------</code>などで書いて<code class="highlighter-rouge">hr</code>にするのはいいけど、ブラウザデフォルトだとちょと下が広い時とかある。サブタイトルの上に区切り線を入れたが、もっとサブタイトルに近づけたいなど。<code class="highlighter-rouge">.b-closer</code>で下の要素が近づく。</p>
+
+<p>↓普通の<code class="highlighter-rouge">hr</code></p>
+
+<hr />
+<h5 id="サブタイトル">サブタイトル</h5>
+
+<p>↓区切り線に<code class="highlighter-rouge">.b-closer</code>クラスを指定</p>
+
+<hr class="b-closer" />
+<h5 id="サブタイトル-1">サブタイトル</h5>
+
+<p>こんなふうに書くだけ</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">---------------------</span>
+{: .b-closer}
+<span class="gu">##### サブタイトル</span>
+</code></pre></div></div>
+
+<p>これはもちろん<code class="highlighter-rouge">hr</code>以外にも使える。</p>
+
+<hr class="sec-br" />
+<h2 class="main-hd" id="image-cardの応用">Image, Cardの応用</h2>
+
+<h3 class="sub-hd" id="image">Image</h3>
+
+<p>画像の大きさも指定できるようにしてみたかったが、markdown ( kramdown? )での画像の挿入方法に大きさを指定できる書き方があるので、わざわざ作る必要は無い。</p>
+
+<p class="caption-label fc-chocolate font xd8 bg-transparent mgn-l02 wd align-c" style="--wd:128px">[World Heritage]</p>
+<p><img src="/assets/images/001.jpg" alt="world Heritage" height="128px" width="128px" class="pad-0" /></p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">world Heritage</span><span class="p">](</span><span class="sx">/assets/images/001.jpg</span><span class="p">)</span>{:height="128px" width="128px"}
+</code></pre></div></div>
+
+<h4 class="sub2-hd" id="image-variation">Image variation</h4>
+
+<p>画像の形のバリエーションをいくつか</p>
+
+<p><code class="highlighter-rouge">.border.bdr-rad-20px</code>などで角丸指定</p>
+
+<p class="image"><img src="/assets/images/001.jpg" alt="world Heritage" height="250px" width="250px" class="pad-0 border border-none bdr-rad-20px" /></p>
+
+<p><code class="highlighter-rouge">.rounded</code>クラスを追加で丸い画像</p>
+
+<p class="image"><img src="/assets/images/001.jpg" alt="world Heritage" height="250px" width="250px" class="pad-0 rounded" /></p>
+
+<p><code class="highlighter-rouge">.shadow</code>クラスで影付き</p>
+
+<p class="image"><img src="/assets/images/001.jpg" alt="world Heritage" height="250px" width="250px" class="pad-0 border border-none bdr-rad-20px shadow" /></p>
+
+<p>丸画像で影付き<code class="highlighter-rouge">.rounded .shadow</code></p>
+
+<p class="image"><img src="/assets/images/001.jpg" alt="world Heritage" height="250px" width="250px" class="pad-0 rounded shadow" /></p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="shadow">Shadow</h3>
+
+<p><code class="highlighter-rouge">.shadow</code>クラスは1パターンのみで、凝った影をつけることはできない。ただ画像専用ではなく<code class="highlighter-rouge">.shadow</code>と追加するだけでいろんな要素に使える。</p>
+
+<p class="caption-title">[Paragraph .border .shadow]</p>
+<p class="border shadow ht-auto wd-60 pad-10px bg-white fc-dimgray ovf-hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-title">[.box .shadow]</p>
+<p class="box wd-60 shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-title">[.card .shadow]</p>
+<p class="card wd-60 shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.</p>
+
+<p class="caption-title">[.button .shadow]</p>
+<p><button class="button medium shadow">Medium</button></p>
+
+<p class="caption-title">[Table .shadow]</p>
+
+<table class="bordered shadow bg-white">
+  <thead>
+    <tr>
+      <th style="text-align: center">Column 1</th>
+      <th style="text-align: center">Column 2</th>
+      <th style="text-align: center">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+      <td style="text-align: center">Cell Contents</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+      <td style="text-align: center">You Can Also</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="サムネイル画像付きの-link-card">サムネイル画像付きの Link Card</h3>
+
+<p>これらの仕組みを使って、サムネイル画像とリンクのついたよくあるリンクカードを作ってみる。</p>
+
+<p>リンクカードを作るのに何かいいツールはないか？と探したところ、Google Chrome の拡張機能で <a href="https://chrome.google.com/webstore/detail/gettabinfo/iadhcoaabobddcebhmheikmbcjcigjhc" title="GetTabInfo">GetTabInfo</a>というのを見つけた。
+<code class="highlighter-rouge">GetTabInfo</code>の使い方などは、リンク先を参照してほしいが、簡単なのですぐわかる。</p>
+
+<p>このアドオンがなかなか便利で、リンクカードを作りたいページを単独のタブにして読み込み、テンプレートを指定すると、リンクカードのHTMLがクリップボードにコピーされるというもの。このテンプレートは<code class="highlighter-rouge">%%TITLE%%</code>,<code class="highlighter-rouge">%%URL%%</code>といった変数を置き換えているだけなので、自分でカスタマイズできる。ちなみに JSONバージョンのテンプレートも可能。</p>
+
+<p>このテンプレートを下記のような markdown にしてみる。</p>
+
+<p class="code-label">[markdown template]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ![%%TITLE%%](http://capture.heartrails.com/75x75/?%%URL%%){:height="75px" width="75px"}</span>
+<span class="gt">&gt; {: .card .link-card-image .border-none .wd}</span>
+<span class="gt">&gt; {: style="--wd:16%"}</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; &gt; [%%TITLE%%](%%URL%% "%%TITLE%%")</span>
+<span class="gt">&gt; &gt; {: .link-card-title}</span>
+<span class="gt">&gt; &gt; [URL: %%URL%%](%%URL%% "%%TITLE%%"){: .link-card-longurl-title}</span>
+<span class="gt">&gt; &gt; {: .link-card-longurl}</span>
+<span class="gt">&gt; &gt; </span>
+<span class="gt">&gt; &gt; [(short url) :  %%sURL%%](%%sURL%%){: .link-card-shorturl-title}</span>
+<span class="gt">&gt; &gt; {: .link-card-shorturl}</span>
+<span class="gt">&gt; {: .card .link-card-url-block .border-none .wd-fit}</span>
+{: .link-card .to-flex .fc-dimgray .border .bdr-rad}
+{: style="--bdr-set:1px solid lightgray; --bdr-rad:5px;"}
+</code></pre></div></div>
+
+<p>このテンプレートでニュースを一つ拾ってきた。最低限のスタイルは markdown で書いてあり、適当にクラス名を付けてあるのでCSSで味付けすれば、貼り付けるだけで簡単に使える。まあ用意されてる HTML のテンプレートを使っても同じことができるし、お世辞にも読みやすい markdown にはなっていないが、使い方のアイデアとして考えてみた。</p>
+
+<p>プレビューがこれ</p>
+
+<blockquote class="link-card to-flex fc-dimgray border bdr-rad" style="--bdr-set:1px solid lightgray; --bdr-rad:5px;">
+  <p class="card link-card-image border-none wd" style="--wd:16%"><img src="http://capture.heartrails.com/75x75/?https://news.livedoor.com/article/detail/16681735/" alt="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース" height="75px" width="75px" /></p>
+
+  <blockquote class="card link-card-url-block border-none wd-fit">
+    <p class="link-card-title"><a href="https://news.livedoor.com/article/detail/16681735/" title="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース">アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース</a></p>
+    <p class="link-card-longurl"><a href="https://news.livedoor.com/article/detail/16681735/" title="アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース" class="link-card-longurl-title">URL: https://news.livedoor.com/article/detail/16681735/</a></p>
+
+    <p class="link-card-shorturl"><a href="https://gti.page.link/2DCfTCCpox1veH6E7" class="link-card-shorturl-title">(short url) :  https://gti.page.link/2DCfTCCpox1veH6E7</a></p>
+  </blockquote>
+</blockquote>
+
+<hr class="none" />
+<p><code class="highlighter-rouge">GetTabInfo</code>から出力されたコードがこれ。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ![アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース](http://capture.heartrails.com/75x75/?https://news.livedoor.com/article/detail/16681735/){:height="75px" width="75px"}</span>
+<span class="gt">&gt; {: .card .link-card-image .border-none .wd}</span>
+<span class="gt">&gt; {: style="--wd:16%"}</span>
+<span class="gt">&gt;</span>
+<span class="gt">&gt; &gt; [アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース](https://news.livedoor.com/article/detail/16681735/ "アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース")</span>
+<span class="gt">&gt; &gt; {: .link-card-title}</span>
+<span class="gt">&gt; &gt; [URL: https://news.livedoor.com/article/detail/16681735/](https://news.livedoor.com/article/detail/16681735/ "アメリカが頑なに「メートル単位」を拒絶する謎 - ライブドアニュース")</span>
+<span class="gt">&gt; &gt; {: .link-card-longurl}</span>
+<span class="gt">&gt; &gt; </span>
+<span class="gt">&gt; &gt; [(short url) :  https://gti.page.link/LHDQwFY3ot5gj6NA6](https://gti.page.link/LHDQwFY3ot5gj6NA6){: .link-card-shorturl-title}</span>
+<span class="gt">&gt; &gt; {: .link-card-shorturl}</span>
+<span class="gt">&gt; {: .card .link-card-url-block .border-none .wd-fit}</span>
+{: .link-card .to-flex .fc-dimgray .border .bdr-rad}
+{: style="--bdr-set:1px solid lightgray; --bdr-rad:5px;"}
+</code></pre></div></div>
+
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">28th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-15">Flexを少しだけ 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#tag">Tag</a></li>
+  <li class="anchor"><a href="#その他の設定">その他の設定</a>
+    <ul>
+      <li class="anchor"><a href="#図やコードなどのキャプション">図やコードなどのキャプション</a></li>
+      <li class="anchor"><a href="#透明な線">透明な線</a></li>
+      <li class="anchor"><a href="#直下を狭く">直下を狭く</a></li>
+    </ul>
+  </li>
+  <li class="anchor"><a href="#image-cardの応用">Image, Cardの応用</a>
+    <ul>
+      <li class="anchor"><a href="#image">Image</a>
+        <ul>
+          <li class="anchor"><a href="#image-variation">Image variation</a></li>
+        </ul>
+      </li>
+      <li class="anchor"><a href="#shadow">Shadow</a></li>
+      <li class="anchor"><a href="#サムネイル画像付きの-link-card">サムネイル画像付きの Link Card</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-15">Flexを少しだけ 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><!-- <input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label> -->
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+<script src="/Febris/assets/js/table-expansion.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+    if ($(window).width() < 860) {
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    } else {
+      if (checked == true) {
+        tgl.prop('checked', false);
+      }
+      if (checked2 == true) {
+        tgl_pattr.prop('checked', false);
+      }
+      if (checked3 == true) {
+        tgl_pager.prop('checked', false);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 80, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+  });
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>

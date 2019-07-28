@@ -7,7 +7,7 @@
 
 <title>
   
-    Febris | My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    罫線の設定 | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
-<link rel="canonical" href="https://82pkdick.github.io/Febris/404">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-6">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
@@ -51,26 +51,283 @@
 
 
       <article id="main-contents">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-6">
+      <span class="title-text">罫線の設定</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（６）</h4>
+  <p class="page-appendix"><span class="post-date">June 15, 2019</span></p>
+</div><!-- post header end -->
 
-<div class="container">
-  <h1>404</h1>
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="罫線hr">罫線（hr）</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<p>罫線（hr）のバリエーションを考える。<code class="highlighter-rouge">_block-styles.scss</code>に定義していく。</p>
+
+<p>markdown では、</p>
+
+<p><code class="bg-transparent highlighter-rouge">------</code> とか、</p>
+
+<p><code class="bg-transparent highlighter-rouge">*****************</code> とか</p>
+
+<p>書くと罫線(hr)になる。色と太さとスタイルを変えられるようにしてみる。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="色変更">色変更</h3>
+
+<p><code class="highlighter-rouge">hr</code>の色は<code class="highlighter-rouge">background</code>属性を変更することでできる。<code class="highlighter-rouge">{: .none}</code>で透明化できるようにした。<code class="highlighter-rouge">bg-xxxx</code>で<code class="highlighter-rouge">xxxx</code>に適当な（WEB標準140色で定義された）色名を付けると、背景色を変えられるようにした。</p>
+
+<p>さきほどの線に他の色を付けてみる。ちょっとわずらわしいのだが、<code class="highlighter-rouge">-----------</code>の下にクラス指定を書かないと反映されない。</p>
+
+<p class="code-label">[sample markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-----------------------------------------</span>
+{: .bg-palegreen}
+</code></pre></div></div>
+
+<p class="font-size09 fc-gray mgn-b10px">[palegreen]</p>
+
+<hr class="bg-palegreen mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[royalblue]</p>
+
+<hr class="bg-royalblue mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[olivedrab]</p>
+
+<hr class="bg-olivedrab mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[orange]</p>
+
+<hr class="bg-orange mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[deeppink]</p>
+
+<hr class="bg-deeppink mgn-t1 mgn-t10px" />
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="太さ変更">太さ変更</h3>
+
+<p>hrタグの太さは特殊で<code class="highlighter-rouge">height</code>で指定する。height のクラス<code class="highlighter-rouge">.ht-Xpx</code>をつくってみた。
+<code class="highlighter-rouge">.ht-1px</code>で太さ<code class="highlighter-rouge">1px</code>。そんなにバリエーションは要らないだろう。
+height の指定は前の項目で作った<code class="highlighter-rouge">.ht-Xpx</code>クラスで罫線に特化したものではないので、高さ123px の線（それ面？）なんてできてしまうが、普通は<code class="highlighter-rouge">1px</code>から<code class="highlighter-rouge">10px</code>まであれば十分。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-----------------------------------------</span>
+{: .bg-gray .ht-1px}
+</code></pre></div></div>
+
+<p class="font-size09 fc-gray mgn-b10px">[height 1px]</p>
+<hr class="bg-gray ht-1px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 2px]</p>
+<hr class="bg-gray ht-2px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 3px]</p>
+<hr class="bg-gray ht-3px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 4px]</p>
+<hr class="bg-gray ht-4px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 5px]</p>
+<hr class="bg-gray ht-5px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 6px]</p>
+<hr class="bg-gray ht-6px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 7px]</p>
+<hr class="bg-gray ht-7px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 8px]</p>
+<hr class="bg-gray ht-8px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 9px]</p>
+<hr class="bg-gray ht-9px mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[height 10px]</p>
+<hr class="bg-gray ht-10px mgn-t1 mgn-t10px" />
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="罫線のスタイル変更">罫線のスタイル変更</h3>
+
+<p>hr のスタイル変更は特殊。hr要素って線というより実は面だから。
+やり方はまた他のエレメントで説明するが、CSS変数を使って<code class="highlighter-rouge">border-top: Xpx style color</code>の形の設定を渡している。</p>
+
+<p><code class="highlighter-rouge">inset</code>と<code class="highlighter-rouge">outset</code>については設定はできるが効果がないので省略。</p>
+
+<p class="font-size09 fc-gray mgn-b10px">[default: 1px solid gray]</p>
+<hr class="hr-style mgn-t1 mgn-t10px" />
+
+<p class="font-size09 fc-gray mgn-b10px">[solid]</p>
+<hr class="hr-style mgn-t1 mgn-t10px" style="--hr-style:3px solid blue" />
+
+<p class="font-size09 fc-gray mgn-b10px">[dotted]</p>
+
+<hr class="hr-style bg-transparent mgn-t1 mgn-t10px" style="--hr-style:3px dotted limegreen" />
+
+<p class="font-size09 fc-gray mgn-b10px">[dashed]</p>
+<hr class="hr-style bg-transparent mgn-t1 mgn-t10px" style="--hr-style:3px dashed palegreen" />
+
+<p class="font-size09 fc-gray mgn-b10px">[double]</p>
+<hr class="hr-style bg-transparent mgn-t1 mgn-t10px" style="--hr-style:5px double royalblue" />
+
+<p class="font-size09 fc-gray mgn-b10px">[groove]</p>
+<hr class="hr-style mgn-t1 mgn-t10px" style="--hr-style:10px groove gold" />
+
+<p class="font-size09 fc-gray mgn-b10px">[ridge]</p>
+<hr class="hr-style mgn-t1 mgn-t10px" style="--hr-style:10px ridge orange" />
+
+<p><code class="highlighter-rouge">dashed</code>を例に markdown を載せておく。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">------------------------------------------------</span>
+{: .hr-style .bg-transparent style="--hr-style:3px dashed palegreen" }
+</code></pre></div></div>
+
+<p>背景を<code class="highlighter-rouge">.bg-transparent</code>せずに色を指定するとこういう罫線にもなる。</p>
+
+<hr class="hr-style bg-gold" style="--hr-style:8px dashed lime" />
+
+<p>まあこの程度のことなら<code class="highlighter-rouge">{: style="border:8px dashed lime"}</code>などと<code class="highlighter-rouge">ALDs</code>に直接CSS指定を書いても同じでバカバカしい（いやそのほうがちょっとだけ短い（笑））けど、このCSS変数を渡すやり方が表組みなど複雑な指定で使えるようになるので、知っていて損はないと思う。</p>
+
+<p><code class="highlighter-rouge">.hr.dashed</code>などとしてスタイル指定の個々のクラスを作ってもよいが、さほど使わないだろうし、そこでまた太さや色を合わせて指定するぐらいなら一括指定できれば十分。</p>
+
+<p>実は後で作る<code class="highlighter-rouge">.border</code>クラスの機能を hr に使えば同じようなことができる。
+<code class="highlighter-rouge">.border</code>を単純に使うと面に対する周囲の線に設定するので、こういう変な罫線になる。専用の<code class="highlighter-rouge">.hr-style</code>クラスを使うほうが早い。</p>
+
+<hr class="border bg-gold" style="--bdr-set:6px dashed green" />
+
+<p>ただ<code class="highlighter-rouge">.border</code>クラスは、CSS変数を使わずにクラス名だけで指定する方法があるので、トップのボーダーにだけスタイルを指定するなどの hr 特有のことがわかっていれば同じことができる。ただ、一度ボーダーの太さを全て0にしてトップボーダーだけ太さ指定しなおすなど、指定するのがかなり面倒。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">---------------------------------------------</span>
+{: .bg-transparent .border.bdr-wd-0px.bdr-twd-3px.dashed.bdr-color-lime }
+</code></pre></div></div>
+
+<hr class="bg-transparent border bdr-wd-0px bdr-twd-3px dashed bdr-color-lime" />
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">15th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
 </div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Border</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">文字寄せ、空き、幅など 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#罫線hr">罫線（hr）</a>
+    <ul>
+      <li class="anchor"><a href="#色変更">色変更</a></li>
+      <li class="anchor"><a href="#太さ変更">太さ変更</a></li>
+      <li class="anchor"><a href="#罫線のスタイル変更">罫線のスタイル変更</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-7">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Border</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-5">文字寄せ、空き、幅など 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
 
       </article>
       

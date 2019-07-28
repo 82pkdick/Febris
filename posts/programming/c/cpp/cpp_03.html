@@ -7,7 +7,7 @@
 
 <title>
   
-    Febris | My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    入力ストリーム | Febris
   
 </title>
 <meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
 <!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
-<link rel="canonical" href="https://82pkdick.github.io/Febris/404">
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/programming/c/cpp/cpp_03">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
 </head>
@@ -51,26 +51,142 @@
 
 
       <article id="main-contents">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/programming/c/cpp/cpp_03">
+      <span class="title-text">入力ストリーム</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle"></h4>
+  <p class="page-appendix"><span class="post-date">December 31, 2011</span></p>
+</div><!-- post header end -->
 
-<div class="container">
-  <h1>404</h1>
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <p>今度は入力ストリームを見ていきます。これは標準入力 （通常はキーボード）からの入力を受け取ります。具体的には次のように記述します。</p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+	
+	<span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num</span><span class="p">;</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span></code></pre></figure>
+
+<p>このプログラムは、キーボードから入力された数値を、そのまま出力します。入力
+には std::cinを使います。シフト演算子（実際にシフト演算をしている訳ではない）の向きが、std::coutとは
+逆向きになっていることに気を付けて下さい。これは、つまり入出力の方向を表している訳です。つまり、入力
+時は変数numに向かってデータが流れていく、出力時は変数numからデータが流れていくということです。&lt;/p&gt;</p>
+
+<p>当然ですが、入力ストリームの場合、入力先は変数です。ここに定数を置くことはできません。</p>
+
+<p>std::coutと同じく、std::cinもデータの型を問いませんし、入力先を連結できます。次のコードは全て有効です。</p>
+
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2011/12">31st December 2011</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/programming" class="post-link">programming</a>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/programming_language" class="tag tagcard-small">programming_language</a></dd>
+    
+    </div>
+  </dl>
 </div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/programming/ruby/ruby_01">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Rubyとは</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/programming/c/cpp/cpp_02">出力ストリーム 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/programming/ruby/ruby_01">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> Rubyとは</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/programming/c/cpp/cpp_02">出力ストリーム 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
 
       </article>
       

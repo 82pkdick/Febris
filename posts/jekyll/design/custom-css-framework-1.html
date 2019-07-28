@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>
+  
+    Markdown の中で使えるCSS設定 | Febris
+  
+</title>
+<meta name="description" content="My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+
+<!-- 
+  **** Web Fonts ****
+ -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i&display=swap">
+<!-- 
+  **** Some CSS Library ****
+ -->
+<!-- Normalize.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+<!-- Iota -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota.css">
+<!-- Bulma framework -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" /> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/iota-custom.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/Febris/assets/css/syntax.css">
+<!-- <link rel="stylesheet" type="text/css" href="/Febris/assets/css/pygment-custom.css"> -->
+<link rel="canonical" href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-1">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link type="application/atom+xml" rel="alternate" href="https://82pkdick.github.io/Febris/feed.xml" title="Febris" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="main-container" class="grid">
+      <span id="page-top"></span>
+
+      <!-- navigation button for left slide menu -->
+      <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open"><span></span></label>
+      <label for="navTgl" class="close"></label>
+
+
+      <article id="main-contents">
+        <!-- Post -->
+<div class="container post">
+  <!-- Post Header -->
+  <div class="contents-header post-header">
+  <h1 class="title">
+    <span class="title-lmark">【</span>
+    <a class="title-link" href="/Febris/posts/jekyll/design/custom-css-framework-1">
+      <span class="title-text">Markdown の中で使えるCSS設定</span>
+    </a>
+    <span class="title-rmark">】</span>
+  </h1>
+  <h4 class="title subtitle">個人用ミニCSSフレームワーク（１）</h4>
+  <p class="page-appendix"><span class="post-date">June 10, 2019</span></p>
+</div><!-- post header end -->
+
+  <!-- Post Body -->
+  <div class="page-body grid">
+    <input type="checkbox" id="pinfoTgl">
+    <label for="pinfoTgl" class="open-pinfo"><span></span></label>
+    <label for="pinfoTgl" class="close-pinfo"></label>
+    <div class="post-content">
+      <h2 class="main-hd" id="簡易フレームワークの自作">簡易フレームワークの自作</h2>
+
+<h3 class="sub-hd" id="そもそもやりたかったこと">そもそもやりたかったこと</h3>
+
+<p>Jekyll でサイトを構築している。</p>
+
+<p>レイアウトをある程度作り込んだ後、記事の中の部品を定義していくのは面倒。ただ既存のCSSフレームワークをその段階から導入すると、作ったレイアウトが(確実に!)崩れる。それって最初の計画段階で決めておくべきもの。計画性のない自分が悪い(笑)で終了。</p>
+
+<p>……なのだが。でも何か方法はないか？</p>
+
+<p>試してみると、CSSフレームワークにも元のレイアウトを崩しやすいものとそうでないものがあるみたい（まあ全て試したわけじゃないけど）。じゃあ次の条件で何かいいものはないかと？</p>
+
+<ol>
+  <li>軽量でJavaScriptを使用していない.</li>
+  <li>SCSS対応</li>
+</ol>
+
+<p>比較的 <a href="https://bulma.io/" title="Bulma">Bulma</a> がレイアウト崩れしにくかった。</p>
+
+<p>ただ Bulma は Flexbox を利用している。すでに Grid Layout で作っているのでそこはパス。おおまかなレイアウトは自分でCSS書いた方が早い。また、<strong>特定のツールを深く理解して使うという学習コストをかけたくない</strong>。</p>
+
+<p>ちなみにこの記事に書かれていることが妙に共感できたので参考まで。</p>
+
+<p><a href="http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116"><strong>CSS フレームワークを使いたくない</strong></a><br />
+<a href="http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116">http://jinjor-labo.hatenablog.com/entry/2019/03/13/084116</a></p>
+
+<p>なんかわかるわ〜…(^o^)</p>
+
+<p>開発というほどの話じゃなくて、仕組みと規定値を決めてクラスを指定するとデザインが決まるという程度のものでいい。しかも<strong>markdown の中でも使える</strong>簡易なフレームワークっぽい仕組みって作れないか。記事中の表などのエレメント、フォントや色の設定を少しだけ変えられるもの。そんなことができたら markdown なのに（大嫌いなｗ）リッチテキストエディターなみじゃねーか(喜)。</p>
+
+<p>というわけで、Bulma を参考にしつつ試してみた。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</h3>
+
+<p>Bulma などのCSSフレームワークは特定のクラス名を追加すると、部品スタイルをよしなに設定してくれるものが多い。Jekyll で使うためには、 ｍarkdown でクラス名を追加する必要がある。ただデフォルトの markdown の仕様にはそういう仕組みが無い。しかし markdownレンダラーの kramdown ならクラス指定などができる。ちょっとめんどうだけど。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element
+{:.post-elem}
+</code></pre></div></div>
+
+<p>こう書くとこうなる。</p>
+
+<p class="post-elem">Element</p>
+
+<p class="code-label">[html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"post-elem"</span><span class="nt">&gt;</span>Element<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>これを<code class="highlighter-rouge">attribute list definitions (ALDs)</code>と言うらしい。詳しくは <a href="https://kramdown.gettalong.org/syntax.html">kramdown</a> のマニュアル参照。</p>
+
+<p>この方法は Jekyll の記事の中で使える。</p>
+
+<p>今までどうしていたかというと、記事の本文の中は見出しや文章などに直接クラス指定できないので、<code class="highlighter-rouge">styles.scss</code>などに<code class="highlighter-rouge">.post #title h2</code>とか<code class="highlighter-rouge">.post &gt; .contents p</code>とか テンプレートレベルで付けたIDやクラス名から contents中のタグを指定してSCSSを書いている。基本的なレイアウトやデザインはそれでいいのだけれど、記事を書きながらごく部分的にココをこうしたい！という時があり、いちいち SCSS を弄るのは面倒だし、基本のデザインに影響するのはもっとイヤ。</p>
+
+<p>でもこの<code class="highlighter-rouge">ALDs</code>なら、多少の(?)面倒さを差し引けば、見出しや章の区切り線などに短い名前のクラス名を付けて、統一したデザインを使ってCSS側でいじるといった目的に利用できる。自分テーマのSCSSを書いて利用したりすると便利かも。</p>
+
+<p>もちろん Markdown から直接のスタイル指定もできなくはない。ただ面倒だし、あまりしないだろうけど。</p>
+
+<p class="code-label">[markdown]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element
+{: .post-elem}
+{: style="padding: 10px 15px; border: 1px solid #ccc;"}
+</code></pre></div></div>
+
+<p>書き方だけど、ここでは<code class="highlighter-rouge">{: xxxxx}</code>を2行に分けて書いたけど別に1行にまとめてもいい。</p>
+
+<p class="post-elem" style="padding: 10px 15px; border: 1px solid #ccc;">Element</p>
+
+<p class="code-label">[html]</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"post-elem"</span> <span class="na">style=</span><span class="s">"padding: 10px 15px; border: 1px solid #ccc;"</span><span class="nt">&gt;</span>Element<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>ただし、ブロック要素は基本ブロックの直下の行に、インライン要素は同じ行に書く必要があるようだ。分からない場合は試しながらやるしかない。</p>
+
+<p>ちなみに<code class="highlighter-rouge">{: #id}</code>で ID を HTML に渡したり、<code class="highlighter-rouge">{: key="value"}</code>という形でキーと値の組を渡すこともできる。
+詳しくは<a href="https://kramdown.gettalong.org/quickref.html">Kramdown</a> のマニュアルに書いてある。
+キーと値の組はすでに見た<code class="highlighter-rouge">{: style="xxxx;"}</code>というCSS渡しと同じ形で、あとでCSS変数を利用するのに使える。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</h3>
+
+<p>さて、その前にフレームワークファイルをどこに置いてどう読み込むか？</p>
+
+<p>いろんなやり方があるのだろうが、ここではJekyll の<code class="highlighter-rouge">_sass</code>ディレクトリに<code class="highlighter-rouge">_private-framework.scss</code>というファイルをつくる。さらに同じく<code class="highlighter-rouge">_sass</code>ディレクトリの中に<code class="highlighter-rouge">framework-modules</code>というサブディレクトリを作り、そのなかに役割りを表す名前のファイルを置く。これが個別のモジュールになる。</p>
+
+<p>例えば<code class="highlighter-rouge">_sass/framework-modules/_font-styles.scss</code>などの名前のモジュール・ファイルを置く。そして<code class="highlighter-rouge">_sass/_private-framework.scss</code>に、<code class="highlighter-rouge">@import "framework-modules/font-styles"</code>などとして個別のモジュール・ファイルを読み込む。</p>
+
+<p class="code-label">[_sass/_private-framework.scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Custom framework</span>
+<span class="k">@import</span> <span class="s2">"framework-modules/font-styles"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>そしてこの<code class="highlighter-rouge">_sass/_private-framework.scss</code> をメインの<code class="highlighter-rouge">assets/css/styles.scss</code>から<code class="highlighter-rouge">@import</code>する。</p>
+
+<p class="code-label">[assets/css/styles.scss]</p>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Minimal Framework for private use</span>
+<span class="k">@import</span> <span class="s2">"private-framework"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>あとは追加のモジュールを、例えば<code class="highlighter-rouge">_sass/framework-modules/_table-styles.scss</code>とか作れば、また<code class="highlighter-rouge">_private-framework.scss</code> に<code class="highlighter-rouge">@import</code>して足していけばよい。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>_sass/
+<span class="nv">$ </span>tree <span class="nb">.</span>
+<span class="nb">.</span>
+├── _01_common.scss
+├── _02_layout.scss
+├── _03_site-header.scss
+├── _04_navigation.scss
+  .............................
+├── _private-framework.scss <span class="c"># &lt;- フレームワークのモジュールを読み込むscss</span>
+└── framework-modules <span class="c"># &lt;- モジュールの置き場所</span>
+    └── _font-styles.scss <span class="c"># &lt;- 個別のフレームワーク・モジュール</span>
+</code></pre></div></div>
+
+<p>以下この方法で私的使用のミニフレームワークを作ってみよう。</p>
+
+<hr class="sec-br" />
+<h3 class="sub-hd" id="色の設定ファイル">色の設定ファイル</h3>
+
+<p>最初に色設定ファイルを作る。</p>
+
+<p><code class="highlighter-rouge">_sass/framework-modules/_color-palette.scss</code>を作って、そこに色を表す変数を書いた。</p>
+
+<p><code class="highlighter-rouge">$green: #008000;</code>という感じで、140色WEBカラー名の変数を作る。利便性を考えて、この140色によく使うグレーの階調を13色、計153色定義してみた。また、他のファイルで使えるように、各色名をキーにした変数リストのハッシュを同じ153色分作っておく。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// List of color variables
+$color-var-list: (
+  'white': $white,
+  'whitesmoke': $whitesmoke,
+  'gainsboro': $gainsboro,
+  'lightgray': $lightgray,
+  'silver': $silver,
+  ........
+  'navy': $navy,
+  'darkblue': $darkblue,
+  'mediumblue': $mediumblue,
+  'blue': $blue,
+  'darkgreen': $darkgreen,
+  'green': $green,
+  ........
+  };
+</code></pre></div></div>
+
+<p>手間がかかりそうに見えるけど、WEBカラー140色の名前なんてネットですぐ拾えるし、VSCode のマルチカーソルで矩形選択を駆使すれば簡単に出来る。</p>
+
+    </div>
+    <div class="post-info is-loading">
+    
+<div class="post-attr">
+  <h4 class="caption">Article Attributes</h4>
+  <input type="checkbox" id="pattrTgl">
+  <label for="pattrTgl" id="tgl-pattr"><span></span></label>
+
+  
+  
+  
+  
+  
+  <dl class="post-attr-list">
+    <dt class="entry page-info-date">post archive date: </dt>
+    <dd class="item date">
+      <a href="/Febris/archives/2019/06">10th June 2019</a>
+    </dd>
+  
+    
+    <dt class="entry page-info-categories">categories: </dt>
+    <dd class="item main-ctg">
+      <a href="/Febris/categories/Jekyll" class="post-link">Jekyll</a>
+    </dd>
+    
+    
+    <dd class="item sub-ctg">
+      <span class="ruled-line">&#9492;</span>
+      <span class="sub-ctg-name">
+        <a href="/Febris/categories/design" class="post-link">design</a>
+      </span>
+    </dd>
+    
+  
+    <dt class="entry page-info-tags">tags: </dt>
+    <div class="info-items page-tags">
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/Jekyll" class="tag tagcard-small">Jekyll</a></dd>
+    
+    
+    <dd class="item tgs-info"><a href="/Febris/tags/css" class="tag tagcard-small">css</a></dd>
+    
+    </div>
+  </dl>
+</div>
+
+<!-- Post Pagination in sidebar -->
+<div class="post-pagination-sidebar">
+  <h4 class="caption">Next and previous</h4>
+  <input type="checkbox" id="pagerTgl">
+  <label for="pagerTgl" id="tgl-pager"><span></span></label>
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-2">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> HTML中のmarkdown記述処理（parse_block_htmlオプション）</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/custom-css-framework-temp">table-test 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+</div>
+
+<div class="post-toc sticky">
+  <h4 class="caption">Table of contents</h4>
+  <div class="up-to-top">
+    <a href="#page-top" class="text-nav-top"><i class="arrow-to-top far fa-arrow-alt-circle-up"></i>
+      <span class="text-to-top">Top</span>
+    </a>
+  </div>
+  <div id="post-toc-box">
+    <ul>
+  <li class="anchor"><a href="#簡易フレームワークの自作">簡易フレームワークの自作</a>
+    <ul>
+      <li class="anchor"><a href="#そもそもやりたかったこと">そもそもやりたかったこと</a></li>
+      <li class="anchor"><a href="#markdown-でクラスを指定する方法">Markdown でクラスを指定する方法</a></li>
+      <li class="anchor"><a href="#フレームワークファイルの読み込み方">フレームワークファイルの読み込み方</a></li>
+      <li class="anchor"><a href="#色の設定ファイル">色の設定ファイル</a></li>
+    </ul>
+  </li>
+</ul>
+  </div>
+</div>
+
+    </div>
+  </div><!-- post body end -->
+
+  <!-- Post Pagination -->
+  <div class="pager">
+  
+    <p class="pager-item-next">
+      <a href="/Febris/posts/jekyll/design/custom-css-framework-2">
+        <i class="pagination-left-arrow fas fa-angle-left"></i> HTML中のmarkdown記述処理（parse_block_htmlオプション）</a>
+    </p>
+  
+
+  
+    <p class="pager_item--prev">
+      <a href="/Febris/posts/custom-css-framework-temp">table-test 
+          <i class="pagination-right-arrow fas fa-angle-right"></i></a>
+    </p>
+  
+</div><!-- post pagination end -->
+
+</div><!-- post container end -->
+<!-- post end -->
+
+      </article>
+      
+      <!-- Common Site Navigation Header -->
+      <header id="header">
+        <nav id="header-nav" class="nav grid">
+  <!-- Slide Menu -->
+  <div id="slide-menu"><!-- <input type="checkbox" id="navTgl">
+<label for="navTgl" class="open"><span></span></label>
+<label for="navTgl" class="close"></label> -->
+<nav class="menu">
+
+  <div id="self-introduction">
+      
+    <img src= "/Febris/assets/images/author_portrait.jpg" id="author-portrait">
+    <div class="site-desc">My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+  </div>
+  <!-- Navigation -->
+  <ul id="nav-list" class="nav-list">
+
+    <!-- Home -->
+    <li class="nav-item home"><a class="menu-list" href="/Febris/"><i class="fas fa-home fas-icon"></i>Home</a></li>
+  
+    <!-- Navigation -->
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item archives">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-archive fas-icon"></i>Archives</a>
+<ul class="sub-menu">
+  <li class="nav-item archives menulink-all">
+    <a href="/Febris/archives" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item 2011/10"><a class="menu-list archive " href="/Febris/archives/2011/10">2011/10</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/11"><a class="menu-list archive " href="/Febris/archives/2011/11">2011/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2011/12"><a class="menu-list archive " href="/Febris/archives/2011/12">2011/12</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2012/08"><a class="menu-list archive " href="/Febris/archives/2012/08">2012/08</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/07"><a class="menu-list archive " href="/Febris/archives/2016/07">2016/07</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2016/09"><a class="menu-list archive " href="/Febris/archives/2016/09">2016/09</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2018/11"><a class="menu-list archive " href="/Febris/archives/2018/11">2018/11</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/01"><a class="menu-list archive " href="/Febris/archives/2019/01">2019/01</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/02"><a class="menu-list archive " href="/Febris/archives/2019/02">2019/02</a>
+</li>
+
+
+
+
+
+<li class="nav-item 2019/06"><a class="menu-list archive " href="/Febris/archives/2019/06">2019/06</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item categories">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-database fas-icon"></i>Categories</a>
+<ul class="sub-menu">
+  <li class="nav-item categories menulink-all">
+    <a href="/Febris/categories" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+
+<li class="nav-item programming" ontouchstart="">
+  <a href="/Febris/categories/programming" class="menu-list right-arrow sub-menu-trigger category ">programming</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item c"><a class="menu-list inner category " href="/Febris/categories/c">c</a></li>
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+
+<li class="nav-item jekyll" ontouchstart="">
+  <a href="/Febris/categories/Jekyll" class="menu-list right-arrow sub-menu-trigger category ">Jekyll</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item post"><a class="menu-list inner category " href="/Febris/categories/post">post</a></li>
+  
+    <li class="nav-item update"><a class="menu-list inner category " href="/Febris/categories/update">update</a></li>
+  
+    <li class="nav-item design"><a class="menu-list inner category " href="/Febris/categories/design">design</a></li>
+  
+  </ul>
+</li>
+
+
+
+
+
+<li class="nav-item test"><a class="menu-list category " href="/Febris/categories/test">test</a>
+</li>
+
+
+
+
+
+
+<li class="nav-item language" ontouchstart="">
+  <a href="/Febris/categories/language" class="menu-list right-arrow sub-menu-trigger category ">language</a>
+  <span class=sm-arrow></span>
+  <ul class="inner-sub-menu">
+  
+    <li class="nav-item ruby"><a class="menu-list inner category " href="/Febris/categories/ruby">ruby</a></li>
+  
+  </ul>
+</li>
+
+
+
+</ul>
+</li>
+    
+      
+      
+      
+      
+      
+
+      <li class="nav-item tags">
+  <a href="#" class="menu-list down-arrow sub-menu-trigger"><i class="fas fa-tags fas-icon"></i>Tags</a>
+<ul class="sub-menu">
+  <li class="nav-item tags menulink-all">
+    <a href="/Febris/tags" class="menu-list menulink-all">
+        [ All ]<i class="fas fa-arrow-alt-circle-right fas-icon-small"></i>
+    </a>
+  </li>
+
+
+
+
+
+
+<li class="nav-item programming_language"><a class="menu-list tag tagcard-small" href="/Febris/tags/programming_language">programming_language</a>
+</li>
+
+
+
+
+
+<li class="nav-item ll"><a class="menu-list tag tagcard-small" href="/Febris/tags/LL">LL</a>
+</li>
+
+
+
+
+
+<li class="nav-item closure"><a class="menu-list tag tagcard-small" href="/Febris/tags/Closure">Closure</a>
+</li>
+
+
+
+
+
+<li class="nav-item blog"><a class="menu-list tag tagcard-small" href="/Febris/tags/blog">blog</a>
+</li>
+
+
+
+
+
+<li class="nav-item testpost"><a class="menu-list tag tagcard-small" href="/Febris/tags/testpost">testpost</a>
+</li>
+
+
+
+
+
+<li class="nav-item technology"><a class="menu-list tag tagcard-small" href="/Febris/tags/technology">technology</a>
+</li>
+
+
+
+
+
+<li class="nav-item ruby"><a class="menu-list tag tagcard-small" href="/Febris/tags/ruby">ruby</a>
+</li>
+
+
+
+
+
+<li class="nav-item programing"><a class="menu-list tag tagcard-small" href="/Febris/tags/programing">programing</a>
+</li>
+
+
+
+
+
+<li class="nav-item jekyll"><a class="menu-list tag tagcard-small" href="/Febris/tags/Jekyll">Jekyll</a>
+</li>
+
+
+
+
+
+<li class="nav-item css"><a class="menu-list tag tagcard-small" href="/Febris/tags/css">css</a>
+</li>
+
+
+
+</ul>
+</li>
+    
+
+    <!-- Optional navigation -->
+    
+       
+       
+       
+       
+      <li class="nav-item search">
+        <a class="menu-list" href="/Febris/search">
+        <i class="fas fa-search fas-icon"></i>
+        Search
+        </a>
+      </li>
+    
+       
+       
+       
+       
+      <li class="nav-item about">
+        <a class="menu-list" href="/Febris/about">
+        <i class="far fa-address-card fas-icon"></i>
+        About
+        </a>
+      </li>
+    
+
+  </ul>
+
+  <!-- Social links  -->
+  <div class="social-link">
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://github.com/82pkdick"><i class="fab fa-github"></i></a>
+  </p>
+  
+  
+  
+  
+  
+  <p class="social-link-item">
+    <a href="https://twitter.com/82pkdick"><i class="fab fa-twitter"></i></a>
+  </p>
+  
+  </div>
+
+</nav>
+</div>
+  <!-- Site Title -->
+  <!-- Site Title -->
+<div id="site-title" class="title">
+    <a class="title-link" href="/Febris/">Febris</a>
+</div>
+<div class="site-desc site-desc-summary">Lorem ipsum dolor sit amet.</div>
+</nav><!-- header-nav end-->
+
+      </header><!-- site navigation end -->
+
+
+    </div><!-- main-container end -->
+
+    <!-- Common Footer -->
+    <footer id="footer">
+      <div class="container">
+  <div class="footer-container">
+    <p class="copyright"><small>&copy; 2019 82pkdick</small></p>
+  </div><!--footer-container-->
+</div><!-- container -->
+
+
+    </footer><!-- footer end -->
+    
+    <!-- Load Script -->
+    <div id="footer-script">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/Febris/assets/js/lunr.stemmer.support.js"></script>
+<script src="/Febris/assets/js/tinyseg.js"></script>
+<script src="/Febris/assets/js/lunr.jp.js"></script>
+<script src="/Febris/assets/js/lunr.multi.js"></script>
+<script src="/Febris/assets/js/search.js"></script>
+<script src="/Febris/assets/js/toc-scrollable.js"></script>
+<script src="/Febris/assets/js/table-expansion.js"></script>
+
+<script type="text/javascript">
+$(function() {
+  // for dropdown menu ------------------------------------------------
+  let add_open = function(tag) {
+    tag.find('li').removeClass("open");
+    tag.toggleClass("open");
+    tag.siblings('li').removeClass("open");
+  }
+
+  $("ul#nav-list li a.sub-menu-trigger").on("click", function() {
+    let litag = $(this).parent('li');
+
+    let props = litag.attr('class').split(' ');
+    let reg = new RegExp("open");
+    let result = null;
+    for (var i = 0; i < props.length; i++) {
+      if ( props[i].match(reg) ) {
+        result = props[i];
+      }
+    }
+
+    add_open(litag);
+
+    if (result) {
+      return true;
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+// ---------------------------------------------------------------------
+
+// for FOUC(Flash of Unstyled Content)
+// ロード終了まで表示させない. スマートフォンサイズでの記事属性ブロック、数式レンダリング経過など。
+// $(function() {
+    // $(window).on('load', function() {
+      // $(this).delay(500).queue(function(){
+      //   $(".is-loading").removeClass("is-loading");
+      // })
+      // $(".is-loading").removeClass("is-loading");
+    // });
+// });
+
+/*
+for post info side panel.
+case small-sized screens default.
+*/
+$(function() {
+  let anch = $("#main-contents .container .page-body .post-info a");
+  let tgl = $("#main-contents .container .page-body > #pinfoTgl");
+  let tgl_pattr = $("#main-contents .container .page-body .post-info #pattrTgl");
+  let tgl_pager = $("#main-contents .container .page-body .post-info #pagerTgl");
+
+  function response() {
+    let checked = tgl.prop('checked');
+      let checked2 = tgl_pattr.prop('checked');
+      let checked3 = tgl_pager.prop('checked');
+    if ($(window).width() < 860) {
+      if (checked == false) {
+        tgl.prop('checked', true);
+      }
+      if (checked2 == false) {
+        tgl_pattr.prop('checked', true);
+      }
+      if (checked3 == false) {
+        tgl_pager.prop('checked', true);
+      }
+    } else {
+      if (checked == true) {
+        tgl.prop('checked', false);
+      }
+      if (checked2 == true) {
+        tgl_pattr.prop('checked', false);
+      }
+      if (checked3 == true) {
+        tgl_pager.prop('checked', false);
+      }
+    }
+  }
+
+  function rtn_to() {
+    anch.click(function(){
+      if ($(window).width() < 860) {
+        tgl.prop('checked', true);
+      }
+    });
+  }
+  response();
+  rtn_to();
+
+  $(window).resize(function() {
+    response();
+  });
+
+  // Scrollable page TOC 
+  TocScrollable.config({
+    level: 4,
+    target_section: '#main-contents .post-content',
+    toc: '#post-toc-box',
+    scroll_offset: 80, // Headline not to be hidden in the header(見出しがヘッダーで隠れないようにする値)
+    hidden_item_detect_offset: 50,
+    toc_scroll_offset: 150,
+    current_color: "none"
+  });
+});
+
+</script>
+<script src="/Febris/assets/js/test.js"></script>
+    </div><!-- footer-script end -->
+
+  </div>
+</body>
+</html>
