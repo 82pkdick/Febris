@@ -10256,6 +10256,10 @@ body, button, input, select, textarea {
 }
 /* smartphone screens iPhone 5/SE */
 @media only screen and (max-width: 420px) {
+  #header #header-nav .site-desc.site-desc-summary {
+    display: none;
+  }
+
   #main-contents .container .contents-header {
     height: 73ps;
     margin: 0 0;
