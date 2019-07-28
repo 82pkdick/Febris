@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-07-28T19:45:32+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Tag, Image, Shadow, Link Card, その他</title><link href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16" rel="alternate" type="text/html" title="Tag, Image, Shadow, Link Card, その他" /><published>2019-06-28T00:00:00+09:00</published><updated>2019-06-28T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16</id><content type="html" xml:base="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16">&lt;h2 class=&quot;main-hd&quot; id=&quot;tag&quot;&gt;Tag&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://82pkdick.github.io/Febris/feed.xml" rel="self" type="application/atom+xml" /><link href="https://82pkdick.github.io/Febris/" rel="alternate" type="text/html" /><updated>2019-07-28T19:57:01+09:00</updated><id>https://82pkdick.github.io/Febris/feed.xml</id><title type="html">Febris</title><subtitle>My Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</subtitle><author><name>82pkdick</name><email>82pkdick@gmail.com</email></author><entry><title type="html">Tag, Image, Shadow, Link Card, その他</title><link href="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16" rel="alternate" type="text/html" title="Tag, Image, Shadow, Link Card, その他" /><published>2019-06-28T00:00:00+09:00</published><updated>2019-06-28T00:00:00+09:00</updated><id>https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16</id><content type="html" xml:base="https://82pkdick.github.io/Febris/posts/jekyll/design/custom-css-framework-16">&lt;h2 class=&quot;main-hd&quot; id=&quot;tag&quot;&gt;Tag&lt;/h2&gt;
 
 &lt;p&gt;よくある小さいタグ。小中大の3種用意。&lt;/p&gt;
 
@@ -174,10 +174,10 @@ std::cout &amp;lt;&amp;lt; &quot;Test&quot;;
 &lt;p&gt;画像の大きさも指定できるようにしてみたかったが、markdown ( kramdown? )での画像の挿入方法に大きさを指定できる書き方があるので、わざわざ作る必要は無い。&lt;/p&gt;
 
 &lt;p class=&quot;caption-label fc-chocolate font xd8 bg-transparent mgn-l02 wd align-c&quot; style=&quot;--wd:128px&quot;&gt;[World Heritage]&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;128px&quot; width=&quot;128px&quot; class=&quot;pad-0&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Febris/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;128px&quot; width=&quot;128px&quot; class=&quot;pad-0&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;code-label&quot;&gt;[markdown]&lt;/p&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;world Heritage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/assets/images/001.jpg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{:height=&quot;128px&quot; width=&quot;128px&quot;}
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;world Heritage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/Febris/assets/images/001.jpg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;{:height=&quot;128px&quot; width=&quot;128px&quot;}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 class=&quot;sub2-hd&quot; id=&quot;image-variation&quot;&gt;Image variation&lt;/h4&gt;
@@ -186,19 +186,19 @@ std::cout &amp;lt;&amp;lt; &quot;Test&quot;;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.border.bdr-rad-20px&lt;/code&gt;などで角丸指定&lt;/p&gt;
 
-&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 border border-none bdr-rad-20px&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/Febris/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 border border-none bdr-rad-20px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.rounded&lt;/code&gt;クラスを追加で丸い画像&lt;/p&gt;
 
-&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 rounded&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/Febris/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 rounded&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.shadow&lt;/code&gt;クラスで影付き&lt;/p&gt;
 
-&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 border border-none bdr-rad-20px shadow&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/Febris/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 border border-none bdr-rad-20px shadow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;丸画像で影付き&lt;code class=&quot;highlighter-rouge&quot;&gt;.rounded .shadow&lt;/code&gt;&lt;/p&gt;
 
-&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 rounded shadow&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;image&quot;&gt;&lt;img src=&quot;/Febris/assets/images/001.jpg&quot; alt=&quot;world Heritage&quot; height=&quot;250px&quot; width=&quot;250px&quot; class=&quot;pad-0 rounded shadow&quot; /&gt;&lt;/p&gt;
 
 &lt;hr class=&quot;sec-br&quot; /&gt;
 &lt;h3 class=&quot;sub-hd&quot; id=&quot;shadow&quot;&gt;Shadow&lt;/h3&gt;
